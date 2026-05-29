@@ -426,7 +426,7 @@ export const PROGRAMS = [
     title: "AI Full Stack Developer — Skill Upgrade Program",
     short: "A future-ready program for students who want to build strong coding, full stack, and AI integration skills before entering final placement season.",
     seats: { total: 50, filled: 18 },
-    fee: "₹5,999",
+    fee: "₹14,999",
     badge: "Skill-Upgrade",
     overview: {
       introduction: "This program is designed for students from BCA, BSc, MCA, BE, and BTech who want to build strong development skills early. It focuses on programming fundamentals, full stack development, real-world project building, and AI-powered workflows.",
