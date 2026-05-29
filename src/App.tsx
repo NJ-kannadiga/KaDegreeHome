@@ -14,6 +14,7 @@ import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
+import { Analytics } from "@vercel/analytics/react";
 
 function Router() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Router />
           <Toaster />
           <FloatingWhatsApp />
+          <Analytics />
         </TooltipProvider>
       </QueryClientProvider>
     </HelmetProvider>
