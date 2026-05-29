@@ -15,6 +15,7 @@ export function Navbar() {
     { href: "/about-us", label: "About Us" },
     { href: "/internships", label: "Internships" },
     { href: "/courses", label: "Programs" },
+    { href: "/blog", label: "Blog" },
     { href: "/contact-us", label: "Contact" },
   ];
 
