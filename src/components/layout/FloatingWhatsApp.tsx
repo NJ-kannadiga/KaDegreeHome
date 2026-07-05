@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export function FloatingWhatsApp() {
   const whatsappNumber = "917975902348"; // KA Degree Phone Number
-  const message = "Hi KA Degree! I would like to book a free career guidance session.";
+  const message = "Hi KA Degree! I would like to know more details about the AI Full Stack Developer Pro: Python & JS Edition course, and I am interested in joining.";
   const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (

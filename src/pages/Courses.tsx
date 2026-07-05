@@ -34,8 +34,18 @@ export default function Courses() {
 
   const isBookingOpen = (program: any) => program.id === 'ai-fullstack-skill-upgrade' || program.id === 'paid-internship-bca-mca';
 
-  const handleInquirySubmit = (e: React.FormEvent) => {
+  const handleInquirySubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setFormStatus('submitting');
+    
+    // Extract form data to send via WhatsApp
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem(ENTRY_IDS.NAME) as HTMLInputElement)?.value || '';
+    const phone = (form.elements.namedItem(ENTRY_IDS.PHONE) as HTMLInputElement)?.value || '';
+    const course = selectedProgram?.title || '';
+    
+    const message = `Hi KA Degree! I have submitted an inquiry for: ${course}.%0A%0AName: ${name}%0APhone: ${phone}`;
+    window.open(`https://wa.me/917975902348?text=${message}`, '_blank');
+
     // Form submission logic is handled by the iframe target, this just updates UI state
     setTimeout(() => {
       setFormStatus('submitted');
@@ -184,7 +194,7 @@ export default function Courses() {
                 className="absolute bottom-28 right-6 z-50 md:hidden flex items-center gap-2 bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-400 hover:to-orange-400 text-white px-4 py-3 rounded-full shadow-lg shadow-pink-500/30 hover:shadow-pink-500/50 hover:scale-110 transition-all duration-300 border border-pink-400/30 font-bold text-sm animate-bounce"
               >
                 <BookOpen className="w-5 h-5" />
-                PDF
+                View PDF
               </a>
 
               <ScrollArea className="flex-1 p-6 md:p-8 bg-slate-950">
