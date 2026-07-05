@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { GlobalLeadCapture } from '@/components/layout/GlobalLeadCapture';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -719,6 +720,9 @@ export default function Internship() {
           Pay Advance & Book Slot <Sparkles className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
         </Button>
       </motion.div>
+
+      <GlobalLeadCapture source="Internship Page CTA" />
+      <Footer />
     </div>
   );
 }

@@ -423,9 +423,9 @@ export const PROGRAMS = [
     id: "ai-fullstack-skill-upgrade",
     degree: "All Degrees",
     year: "1st / 2nd / 3rd Year",
-    title: "AI Full Stack Developer — Skill Upgrade Program",
+    title: "AI Full Stack Developer Pro: Python & JS Edition",
     short: "A future-ready program for students who want to build strong coding, full stack, and AI integration skills before entering final placement season.",
-    seats: { total: 50, filled: 18 },
+    seats: { total: 30, filled: 18 },
     fee: "₹14,999",
     badge: "Skill-Upgrade",
     overview: {
@@ -639,4 +639,75 @@ export const PROGRAMS = [
             { title: "DevOps Lite", topics: ["Docker Basics", "CI/CD Pipelines", "Deploying to Vercel/Render"] }
         ]
     },
+    {
+        id: "paid-internship-bca-mca",
+        degree: "BCA / MCA",
+        year: "Any",
+        title: "Paid Industry Internship — BCA & MCA",
+        short: "A hands-on paid internship working on live commercial projects with senior developers. Get paid while you learn and build your real-world experience.",
+        seats: { total: 20, filled: 20 },
+        fee: "Paid Internship",
+        badge: "Internship",
+        overview: {
+            introduction: "Stop doing dummy projects. Join our development team as an intern and work on live client projects. This is a paid internship designed exclusively for BCA and MCA students.",
+            mentorship: "Daily standups, code reviews, and direct mentorship from our Lead Engineers.",
+            careerSupport: "You will get an authentic experience letter, a professional certificate, a stipend, and direct placement opportunities with top startups.",
+            aiIntegration: "Learn how we use AI tools in production environments for speed and code quality."
+        },
+        mentors: {
+            countries: ["India", "USA"],
+            experience: "5+ years Industry Experience",
+            roles: ["Tech Leads", "Senior Full Stack Engineers", "Product Managers"]
+        },
+        techStack: ["React.js", "Node.js", "Tailwind CSS", "MongoDB", "AWS Basics"],
+        projects: {
+            total: 3,
+            highlights: [
+                "Live Client Project — Front-end implementation and bug fixing.",
+                "Internal Tooling — Building a dashboard for internal company use.",
+                "API Integration — Working with third-party services and webhooks."
+            ]
+        },
+        modules: [
+            { title: "Onboarding & Setup", topics: ["Git Workflows", "Project Architecture", "Agile Practices"] },
+            { title: "Feature Development", topics: ["Component Design", "State Management", "API Consumption"] },
+            { title: "Production Deployment", topics: ["Code Reviews", "Testing Basics", "CI/CD Deployment"] }
+        ]
+    },
+    {
+        id: "advanced-frontend-engineering",
+        degree: "All Degrees",
+        year: "Any",
+        title: "Advanced Frontend Engineering with React & Next.js",
+        short: "Master the modern frontend ecosystem. Build blazing fast, SEO-friendly, and accessible web applications used by top tech companies.",
+        seats: { total: 40, filled: 40 },
+        fee: "₹8,999",
+        badge: "Frontend-Mastery",
+        overview: {
+            introduction: "Move beyond basic HTML/CSS. This course takes you deep into React and Next.js, teaching you how to build complex user interfaces, manage global state, and optimize web performance.",
+            mentorship: "Learn from frontend architects who have built applications serving millions of users.",
+            careerSupport: "Build a stunning portfolio that guarantees interview callbacks for frontend developer roles.",
+            aiIntegration: "Use AI for generating UI components, writing tests, and optimizing web accessibility."
+        },
+        mentors: {
+            countries: ["India", "UK"],
+            experience: "4+ years Frontend Architecture",
+            roles: ["UI/UX Specialists", "Frontend Leads", "Web Performance Experts"]
+        },
+        techStack: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        projects: {
+            total: 4,
+            highlights: [
+                "E-Commerce Storefront — A fully functional shopping app with a cart and checkout.",
+                "SaaS Dashboard — Complex UI with data tables, charts, and dark mode.",
+                "Blog Platform — SEO optimized site using Static Site Generation.",
+                "Interactive Web Portfolio — A portfolio with advanced 3D or Framer Motion animations."
+            ]
+        },
+        modules: [
+            { title: "React Deep Dive", topics: ["Custom Hooks", "Context API & Redux", "Performance (useMemo/useCallback)"] },
+            { title: "Next.js & SSR", topics: ["Server Components", "Routing & Layouts", "Data Fetching"] },
+            { title: "Styling & Animation", topics: ["Tailwind Best Practices", "Framer Motion", "Responsive Design Systems"] }
+        ]
+    }
 ];

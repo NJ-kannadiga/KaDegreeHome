@@ -107,7 +107,7 @@ export default function Contact() {
 
             <div className="grid gap-4">
               {[
-                { icon: Phone, title: "Call Us", detail: "+91 7760358391", sub: "Mon-Sat, 9am - 7pm" },
+                { icon: Phone, title: "Call Us", detail: "+91 7975902348", sub: "Mon-Sat, 9am - 7pm" },
                 { icon: Mail, title: "Email Us", detail: "admissions@kadegree.com", sub: "24/7 Support Response" },
                 { icon: MapPin, title: "Our Campus", detail: "BTM Layout, Bengaluru", sub: "Karnataka 560076" }
               ].map((item, idx) => (

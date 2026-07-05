@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { GlobalLeadCapture } from "@/components/layout/GlobalLeadCapture";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -403,6 +404,7 @@ export default function Home() {
         </div>
       </section>
 
+      <GlobalLeadCapture source="Home Page CTA" />
       <Footer />
     </div>
   );

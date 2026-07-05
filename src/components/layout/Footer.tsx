@@ -30,7 +30,7 @@ export function Footer() {
             <h3 className="mb-4 font-serif text-lg font-semibold text-accent">Contact</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4" /> +91 7760358391
+                <Phone className="h-4 w-4" /> +91 7975902348
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" /> admissions@kadegree.com

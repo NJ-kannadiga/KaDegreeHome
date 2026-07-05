@@ -9,6 +9,8 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { MapPin, Users, Globe, BookOpen, Layers, Rocket, Sparkles, ChevronRight, X, IndianRupee } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
+import { GlobalLeadCapture } from '@/components/layout/GlobalLeadCapture';
 import { PROGRAMS } from '../data/programs';
 
 // --- Google Form Configuration ---
@@ -30,7 +32,7 @@ export default function Courses() {
   const [showInquiryForm, setShowInquiryForm] = useState(false);
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'submitted'>('idle');
 
-  const isBookingOpen = (degree: string) => degree.includes('All Degrees') || degree.includes('MCA') || degree.includes('BCA');
+  const isBookingOpen = (program: any) => program.id === 'ai-fullstack-skill-upgrade' || program.id === 'paid-internship-bca-mca';
 
   const handleInquirySubmit = (e: React.FormEvent) => {
     setFormStatus('submitting');
@@ -64,7 +66,7 @@ export default function Courses() {
               </span>
               <p className="text-orange-200 text-sm md:text-base font-medium">
                 <span className="font-bold text-orange-400 uppercase tracking-wider text-xs mr-2 border border-orange-500/50 px-2 py-0.5 rounded">Update</span>
-                March batch is <span className="font-bold text-white">already full</span>. Admissions open for <span className="font-bold text-white">June 2026</span>!
+                Admissions open for the <span className="font-bold text-white">July 18 batch</span>! <span className="font-bold text-red-400">Limited seats available — Admission closing soon.</span>
               </p>
             </div>
           </div>
@@ -84,16 +86,16 @@ export default function Courses() {
           {PROGRAMS.map((program) => (
             <div
               key={program.id}
-              onClick={() => isBookingOpen(program.degree) && setSelectedProgram(program)}
-              className={`group relative flex flex-col bg-slate-900/50 border border-slate-800 hover:border-blue-500/50 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 ${!isBookingOpen(program.degree) ? 'opacity-70 grayscale-[0.5] cursor-not-allowed' : 'cursor-pointer'}`}
+              onClick={() => isBookingOpen(program) && setSelectedProgram(program)}
+              className={`group relative flex flex-col bg-slate-900/50 border border-slate-800 hover:border-blue-500/50 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 ${!isBookingOpen(program) ? 'opacity-70 grayscale-[0.5] cursor-not-allowed' : 'cursor-pointer'}`}
             >
               {/* Card Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
               <div className="p-8 flex flex-col flex-1 relative z-10">
                 <div className="flex justify-between items-start mb-6">
-                  <Badge variant="outline" className={`uppercase tracking-wide font-bold border-0 px-3 py-1 ${isBookingOpen(program.degree) ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50' : 'bg-slate-800 text-slate-500'}`}>
-                    {isBookingOpen(program.degree) ? "Admissions Open" : "Coming Soon"}
+                  <Badge variant="outline" className={`uppercase tracking-wide font-bold border-0 px-3 py-1 ${isBookingOpen(program) ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50' : 'bg-slate-800 text-slate-500'}`}>
+                    {isBookingOpen(program) ? "Admissions Open" : "Closed"}
                   </Badge>
                   <div className="flex flex-col items-end gap-1">
                     <span className="text-xs font-mono font-bold text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">{program.badge}</span>
@@ -123,11 +125,11 @@ export default function Courses() {
 
               <div className="px-8 pb-8 pt-0 relative z-10">
                 <Button
-                  className={`w-full text-lg py-6 font-bold flex items-center justify-between group-hover:pl-8 transition-all ${isBookingOpen(program.degree) ? 'bg-white text-slate-900 hover:bg-blue-50' : 'bg-slate-800 text-slate-500 border-none'}`}
-                  disabled={!isBookingOpen(program.degree)}
+                  className={`w-full text-lg py-6 font-bold flex items-center justify-between group-hover:pl-8 transition-all ${isBookingOpen(program) ? 'bg-white text-slate-900 hover:bg-blue-50' : 'bg-slate-800 text-slate-500 border-none'}`}
+                  disabled={!isBookingOpen(program)}
                 >
-                  {isBookingOpen(program.degree) ? "View Curriculum" : "Join Waitlist"}
-                  {isBookingOpen(program.degree) && <ChevronRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />}
+                  {isBookingOpen(program) ? "View Curriculum" : "Closed"}
+                  {isBookingOpen(program) && <ChevronRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />}
                 </Button>
               </div>
             </div>
@@ -164,6 +166,26 @@ export default function Courses() {
                   {selectedProgram.short}
                 </DialogDescription>
               </div>
+
+              {/* Floating PDF Button */}
+              <a
+                href="/KA_Degree_Brochure-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-6 right-20 z-50 hidden md:flex items-center gap-2 bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-400 hover:to-orange-400 text-white px-4 py-2 rounded-full shadow-lg shadow-pink-500/30 hover:shadow-pink-500/50 hover:scale-110 transition-all duration-300 font-bold text-sm border border-pink-400/30 animate-bounce"
+              >
+                <BookOpen className="w-4 h-4" />
+                <span>Curriculum PDF</span>
+              </a>
+              <a
+                href="/KA_Degree_Brochure-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-28 right-6 z-50 md:hidden flex items-center gap-2 bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-400 hover:to-orange-400 text-white px-4 py-3 rounded-full shadow-lg shadow-pink-500/30 hover:shadow-pink-500/50 hover:scale-110 transition-all duration-300 border border-pink-400/30 font-bold text-sm animate-bounce"
+              >
+                <BookOpen className="w-5 h-5" />
+                PDF
+              </a>
 
               <ScrollArea className="flex-1 p-6 md:p-8 bg-slate-950">
                 {showInquiryForm ? (
@@ -339,6 +361,8 @@ export default function Courses() {
         </DialogContent>
       </Dialog>
       </div>
+      <GlobalLeadCapture source="Courses Page CTA" />
+      <Footer />
     </div>
   );
 }
