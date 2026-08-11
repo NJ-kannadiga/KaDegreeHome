@@ -381,68 +381,74 @@ export default function Internship() {
         </div>
       </section>
 
-      {/* --- 4. Technologies Covered --- */}
-      <section id="tech-stack" className="py-24 bg-slate-900/20 relative">
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Tech Stack Mastery</h2>
-            <p className="text-slate-400 max-w-xl mx-auto italic">Industry-demanded tools and frameworks you'll master during your internship.</p>
-          </div>
+      {/* --- NEW SECTION: Real enterprise AI, built layer by layer --- */}
+      <section className="bg-[#12172B] text-[#F2F1EC] py-24 px-6 font-sans">
+        <div className="max-w-[980px] mx-auto">
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <span className="inline-flex items-center gap-2.5 font-mono text-[12.5px] tracking-[0.14em] uppercase text-[#E8A33D] mb-5">
+            <span className="w-1.5 h-1.5 bg-[#E8A33D] rounded-full inline-block"></span>
+            Internship Program · AI Track · 2026 Cohort
+          </span>
+
+          <h2 className="font-bold text-4xl md:text-5xl lg:text-[56px] leading-[1.08] tracking-tight mb-5 max-w-[15ch]">
+            Real enterprise AI, built <em className="not-italic bg-gradient-to-r from-[#1F7A6C] to-[#E8A33D] bg-clip-text text-transparent">layer by layer</em> — for free.
+          </h2>
+          <p className="text-base md:text-lg lg:text-[19px] leading-[1.6] text-[#C9CBDA] max-w-[62ch] mb-2">
+            Five internship projects, chosen from what Indian banks, IT majors, and fintechs are actually deploying right now. Each one teaches a working layer of the modern AI stack, from raw documents to production-ready automation.
+          </p>
+          <p className="font-mono text-[13px] text-[#8A90AC] mt-4 mb-16 pt-4 border-t border-white/10 max-w-[62ch]">
+            Stack reads bottom-up — the same order you'd build it in production. No cloud bill, no enterprise license: every layer runs on a free tier or a laptop.
+          </p>
+
+          <div className="relative flex flex-col">
+            <div className="absolute left-[13px] md:left-[21px] top-[22px] bottom-[22px] w-px bg-gradient-to-b from-[#1F7A6C] to-[#E8A33D] opacity-35" aria-hidden="true"></div>
+
             {[
-              { name: "React.js", category: "Frontend", icon: Rocket },
-              { name: "JavaScript", category: "Language", icon: Code2 },
-              { name: "Python", category: "Language", icon: Terminal },
-              { name: "OpenAI / AI", category: "AI Integration", icon: Sparkles },
-              { name: "Prompt Eng.", category: "AI Tools", icon: Zap },
-              { name: "SQL", category: "Database", icon: Database },
-              { name: "Git / GitHub", category: "Tools", icon: Globe },
-              { name: "LangChain", category: "AI Frameworks", icon: Code2 },
-              { name: "API Dev", category: "Integration", icon: Terminal }
-            ].map((tech, i) => (
-              <Card key={i} className="border-slate-800 bg-slate-900/50 hover:border-blue-500/30 transition-all hover:bg-slate-900 group">
-                <CardContent className="p-6 flex flex-col items-center text-center">
-                  <div className="p-3 bg-slate-950 rounded-xl mb-4 group-hover:scale-110 transition-transform">
-                    <tech.icon className="h-6 w-6 text-blue-400" />
-                  </div>
-                  <h4 className="font-bold text-white mb-1">{tech.name}</h4>
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-slate-500">{tech.category}</p>
-                </CardContent>
-              </Card>
+              { dot: "#1F7A6C", id: "LAYER 01 — FOUNDATION", title: "Knowledge Graphs & Structured Data", desc: "Grounding an LLM in deterministic relationships instead of raw text — the difference between an answer and a hallucination.", chips: ["Neo4j Desktop", "NetworkX", "SQLite", "DuckDB"] },
+              { dot: "#3C8065", id: "LAYER 02 — REPRESENTATION", title: "Embeddings", desc: "Turning text, images, and audio into vectors a machine can compare, search, and reason over.", chips: ["HuggingFace all-MiniLM-L6-v2", "CLIP"] },
+              { dot: "#58865F", id: "LAYER 03 — REASONING", title: "LLM Backends", desc: "The inference layer every other component talks to — swapped freely between providers without touching the architecture.", chips: ["Google AI Studio (Gemini)", "Groq API", "Ollama (local)", "Llama-3"] },
+              { dot: "#758C58", id: "LAYER 04 — ORCHESTRATION", title: "Agentic Frameworks", desc: "Moving past single-prompt chatbots to systems where agents negotiate, delegate, and complete multi-step work.", chips: ["CrewAI", "LangGraph", "AutoGen", "FastAPI"] },
+              { dot: "#929151", id: "LAYER 05 — RETRIEVAL", title: "Vector Databases & RAG", desc: "Storing and retrieving knowledge at scale, so answers stay grounded in real, searchable evidence.", chips: ["Qdrant", "Milvus", "ChromaDB", "LlamaIndex", "LangChain"] },
+              { dot: "#AF974A", id: "LAYER 06 — LANGUAGE & VOICE", title: "Speech & Multilingual NLP", desc: "Building for India's actual demographic — voice-first, regional-language, next-billion-user products.", chips: ["Whisper", "AI4Bharat / IndicWhisper", "Bhashini APIs", "gTTS"] },
+              { dot: "#CB9D44", id: "LAYER 07 — PERCEPTION", title: "Computer Vision & Multimodal", desc: "Reading video, images, and audio together — the format most consumer and compliance data actually arrives in.", chips: ["OpenCV", "CLIP", "yt-dlp"] },
+              { dot: "#E8A33D", id: "LAYER 08 — PRODUCTION", title: "MLOps & Automation", desc: "Where AI earns its ROI — watching systems in real time and auto-generating the fix instead of a ticket.", chips: ["Elasticsearch / Kibana", "Prophet", "Scikit-learn", "Terraform"] },
+            ].map((layer, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.6 }}
+                className="relative grid grid-cols-[28px_1fr] md:grid-cols-[44px_minmax(220px,1fr)_minmax(0,1.35fr)] gap-y-3 md:gap-x-7 items-start py-6 border-b border-white/10 last:border-0"
+              >
+                <div className="flex justify-center pt-1 md:pt-1 z-10">
+                  <span 
+                    style={{ backgroundColor: layer.dot }}
+                    className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full shadow-[0_0_0_4px_#12172B,0_0_0_5px_rgba(242,241,236,0.14)]"
+                  />
+                </div>
+                <div>
+                  <p style={{ color: layer.dot }} className="font-mono text-[11.5px] tracking-widest mb-1.5 uppercase">{layer.id}</p>
+                  <h3 className="font-bold text-[21px] mb-2 text-slate-100">{layer.title}</h3>
+                  <p className="text-[14.5px] leading-relaxed text-[#C9CBDA] md:max-w-[46ch] m-0">{layer.desc}</p>
+                </div>
+                <div className="col-span-2 md:col-span-1 md:col-start-3 flex flex-wrap gap-2 pt-0.5">
+                  {layer.chips.map(c => (
+                    <span key={c} className="font-mono text-[12.5px] text-[#F2F1EC] bg-[#1B2140] border border-white/10 rounded-full px-3 py-1.5 whitespace-nowrap transition-all cursor-default hover:-translate-y-[1px] hover:border-[#E8A33D]">
+                      {c}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* --- 5. Curriculum --- */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-serif italic">Learning Journey</h2>
-            <p className="text-slate-400 max-w-xl mx-auto">A structured 6-module curriculum to take you from a learner to an achiever.</p>
+          <div className="mt-14 pt-7 border-t border-white/10 flex flex-wrap gap-4 justify-between items-center">
+            <p className="text-[14px] text-[#8A90AC] max-w-[52ch] leading-relaxed m-0">
+              Every layer above runs on a free API tier, an open-source library, or a laptop CPU — the same stack, at zero cost to the student.
+            </p>
           </div>
-          
-          <div className="max-w-3xl mx-auto relative divide-y divide-slate-800 border-y border-slate-800">
-             {[
-               { id: 1, title: "Programming Fundamentals", desc: "Solidifying core logic using JavaScript and Python. Understanding data types, control structures and functional concepts." },
-               { id: 2, title: "Web Development Basics", desc: "HTML5 semantic structure, modern CSS layouts with Tailwind, and DOM manipulation basics." },
-               { id: 3, title: "Frontend Development with React", desc: "Components, Props, State, and advanced Hooks. Professional state management and API integration." },
-               { id: 4, title: "Backend Development with Python/Flask", desc: "Building RESTful APIs, handling requests, security protocols and server-side logic." },
-               { id: 5, title: "AI Integration & Prompt Engineering", desc: "Learning to leverage LLMs like GPT-4, building intelligent interfaces, and mastering prompt engineering for developers." },
-               { id: 6, title: "Final Real Project", desc: "End-to-end development of a production-ready application. Deployment and code optimization for porting." }
-             ].map((module, i) => (
-               <div key={i} className="group py-8 px-4 hover:bg-slate-900/40 transition-colors cursor-default">
-                 <div className="flex gap-6 items-start">
-                   <span className="text-4xl font-serif italic text-blue-500/20 group-hover:text-blue-500/40 transition-colors">0{module.id}</span>
-                   <div className="space-y-2 pt-2">
-                     <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">{module.title}</h3>
-                     <p className="text-slate-400 leading-relaxed text-sm">{module.desc}</p>
-                   </div>
-                 </div>
-               </div>
-             ))}
-          </div>
+
         </div>
       </section>
 
