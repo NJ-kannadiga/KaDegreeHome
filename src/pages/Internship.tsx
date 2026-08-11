@@ -396,7 +396,7 @@ export default function Internship() {
           </div>
 
           <div className="relative flex flex-col max-w-4xl mx-auto mt-12">
-            <div className="absolute left-[13px] md:left-[21px] top-[22px] bottom-[22px] w-px bg-gradient-to-b from-blue-500 to-indigo-500 opacity-30" aria-hidden="true"></div>
+            <div className="absolute left-[13px] md:left-[20px] top-[22px] bottom-[22px] w-[3px] md:w-[4px] bg-gradient-to-b from-blue-500 via-purple-500 to-indigo-500 opacity-70 shadow-[0_0_8px_rgba(59,130,246,0.6)] rounded-full" aria-hidden="true"></div>
 
             {[
               { dot: "bg-blue-500", id: "LAYER 01 — FOUNDATION", title: "Knowledge Graphs & Structured Data", desc: "Grounding an LLM in deterministic relationships instead of raw text — the difference between an answer and a hallucination.", chips: ["Neo4j Desktop", "NetworkX", "SQLite", "DuckDB"] },
@@ -422,7 +422,11 @@ export default function Internship() {
                   />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1.5">{layer.id}</p>
+                  <div className="inline-flex items-center mb-2">
+                    <span className="px-2.5 py-1 rounded-md bg-slate-900 border-2 border-slate-600 text-[10px] font-bold uppercase tracking-widest text-slate-300 shadow-md group-hover:border-blue-500 group-hover:text-blue-300 transition-all">
+                      {layer.id}
+                    </span>
+                  </div>
                   <h3 className="font-bold text-xl mb-2 text-white group-hover:text-blue-400 transition-colors">{layer.title}</h3>
                   <p className="text-sm leading-relaxed text-slate-400 md:max-w-[46ch] m-0">{layer.desc}</p>
                 </div>
@@ -737,7 +741,7 @@ export default function Internship() {
                initial={{ opacity: 0, scale: 0.9, y: 20 }}
                animate={{ opacity: 1, scale: 1, y: 0 }}
                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-               className="relative w-full max-w-xl bg-slate-900 border border-slate-800 rounded-[2.5rem] p-8 md:p-12 shadow-2xl overflow-hidden"
+               className="relative w-full max-w-xl bg-slate-900 border border-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-12 shadow-2xl overflow-y-auto max-h-[90vh]"
             >
               <button 
                 onClick={() => setShowPopup(false)}
@@ -772,7 +776,7 @@ export default function Internship() {
                        <div className="space-y-1 pt-2 pb-2">
                          <Label className="text-xs font-bold uppercase tracking-widest text-slate-500">Select Payment Amount</Label>
                          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                           {['100', '500', '1000', '4499'].map((amt) => (
+                           {[ '500', '1000', '4499'].map((amt) => (
                              <button
                                type="button"
                                key={amt}
@@ -782,13 +786,7 @@ export default function Internship() {
                                ₹{amt}{amt === '4499' && ' (Full)'}
                              </button>
                            ))}
-                           <button
-                             type="button"
-                             onClick={() => setPaymentOption('custom')}
-                             className={`h-10 rounded-lg text-sm font-bold border transition-colors col-span-2 md:col-span-4 ${paymentOption === 'custom' ? 'bg-blue-600 border-blue-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-900'}`}
-                           >
-                             Custom Amount
-                           </button>
+                         
                          </div>
                          {paymentOption === 'custom' && (
                            <div className="pt-2">
