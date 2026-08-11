@@ -382,36 +382,31 @@ export default function Internship() {
       </section>
 
       {/* --- NEW SECTION: Real enterprise AI, built layer by layer --- */}
-      <section className="bg-[#12172B] text-[#F2F1EC] py-24 px-6 font-sans">
-        <div className="max-w-[980px] mx-auto">
+      <section className="bg-slate-900/20 py-24 px-6 relative">
+        <div className="max-w-5xl mx-auto relative z-10">
           
-          <span className="inline-flex items-center gap-2.5 font-mono text-[12.5px] tracking-[0.14em] uppercase text-[#E8A33D] mb-5">
-            <span className="w-1.5 h-1.5 bg-[#E8A33D] rounded-full inline-block"></span>
-            Internship Program · AI Track · 2026 Cohort
-          </span>
+          <div className="text-center mb-16 space-y-4">
+            <Badge variant="secondary" className="bg-blue-600/20 text-blue-400 border-none px-4 py-1 mb-4">Internship Program · AI Track · 2026 Cohort</Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight max-w-3xl mx-auto">
+              Real enterprise AI, built <span className="italic text-blue-400">layer by layer</span> — for free.
+            </h2>
+            <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
+              Five internship projects, chosen from what Indian banks, IT majors, and fintechs are actually deploying right now. Each one teaches a working layer of the modern AI stack, from raw documents to production-ready automation.
+            </p>
+          </div>
 
-          <h2 className="font-bold text-4xl md:text-5xl lg:text-[56px] leading-[1.08] tracking-tight mb-5 max-w-[15ch]">
-            Real enterprise AI, built <em className="not-italic bg-gradient-to-r from-[#1F7A6C] to-[#E8A33D] bg-clip-text text-transparent">layer by layer</em> — for free.
-          </h2>
-          <p className="text-base md:text-lg lg:text-[19px] leading-[1.6] text-[#C9CBDA] max-w-[62ch] mb-2">
-            Five internship projects, chosen from what Indian banks, IT majors, and fintechs are actually deploying right now. Each one teaches a working layer of the modern AI stack, from raw documents to production-ready automation.
-          </p>
-          <p className="font-mono text-[13px] text-[#8A90AC] mt-4 mb-16 pt-4 border-t border-white/10 max-w-[62ch]">
-            Stack reads bottom-up — the same order you'd build it in production. No cloud bill, no enterprise license: every layer runs on a free tier or a laptop.
-          </p>
-
-          <div className="relative flex flex-col">
-            <div className="absolute left-[13px] md:left-[21px] top-[22px] bottom-[22px] w-px bg-gradient-to-b from-[#1F7A6C] to-[#E8A33D] opacity-35" aria-hidden="true"></div>
+          <div className="relative flex flex-col max-w-4xl mx-auto mt-12">
+            <div className="absolute left-[13px] md:left-[21px] top-[22px] bottom-[22px] w-px bg-gradient-to-b from-blue-500 to-indigo-500 opacity-30" aria-hidden="true"></div>
 
             {[
-              { dot: "#1F7A6C", id: "LAYER 01 — FOUNDATION", title: "Knowledge Graphs & Structured Data", desc: "Grounding an LLM in deterministic relationships instead of raw text — the difference between an answer and a hallucination.", chips: ["Neo4j Desktop", "NetworkX", "SQLite", "DuckDB"] },
-              { dot: "#3C8065", id: "LAYER 02 — REPRESENTATION", title: "Embeddings", desc: "Turning text, images, and audio into vectors a machine can compare, search, and reason over.", chips: ["HuggingFace all-MiniLM-L6-v2", "CLIP"] },
-              { dot: "#58865F", id: "LAYER 03 — REASONING", title: "LLM Backends", desc: "The inference layer every other component talks to — swapped freely between providers without touching the architecture.", chips: ["Google AI Studio (Gemini)", "Groq API", "Ollama (local)", "Llama-3"] },
-              { dot: "#758C58", id: "LAYER 04 — ORCHESTRATION", title: "Agentic Frameworks", desc: "Moving past single-prompt chatbots to systems where agents negotiate, delegate, and complete multi-step work.", chips: ["CrewAI", "LangGraph", "AutoGen", "FastAPI"] },
-              { dot: "#929151", id: "LAYER 05 — RETRIEVAL", title: "Vector Databases & RAG", desc: "Storing and retrieving knowledge at scale, so answers stay grounded in real, searchable evidence.", chips: ["Qdrant", "Milvus", "ChromaDB", "LlamaIndex", "LangChain"] },
-              { dot: "#AF974A", id: "LAYER 06 — LANGUAGE & VOICE", title: "Speech & Multilingual NLP", desc: "Building for India's actual demographic — voice-first, regional-language, next-billion-user products.", chips: ["Whisper", "AI4Bharat / IndicWhisper", "Bhashini APIs", "gTTS"] },
-              { dot: "#CB9D44", id: "LAYER 07 — PERCEPTION", title: "Computer Vision & Multimodal", desc: "Reading video, images, and audio together — the format most consumer and compliance data actually arrives in.", chips: ["OpenCV", "CLIP", "yt-dlp"] },
-              { dot: "#E8A33D", id: "LAYER 08 — PRODUCTION", title: "MLOps & Automation", desc: "Where AI earns its ROI — watching systems in real time and auto-generating the fix instead of a ticket.", chips: ["Elasticsearch / Kibana", "Prophet", "Scikit-learn", "Terraform"] },
+              { dot: "bg-blue-500", id: "LAYER 01 — FOUNDATION", title: "Knowledge Graphs & Structured Data", desc: "Grounding an LLM in deterministic relationships instead of raw text — the difference between an answer and a hallucination.", chips: ["Neo4j Desktop", "NetworkX", "SQLite", "DuckDB"] },
+              { dot: "bg-indigo-500", id: "LAYER 02 — REPRESENTATION", title: "Embeddings", desc: "Turning text, images, and audio into vectors a machine can compare, search, and reason over.", chips: ["HuggingFace all-MiniLM-L6-v2", "CLIP"] },
+              { dot: "bg-purple-500", id: "LAYER 03 — REASONING", title: "LLM Backends", desc: "The inference layer every other component talks to — swapped freely between providers without touching the architecture.", chips: ["Google AI Studio (Gemini)", "Groq API", "Ollama (local)", "Llama-3"] },
+              { dot: "bg-emerald-500", id: "LAYER 04 — ORCHESTRATION", title: "Agentic Frameworks", desc: "Moving past single-prompt chatbots to systems where agents negotiate, delegate, and complete multi-step work.", chips: ["CrewAI", "LangGraph", "AutoGen", "FastAPI"] },
+              { dot: "bg-teal-500", id: "LAYER 05 — RETRIEVAL", title: "Vector Databases & RAG", desc: "Storing and retrieving knowledge at scale, so answers stay grounded in real, searchable evidence.", chips: ["Qdrant", "Milvus", "ChromaDB", "LlamaIndex", "LangChain"] },
+              { dot: "bg-cyan-500", id: "LAYER 06 — LANGUAGE & VOICE", title: "Speech & Multilingual NLP", desc: "Building for India's actual demographic — voice-first, regional-language, next-billion-user products.", chips: ["Whisper", "AI4Bharat / IndicWhisper", "Bhashini APIs", "gTTS"] },
+              { dot: "bg-sky-500", id: "LAYER 07 — PERCEPTION", title: "Computer Vision & Multimodal", desc: "Reading video, images, and audio together — the format most consumer and compliance data actually arrives in.", chips: ["OpenCV", "CLIP", "yt-dlp"] },
+              { dot: "bg-blue-400", id: "LAYER 08 — PRODUCTION", title: "MLOps & Automation", desc: "Where AI earns its ROI — watching systems in real time and auto-generating the fix instead of a ticket.", chips: ["Elasticsearch / Kibana", "Prophet", "Scikit-learn", "Terraform"] },
             ].map((layer, idx) => (
               <motion.div 
                 key={idx}
@@ -419,22 +414,21 @@ export default function Internship() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.6 }}
-                className="relative grid grid-cols-[28px_1fr] md:grid-cols-[44px_minmax(220px,1fr)_minmax(0,1.35fr)] gap-y-3 md:gap-x-7 items-start py-6 border-b border-white/10 last:border-0"
+                className="relative grid grid-cols-[28px_1fr] md:grid-cols-[44px_minmax(220px,1fr)_minmax(0,1.35fr)] gap-y-3 md:gap-x-7 items-start py-6 border-b border-slate-800 last:border-0 group"
               >
                 <div className="flex justify-center pt-1 md:pt-1 z-10">
                   <span 
-                    style={{ backgroundColor: layer.dot }}
-                    className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full shadow-[0_0_0_4px_#12172B,0_0_0_5px_rgba(242,241,236,0.14)]"
+                    className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full shadow-[0_0_0_4px_#020617,0_0_0_5px_rgba(59,130,246,0.2)] ${layer.dot} group-hover:scale-125 transition-transform`}
                   />
                 </div>
                 <div>
-                  <p style={{ color: layer.dot }} className="font-mono text-[11.5px] tracking-widest mb-1.5 uppercase">{layer.id}</p>
-                  <h3 className="font-bold text-[21px] mb-2 text-slate-100">{layer.title}</h3>
-                  <p className="text-[14.5px] leading-relaxed text-[#C9CBDA] md:max-w-[46ch] m-0">{layer.desc}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1.5">{layer.id}</p>
+                  <h3 className="font-bold text-xl mb-2 text-white group-hover:text-blue-400 transition-colors">{layer.title}</h3>
+                  <p className="text-sm leading-relaxed text-slate-400 md:max-w-[46ch] m-0">{layer.desc}</p>
                 </div>
                 <div className="col-span-2 md:col-span-1 md:col-start-3 flex flex-wrap gap-2 pt-0.5">
                   {layer.chips.map(c => (
-                    <span key={c} className="font-mono text-[12.5px] text-[#F2F1EC] bg-[#1B2140] border border-white/10 rounded-full px-3 py-1.5 whitespace-nowrap transition-all cursor-default hover:-translate-y-[1px] hover:border-[#E8A33D]">
+                    <span key={c} className="text-[11px] font-mono text-slate-300 bg-slate-900 border border-slate-800 rounded-full px-3 py-1.5 whitespace-nowrap transition-all hover:bg-blue-900/30 hover:border-blue-500/30 hover:text-blue-200">
                       {c}
                     </span>
                   ))}
@@ -442,13 +436,6 @@ export default function Internship() {
               </motion.div>
             ))}
           </div>
-
-          <div className="mt-14 pt-7 border-t border-white/10 flex flex-wrap gap-4 justify-between items-center">
-            <p className="text-[14px] text-[#8A90AC] max-w-[52ch] leading-relaxed m-0">
-              Every layer above runs on a free API tier, an open-source library, or a laptop CPU — the same stack, at zero cost to the student.
-            </p>
-          </div>
-
         </div>
       </section>
 
