@@ -82,7 +82,7 @@ export default function Internship() {
     const collegeVal = (formData.get(ENTRY_IDS.COLLEGE_YEAR) as string) || "";
 
     try {
-      const apiUrl = (import.meta as any).env?.VITE_API_URL || "http://localhost:8000";
+      const apiUrl = (import.meta as any).env?.VITE_API_URL || "https://kadegreehome.onrender.com";
 
       // 1. Submit form data to FastAPI Backend Lead API
       fetch(`${apiUrl}/api/leads`, {
