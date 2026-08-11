@@ -264,8 +264,8 @@ export default function Internship() {
               KA Degree internships empower students to bridge the gap between academia and industry. Master AI and Full Stack tech, build a standout portfolio, and earn your official certification.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="h-14 px-8 bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg rounded-2xl shadow-xl shadow-blue-500/20 transition-all hover:scale-[1.05]" onClick={handleApplyClick}>
-                Register Now - Pay Advance & Book Slot <ChevronRight className="ml-2 w-5 h-5" />
+              <Button size="lg" className="h-auto py-3 md:h-12 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 md:px-8 shadow-lg shadow-blue-500/20 whitespace-normal text-sm md:text-base text-center" onClick={handleApplyClick}>
+                Register Now - Pay Advance & Book Slot <ChevronRight className="ml-2 w-5 h-5 shrink-0" />
               </Button>
               <Button 
                 variant="outline" 
@@ -382,7 +382,7 @@ export default function Internship() {
       </section>
 
       {/* --- NEW SECTION: Real enterprise AI, built layer by layer --- */}
-      <section className="bg-slate-900/20 py-24 px-6 relative">
+      <section id="tech-stack" className="bg-slate-900/20 py-24 px-6 relative">
         <div className="max-w-5xl mx-auto relative z-10">
           
           <div className="text-center mb-16 space-y-4">
@@ -414,7 +414,7 @@ export default function Internship() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.6 }}
-                className="relative grid grid-cols-[28px_1fr] md:grid-cols-[44px_minmax(220px,1fr)_minmax(0,1.35fr)] gap-y-3 md:gap-x-7 items-start py-6 border-b border-slate-800 last:border-0 group"
+                className="relative grid grid-cols-[28px_1fr] md:grid-cols-[44px_1fr] gap-y-3 gap-x-4 md:gap-x-7 items-start py-6 border-b border-slate-800 last:border-0 group"
               >
                 <div className="flex justify-center pt-1 md:pt-1 z-10">
                   <span 
@@ -428,14 +428,14 @@ export default function Internship() {
                     </span>
                   </div>
                   <h3 className="font-bold text-xl mb-2 text-white group-hover:text-blue-400 transition-colors">{layer.title}</h3>
-                  <p className="text-sm leading-relaxed text-slate-400 md:max-w-[46ch] m-0">{layer.desc}</p>
-                </div>
-                <div className="col-span-2 md:col-span-1 md:col-start-3 flex flex-wrap gap-2 pt-0.5">
-                  {layer.chips.map(c => (
-                    <span key={c} className="text-[11px] font-mono text-slate-300 bg-slate-900 border border-slate-800 rounded-full px-3 py-1.5 whitespace-nowrap transition-all hover:bg-blue-900/30 hover:border-blue-500/30 hover:text-blue-200">
-                      {c}
-                    </span>
-                  ))}
+                  <p className="text-sm leading-relaxed text-slate-400 mb-3">{layer.desc}</p>
+                  <div className="flex flex-wrap gap-2 pt-0.5">
+                    {layer.chips.map(c => (
+                      <span key={c} className="text-[11px] font-mono text-slate-300 bg-slate-900 border border-slate-800 rounded-full px-3 py-1.5 whitespace-nowrap transition-all hover:bg-blue-900/30 hover:border-blue-500/30 hover:text-blue-200">
+                        {c}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -478,7 +478,7 @@ export default function Internship() {
               <p className="text-lg text-slate-400 leading-relaxed">
                 We believe in learning by doing. During your internship, you'll integrate cutting-edge AI features into production-ready applications that show recruiters you're ready for the 2026 job market.
               </p>
-              <Button size="lg" className="h-12 bg-blue-600 hover:bg-blue-500 font-bold px-8 shadow-lg shadow-blue-500/20" onClick={handleApplyClick}>
+              <Button size="lg" className="h-auto py-3 md:h-12 bg-blue-600 hover:bg-blue-500 font-bold px-4 md:px-8 shadow-lg shadow-blue-500/20 whitespace-normal text-sm md:text-base" onClick={handleApplyClick}>
                 Register Now - Pay Advance & Book Slot
               </Button>
             </motion.div>
@@ -546,18 +546,18 @@ export default function Internship() {
             
             <div className="mt-12 relative max-w-2xl group w-full">
               {/* Certificate Preview Placeholder with Glassmorphism */}
-              <div className="aspect-[1.414/1] bg-slate-900/80 rounded-2xl border-2 border-slate-800 p-8 md:p-12 relative overflow-hidden shadow-2xl transition-transform hover:scale-[1.01]">
-                <div className="absolute top-0 right-0 p-8">
-                  <GraduationCap className="h-16 w-16 text-blue-500/20" />
+              <div className="aspect-[1.414/1] bg-slate-900/80 rounded-2xl border-2 border-slate-800 p-4 md:p-12 relative overflow-hidden shadow-2xl transition-transform hover:scale-[1.01]">
+                <div className="absolute top-0 right-0 p-4 md:p-8">
+                  <GraduationCap className="h-10 w-10 md:h-16 md:w-16 text-blue-500/20" />
                 </div>
-                <div className="h-full flex flex-col items-center justify-center space-y-6 border-2 border-blue-500/20 p-8 rounded-lg">
-                  <div className="text-blue-400 font-bold tracking-widest text-xs uppercase">Certificate of Excellence</div>
-                  <h3 className="text-3xl md:text-5xl font-serif text-white text-center">Internship Completion</h3>
-                  <div className="w-32 h-px bg-slate-800" />
-                  <p className="text-slate-400 text-sm text-center font-mono">Awarded to student for completing <br/>Full Stack Development Internship</p>
-                  <div className="flex justify-between w-full pt-8 px-4 opacity-50">
-                    <div className="text-[10px] font-bold text-slate-500">KADEGREE OFFICIAL</div>
-                    <div className="text-[10px] font-bold text-slate-500 underline">VERIFIED CREDENTIAL</div>
+                <div className="h-full flex flex-col items-center justify-center space-y-3 md:space-y-6 border-2 border-blue-500/20 p-4 md:p-8 rounded-lg relative z-10">
+                  <div className="text-blue-400 font-bold tracking-widest text-[8px] md:text-xs uppercase text-center mt-2 md:mt-0">Certificate of Excellence</div>
+                  <h3 className="text-2xl sm:text-3xl md:text-5xl font-serif text-white text-center leading-tight">Internship Completion</h3>
+                  <div className="w-16 md:w-32 h-px bg-slate-800" />
+                  <p className="text-slate-400 text-[10px] md:text-sm text-center font-mono leading-snug">Awarded to student for completing <br/>Full Stack Development Internship</p>
+                  <div className="flex justify-between w-full pt-2 md:pt-8 px-2 md:px-4 opacity-50">
+                    <div className="text-[8px] md:text-[10px] font-bold text-slate-500">KADEGREE OFFICIAL</div>
+                    <div className="text-[8px] md:text-[10px] font-bold text-slate-500 underline">VERIFIED CREDENTIAL</div>
                   </div>
                 </div>
               </div>
@@ -716,7 +716,7 @@ export default function Internship() {
                Limited seats available for the upcoming Bangalore tech cohort. Apply now to secure your spot.
              </p>
              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-               <Button size="lg" className="h-16 px-12 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xl rounded-3xl shadow-2xl shadow-blue-500/20 transition-all hover:scale-[1.05]" onClick={handleApplyClick}>
+               <Button size="lg" className="h-auto py-3 sm:h-16 px-6 sm:px-12 bg-blue-600 hover:bg-blue-500 text-white font-bold text-base sm:text-xl rounded-2xl sm:rounded-3xl shadow-2xl shadow-blue-500/20 transition-all hover:scale-[1.05] whitespace-normal" onClick={handleApplyClick}>
                  Register Now - Pay Advance & Book Slot
                </Button>
                <Button 
@@ -745,7 +745,7 @@ export default function Internship() {
             >
               <button 
                 onClick={() => setShowPopup(false)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-slate-950 text-slate-400 hover:text-white transition-colors border border-slate-800"
+                className="sticky float-right top-0 -mt-2 -mr-2 md:absolute md:top-6 md:right-6 md:mt-0 md:mr-0 z-50 p-2 rounded-full bg-slate-950 text-slate-400 hover:text-white transition-colors border border-slate-800 shadow-md"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -773,36 +773,6 @@ export default function Internship() {
                        <input type="hidden" name={ENTRY_IDS.LOOKING_FOR} value="AI Internship" />
                        <input type="hidden" name={ENTRY_IDS.PAYMENT} value={`Advance Rs${paymentOption === 'custom' ? customAmount : paymentOption} Paid`} />
                        
-                       <div className="space-y-1 pt-2 pb-2">
-                         <Label className="text-xs font-bold uppercase tracking-widest text-slate-500">Select Payment Amount</Label>
-                         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                           {[ '500', '1000', '4499'].map((amt) => (
-                             <button
-                               type="button"
-                               key={amt}
-                               onClick={() => setPaymentOption(amt)}
-                               className={`h-10 rounded-lg text-sm font-bold border transition-colors ${paymentOption === amt ? 'bg-blue-600 border-blue-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-900'}`}
-                             >
-                               ₹{amt}{amt === '4499' && ' (Full)'}
-                             </button>
-                           ))}
-                         
-                         </div>
-                         {paymentOption === 'custom' && (
-                           <div className="pt-2">
-                             <Input 
-                               type="number" 
-                               min="1"
-                               value={customAmount}
-                               onChange={(e) => setCustomAmount(e.target.value)}
-                               placeholder="Enter amount in ₹ (e.g. 2000)" 
-                               className="bg-slate-950 border-slate-800 h-12 text-white" 
-                               required 
-                             />
-                           </div>
-                         )}
-                       </div>
-
                        <div className="space-y-1">
                          <Label className="text-xs font-bold uppercase tracking-widest text-slate-500">Full Name</Label>
                          <Input required name={ENTRY_IDS.NAME} placeholder="Student Name" className="bg-slate-950 border-slate-800 h-12" />
@@ -835,6 +805,36 @@ export default function Internship() {
                         </div>
                        </div>
                        
+                       <div className="space-y-1 pt-2 pb-2">
+                         <Label className="text-xs font-bold uppercase tracking-widest text-slate-500">Select Payment Amount</Label>
+                         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                           {[ '500', '1000', '4499'].map((amt) => (
+                             <button
+                               type="button"
+                               key={amt}
+                               onClick={() => setPaymentOption(amt)}
+                               className={`h-10 rounded-lg text-sm font-bold border transition-colors ${paymentOption === amt ? 'bg-blue-600 border-blue-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-900'}`}
+                             >
+                               ₹{amt}{amt === '4499' && ' (Full)'}
+                             </button>
+                           ))}
+                         
+                         </div>
+                         {paymentOption === 'custom' && (
+                           <div className="pt-2">
+                             <Input 
+                               type="number" 
+                               min="1"
+                               value={customAmount}
+                               onChange={(e) => setCustomAmount(e.target.value)}
+                               placeholder="Enter amount in ₹ (e.g. 2000)" 
+                               className="bg-slate-950 border-slate-800 h-12 text-white" 
+                               required 
+                             />
+                           </div>
+                         )}
+                       </div>
+
                        <div className="bg-blue-900/30 border border-blue-500/30 rounded-lg p-3 text-sm text-blue-200 mt-2">
                          <strong className="text-blue-400">Important:</strong> You will be redirected to the Razorpay payment gateway. After successful payment, our team will contact you within 24 hours.
                        </div>
@@ -856,14 +856,14 @@ export default function Internship() {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1 }}
-        className="fixed bottom-28 right-8 z-[90] hidden md:block"
+        className="fixed bottom-0 left-0 w-full md:w-auto md:left-auto md:bottom-12 md:right-8 z-[80] flex justify-center pointer-events-none"
       >
         <Button 
           size="lg" 
           onClick={handleApplyClick}
-          className="h-16 px-8 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-white font-bold rounded-full shadow-2xl shadow-orange-500/20 group border border-orange-400/50 transition-all hover:scale-105"
+          className="w-full md:w-auto h-16 md:h-16 md:px-8 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-white font-bold rounded-none md:rounded-full shadow-[0_-10px_30px_rgba(249,115,22,0.25)] md:shadow-2xl md:shadow-orange-500/20 group border-t border-orange-400/50 md:border md:border-orange-400/50 transition-all md:hover:scale-105 pointer-events-auto"
         >
-          Pay Advance & Book Slot <Sparkles className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
+          Pay Advance & Book Slot <Sparkles className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform shrink-0" />
         </Button>
       </motion.div>
 

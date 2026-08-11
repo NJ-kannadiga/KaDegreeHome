@@ -4,9 +4,12 @@ const config: Config = {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
-       fontFamily: {
+      fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
+        grotesk: ['"Space Grotesk"', 'sans-serif'],
+        plex: ['"IBM Plex Sans"', 'sans-serif'],
+        plexmono: ['"IBM Plex Mono"', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
