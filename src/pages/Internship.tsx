@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from '@/components/layout/Navbar';
+import logo from "@assets/WhatsApp_Image_2026-01-14_at_10.24.21_AM_1768367360781.jpeg";
 import { Footer } from '@/components/layout/Footer';
 import { GlobalLeadCapture } from '@/components/layout/GlobalLeadCapture';
 import { Button } from '@/components/ui/button';
@@ -72,33 +73,140 @@ export default function Internship() {
     e.preventDefault();
     setFormStatus('submitting');
     
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
+    const nameVal = (formData.get(ENTRY_IDS.NAME) as string) || "";
+    const emailVal = (formData.get(ENTRY_IDS.EMAIL) as string) || "";
+    const phoneVal = (formData.get(ENTRY_IDS.PHONE) as string) || "";
+    const degreeVal = (formData.get(ENTRY_IDS.DEGREE) as string) || "";
+    const collegeVal = (formData.get(ENTRY_IDS.COLLEGE_YEAR) as string) || "";
+
     try {
-      const formElement = e.currentTarget;
-      // We must manually extract values because Google Forms requires x-www-form-urlencoded
+      const apiUrl = (import.meta as any).env?.VITE_API_URL || "http://localhost:8000";
+
+      // 1. Submit form data to FastAPI Backend Lead API
+      fetch(`${apiUrl}/api/leads`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: nameVal,
+          email: emailVal,
+          phone: phoneVal,
+          degree: degreeVal,
+          college_year: collegeVal,
+          looking_for: "AI Internship",
+          payment_status: "Pending"
+        })
+      }).catch((err) => console.warn("Backend Lead API warning:", err));
+
+      // 2. Submit form data to Google Forms in background as secondary record
       const urlEncodedData = new URLSearchParams();
-      // By using FormData, we can easily grab all fields by their name attributes
-      const formData = new FormData(formElement);
       for (const [key, value] of formData.entries()) {
         urlEncodedData.append(key, value as string);
       }
-      
-      await fetch(
+      fetch(
         "https://docs.google.com/forms/d/e/1FAIpQLSew53F2YEJhjft_pd60mUFFxj_vy_2fT_rXLguPhNAx8DKmUg/formResponse",
         {
           method: "POST",
           mode: "no-cors",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: urlEncodedData.toString(),
         }
-      );
-      
-      setFormStatus('submitted');
-      window.location.href = "https://razorpay.com/payment-link/plink_STOoA4uUXQq2up";
+      ).catch((err) => console.error("Form submit warning:", err));
+
+      // 3. Create Order via FastAPI Backend API
+      let orderId = "";
+      let rzpKey = (import.meta as any).env?.VITE_RAZORPAY_KEY_ID || "rzp_live_TOQLi4q37NC4bn";
+      let payAmount = 100; // ₹1 in paise (Test mode)
+
+      try {
+        const orderRes = await fetch(`${apiUrl}/api/payments/create-order`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            amount: 100,
+            currency: "INR",
+            name: nameVal,
+            email: emailVal,
+            phone: phoneVal,
+            degree: degreeVal,
+            college_year: collegeVal
+          })
+        });
+
+        if (orderRes.ok) {
+          const orderData = await orderRes.json();
+          orderId = orderData.order_id;
+          if (orderData.key_id) rzpKey = orderData.key_id;
+          if (orderData.amount) payAmount = orderData.amount;
+        }
+      } catch (err) {
+        console.warn("Could not create backend order, falling back to direct checkout key", err);
+      }
+
+      // 4. Trigger Razorpay Checkout Popup Modal
+      if (typeof (window as any).Razorpay !== "undefined") {
+        const options: any = {
+          key: rzpKey,
+          amount: payAmount,
+          currency: "INR",
+          name: "KA Degree",
+          description: "AI Internship Registration",
+          image: logo,
+          prefill: {
+            name: nameVal,
+            email: emailVal,
+            contact: phoneVal,
+          },
+          notes: {
+            program: "AI Internship",
+            degree: degreeVal,
+            college_year: collegeVal,
+          },
+          theme: {
+            color: "#2563eb",
+          },
+          handler: async function (response: any) {
+            console.log("Razorpay Payment Success:", response);
+            
+            // Verify Payment Signature via FastAPI Backend
+            try {
+              await fetch(`${apiUrl}/api/payments/verify`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature,
+                }),
+              });
+            } catch (vErr) {
+              console.warn("Payment verification backend warning:", vErr);
+            }
+
+            setFormStatus('submitted');
+          },
+          modal: {
+            ondismiss: function () {
+              setFormStatus('idle');
+            },
+          },
+        };
+
+        if (orderId) {
+          options.order_id = orderId;
+        }
+
+        const rzp = new (window as any).Razorpay(options);
+        rzp.open();
+      } else {
+        // Fallback to Razorpay Payment Link if SDK is unavailable
+        setFormStatus('submitted');
+        window.location.href = "https://razorpay.com/payment-link/plink_STOoA4uUXQq2up";
+      }
     } catch (error) {
       console.error("Submit failed", error);
-      // still show success to avoid exposing errors to users (no-cors prevents status)
+      // Fallback redirect
       setFormStatus('submitted');
       window.location.href = "https://razorpay.com/payment-link/plink_STOoA4uUXQq2up";
     }
@@ -137,7 +245,7 @@ export default function Internship() {
             <div className="flex flex-col items-center justify-center gap-3 mb-6 animate-pulse">
               <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/50 px-6 py-2 rounded-full backdrop-blur-sm shadow-xl shadow-orange-500/10">
                 <span className="text-amber-400 font-extrabold text-lg md:text-xl tracking-wide flex items-center gap-2">
-                  <Star className="w-5 h-5 fill-amber-400" /> ONLY ₹4,999/- <Star className="w-5 h-5 fill-amber-400" />
+                  <Star className="w-5 h-5 fill-amber-400" /> ONLY ₹4,499/- <Star className="w-5 h-5 fill-amber-400" />
                 </span>
               </div>
               <Badge variant="outline" className="px-3 py-1 bg-emerald-500/10 text-emerald-400 border-emerald-500/30 text-xs font-bold uppercase tracking-widest">
@@ -145,7 +253,7 @@ export default function Internship() {
               </Badge>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
-               AI Full Stack <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Internship</span>
+               AI <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Internship</span>
             </h1>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-12">
               KA Degree internships empower students to bridge the gap between academia and industry. Master AI and Full Stack tech, build a standout portfolio, and earn your official certification.
@@ -154,7 +262,12 @@ export default function Internship() {
               <Button size="lg" className="h-14 px-8 bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg rounded-2xl shadow-xl shadow-blue-500/20 transition-all hover:scale-[1.05]" onClick={handleApplyClick}>
                 Register Now - Pay Advance & Book Slot <ChevronRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button variant="outline" size="lg" className="h-14 px-8 border-slate-800 text-slate-300 hover:bg-slate-900/80 font-bold text-lg rounded-2xl transition-all hover:scale-[1.02]">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="h-14 px-8 border-slate-800 text-slate-300 hover:bg-slate-900/80 font-bold text-lg rounded-2xl transition-all hover:scale-[1.02]"
+                onClick={() => document.getElementById('tech-stack')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 View Curriculum
               </Button>
             </div>
@@ -264,7 +377,7 @@ export default function Internship() {
       </section>
 
       {/* --- 4. Technologies Covered --- */}
-      <section className="py-24 bg-slate-900/20 relative">
+      <section id="tech-stack" className="py-24 bg-slate-900/20 relative">
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Tech Stack Mastery</h2>
@@ -335,10 +448,11 @@ export default function Internship() {
             <div className="order-2 lg:order-1 relative rounded-3xl p-8 bg-slate-900 border border-slate-800 shadow-2xl">
                <div className="space-y-6">
                  {[
-                   { title: "AI-Powered Customer Support", tag: "AI + LLM", desc: "Build an intelligent chatbot using OpenAI API that understands customer intent." },
-                   { title: "Student Portal System", tag: "Full Stack", desc: "Manage enrollments, coursework, and grades in a secure portal." },
-                   { title: "Smart Dashboard Systems", tag: "Data + AI", desc: "Visualize real-time data with AI-driven insights and forecasting." },
-                   { title: "Portfolio Ready Projects", tag: "Showcase", desc: "Complete end-to-end apps that wow recruiters on your GitHub." }
+                   { title: "Regulatory GraphRAG for Financial/Tax Compliance", tag: "GraphRAG + GenAI", desc: "Build an intelligent compliance assistant using Graph Retrieval-Augmented Generation for financial regulations." },
+                   { title: "Multi-Agent Supply Chain & Procurement Optimizer", tag: "Multi-Agent AI", desc: "Develop a system of autonomous agents collaborating to optimize supply chain logistics and procurement." },
+                   { title: "Multimodal \"Finfluencer\" Fraud Detection Engine", tag: "Multimodal AI", desc: "Create an engine that analyzes video, audio, and text to detect fraudulent financial advice." },
+                   { title: "Multilingual Voice-to-Action Copilot (Next Billion Users)", tag: "Voice AI", desc: "Build a copilot that translates spoken regional languages into actionable application commands." },
+                   { title: "AIOps Log Analyzer & Auto-Remediation", tag: "AIOps", desc: "Design a system that automatically parses logs to detect anomalies and trigger automated fixes." }
                  ].map((proj, i) => (
                    <div key={i} className="p-5 bg-slate-950 rounded-2xl border border-slate-800/50 group hover:border-blue-500/30 transition-all">
                      <div className="flex justify-between items-start mb-2">
@@ -650,12 +764,12 @@ export default function Internship() {
                     <div className="space-y-3">
                       <Badge variant="secondary" className="bg-blue-600/20 text-blue-400 border-none px-4 py-1">Limited Slots</Badge>
                       <h3 className="text-3xl font-bold text-white">Register for AI Internship</h3>
-                      <p className="text-slate-400 text-sm">Pay the advance fee and securely book your slot for the ₹4,999/- program.</p>
+                      <p className="text-slate-400 text-sm">Pay the advance fee and securely book your slot for the ₹4,499/- program.</p>
                     </div>
                     
                     <form className="grid gap-3 text-left" onSubmit={handleSubmit}>
-                       <input type="hidden" name={ENTRY_IDS.LOOKING_FOR} value="AI Full Stack Internship" />
-                       <input type="hidden" name={ENTRY_IDS.PAYMENT} value="Advance Rs4999 Paid" />
+                       <input type="hidden" name={ENTRY_IDS.LOOKING_FOR} value="AI Internship" />
+                       <input type="hidden" name={ENTRY_IDS.PAYMENT} value="Advance Rs4499 Paid" />
                        
                        <div className="space-y-1">
                          <Label className="text-xs font-bold uppercase tracking-widest text-slate-500">Full Name</Label>
@@ -710,7 +824,7 @@ export default function Internship() {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1 }}
-        className="fixed bottom-8 right-8 z-[90] hidden md:block"
+        className="fixed bottom-28 right-8 z-[90] hidden md:block"
       >
         <Button 
           size="lg" 

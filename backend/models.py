@@ -1,80 +1,73 @@
-from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text
+from sqlalchemy.orm import relationship
 from datetime import datetime
-from sqlalchemy.dialects.postgresql import JSON
+from database import Base
 
-db = SQLAlchemy()
+class User(Base):
+    __tablename__ = "users"
 
-class User(db.Model):
-    __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100))
-    email = db.Column(db.String(120), unique=True)
-    phone = db.Column(db.String(20), unique=True)
-    parent_phone = db.Column(db.String(20))
-    consent_ts = db.Column(db.DateTime, default=datetime.utcnow)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(100), nullable=False)
+    email = Column(String(120), unique=True, index=True, nullable=False)
+    phone = Column(String(20), nullable=False)
+    degree = Column(String(50), nullable=True)
+    college_year = Column(String(100), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
-    profile = db.relationship('Profile', backref='user', uselist=False)
-    assessments = db.relationship('Assessment', backref='user')
-    trials = db.relationship('Trial', backref='user')
+    payments = relationship("Payment", back_populates="user")
+    chat_sessions = relationship("ChatSession", back_populates="user")
 
-class Profile(db.Model):
-    __tablename__ = 'profiles'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    resume_path = db.Column(db.String(255))
-    linkedin = db.Column(db.String(255))
-    github = db.Column(db.String(255))
-    parsed_skills = db.Column(JSON)
-    cohort = db.Column(db.String(50))
 
-class Assessment(db.Model):
-    __tablename__ = 'assessments'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    score = db.Column(db.Integer)
-    breakdown = db.Column(JSON)
-    recommended_roadmap_slug = db.Column(db.String(100))
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+class Payment(Base):
+    __tablename__ = "payments"
 
-class Roadmap(db.Model):
-    __tablename__ = 'roadmaps'
-    id = db.Column(db.Integer, primary_key=True)
-    slug = db.Column(db.String(100), unique=True, nullable=False)
-    title = db.Column(db.String(200))
-    audience_tag = db.Column(db.String(50))
-    steps = db.Column(JSON)
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    program_name = Column(String(100), default="AI Internship")
+    amount = Column(Integer, nullable=False) # in paise
+    currency = Column(String(10), default="INR")
+    razorpay_order_id = Column(String(100), unique=True, index=True, nullable=False)
+    razorpay_payment_id = Column(String(100), nullable=True)
+    razorpay_signature = Column(String(255), nullable=True)
+    status = Column(String(20), default="created") # created, paid, failed
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-class Trial(db.Model):
-    __tablename__ = 'trials'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    roadmap_slug = db.Column(db.String(100))
-    start_date = db.Column(db.DateTime, default=datetime.utcnow)
-    current_day = db.Column(db.Integer, default=1)
-    status = db.Column(db.String(20)) # active, completed
-    
-    progress = db.relationship('TrialProgress', backref='trial')
+    user = relationship("User", back_populates="payments")
 
-class TrialProgress(db.Model):
-    __tablename__ = 'trial_progress'
-    id = db.Column(db.Integer, primary_key=True)
-    trial_id = db.Column(db.Integer, db.ForeignKey('trials.id'), nullable=False)
-    day = db.Column(db.Integer, nullable=False)
-    status = db.Column(db.String(20))
-    completed_at = db.Column(db.DateTime)
 
-class ChatSession(db.Model):
-    __tablename__ = 'chat_sessions'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    messages = db.relationship('Message', backref='session', lazy=True)
+class Lead(Base):
+    __tablename__ = "leads"
 
-class Message(db.Model):
-    __tablename__ = 'messages'
-    id = db.Column(db.Integer, primary_key=True)
-    session_id = db.Column(db.Integer, db.ForeignKey('chat_sessions.id'), nullable=False)
-    sender = db.Column(db.String(10), nullable=False)
-    content = db.Column(db.Text, nullable=False)
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(100), nullable=False)
+    email = Column(String(120), nullable=False)
+    phone = Column(String(20), nullable=False)
+    degree = Column(String(50), nullable=True)
+    college_year = Column(String(100), nullable=True)
+    looking_for = Column(String(100), nullable=True)
+    payment_status = Column(String(50), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class ChatSession(Base):
+    __tablename__ = "chat_sessions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    user = relationship("User", back_populates="chat_sessions")
+    messages = relationship("Message", back_populates="session")
+
+
+class Message(Base):
+    __tablename__ = "messages"
+
+    id = Column(Integer, primary_key=True, index=True)
+    session_id = Column(Integer, ForeignKey("chat_sessions.id"), nullable=False)
+    sender = Column(String(10), nullable=False) # user or agent
+    content = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+    session = relationship("ChatSession", back_populates="messages")

@@ -76,7 +76,7 @@ export default function Courses() {
               </span>
               <p className="text-orange-200 text-sm md:text-base font-medium">
                 <span className="font-bold text-orange-400 uppercase tracking-wider text-xs mr-2 border border-orange-500/50 px-2 py-0.5 rounded">Update</span>
-                Admissions open for the <span className="font-bold text-white">July 18 batch</span>! <span className="font-bold text-red-400">Limited seats available — Admission closing soon.</span>
+                Admissions open for the <span className="font-bold text-white">September 18 batch</span>! <span className="font-bold text-red-400">Limited seats available — Admission closing soon.</span>
               </p>
             </div>
           </div>
