@@ -41,6 +41,8 @@ export default function Internship() {
   const [showPopup, setShowPopup] = useState(false);
   const [hasShownPopup, setHasShownPopup] = useState(false);
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'submitted'>('idle');
+  const [paymentOption, setPaymentOption] = useState<string>('4499');
+  const [customAmount, setCustomAmount] = useState<string>('');
 
   // Popup and SEO logic
   useEffect(() => {
@@ -117,14 +119,17 @@ export default function Internship() {
       // 3. Create Order via FastAPI Backend API
       let orderId = "";
       let rzpKey = (import.meta as any).env?.VITE_RAZORPAY_KEY_ID || "rzp_live_TOQLi4q37NC4bn";
-      let payAmount = 100; // ₹1 in paise (Test mode)
+      
+      let baseAmount = paymentOption === 'custom' ? parseInt(customAmount || '0', 10) : parseInt(paymentOption, 10);
+      if (isNaN(baseAmount) || baseAmount < 1) baseAmount = 100;
+      let payAmount = baseAmount * 100; // Convert to paise
 
       try {
         const orderRes = await fetch(`${apiUrl}/api/payments/create-order`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            amount: 100,
+            amount: payAmount,
             currency: "INR",
             name: nameVal,
             email: emailVal,
@@ -769,8 +774,44 @@ export default function Internship() {
                     
                     <form className="grid gap-3 text-left" onSubmit={handleSubmit}>
                        <input type="hidden" name={ENTRY_IDS.LOOKING_FOR} value="AI Internship" />
-                       <input type="hidden" name={ENTRY_IDS.PAYMENT} value="Advance Rs4499 Paid" />
+                       <input type="hidden" name={ENTRY_IDS.PAYMENT} value={`Advance Rs${paymentOption === 'custom' ? customAmount : paymentOption} Paid`} />
                        
+                       <div className="space-y-1 pt-2 pb-2">
+                         <Label className="text-xs font-bold uppercase tracking-widest text-slate-500">Select Payment Amount</Label>
+                         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                           {['100', '500', '1000', '4499'].map((amt) => (
+                             <button
+                               type="button"
+                               key={amt}
+                               onClick={() => setPaymentOption(amt)}
+                               className={`h-10 rounded-lg text-sm font-bold border transition-colors ${paymentOption === amt ? 'bg-blue-600 border-blue-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-900'}`}
+                             >
+                               ₹{amt}{amt === '4499' && ' (Full)'}
+                             </button>
+                           ))}
+                           <button
+                             type="button"
+                             onClick={() => setPaymentOption('custom')}
+                             className={`h-10 rounded-lg text-sm font-bold border transition-colors col-span-2 md:col-span-4 ${paymentOption === 'custom' ? 'bg-blue-600 border-blue-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-900'}`}
+                           >
+                             Custom Amount
+                           </button>
+                         </div>
+                         {paymentOption === 'custom' && (
+                           <div className="pt-2">
+                             <Input 
+                               type="number" 
+                               min="1"
+                               value={customAmount}
+                               onChange={(e) => setCustomAmount(e.target.value)}
+                               placeholder="Enter amount in ₹ (e.g. 2000)" 
+                               className="bg-slate-950 border-slate-800 h-12 text-white" 
+                               required 
+                             />
+                           </div>
+                         )}
+                       </div>
+
                        <div className="space-y-1">
                          <Label className="text-xs font-bold uppercase tracking-widest text-slate-500">Full Name</Label>
                          <Input required name={ENTRY_IDS.NAME} placeholder="Student Name" className="bg-slate-950 border-slate-800 h-12" />
