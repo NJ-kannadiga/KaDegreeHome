@@ -273,7 +273,7 @@ export default function Internship() {
                 className="h-14 px-8 border-slate-800 text-slate-300 hover:bg-slate-900/80 font-bold text-lg rounded-2xl transition-all hover:scale-[1.02]"
                 onClick={() => document.getElementById('tech-stack')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                View Curriculum
+                More Details
               </Button>
             </div>
           </motion.div>
@@ -632,8 +632,8 @@ export default function Internship() {
           <div className="max-w-3xl mx-auto space-y-4">
             {[
               { 
-                q: "Is this internship suitable for BCA students?", 
-                a: "Absolutely! The program is specifically designed to provide BCA students with the practical coding skills that are often missed in academic curricula." 
+                q: "Who is eligible for this internship?", 
+                a: "This internship is open to all students and graduates! Whether you are pursuing BCA, MCA, B.Tech, or any other degree, the program is designed to provide the practical, industry-level coding skills often missed in academic curricula." 
               },
               { 
                 q: "Will I receive an internship certificate?", 
