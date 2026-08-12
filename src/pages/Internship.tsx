@@ -813,7 +813,7 @@ export default function Internship() {
                                onClick={() => setPaymentOption(amt)}
                                className={`h-10 rounded-lg text-sm font-bold border transition-colors ${paymentOption === amt ? 'bg-blue-600 border-blue-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-900'}`}
                              >
-                               ₹{amt}{amt === '4499' && ' (Full)'}
+                                ₹{amt}{amt === '4499' && ' (Full)'}
                              </button>
                            ))}
                          
