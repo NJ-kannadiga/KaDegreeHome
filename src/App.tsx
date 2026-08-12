@@ -12,6 +12,9 @@ import Contact from "@/pages/Contact";
 import Internship from "@/pages/Internship";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import RefundPolicy from "@/pages/RefundPolicy";
+import TermsOfService from "@/pages/TermsOfService";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 
@@ -26,6 +29,9 @@ function Router() {
       <Route path="/internships" component={Internship} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/refund-policy" component={RefundPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
     </Switch>
   );

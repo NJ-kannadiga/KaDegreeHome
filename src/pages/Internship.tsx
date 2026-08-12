@@ -731,8 +731,6 @@ export default function Internship() {
         </div>
       </section>
 
-      <Footer />
-
       {/* --- 12. Lead Capture Popup (Scroll Triggered) --- */}
       <AnimatePresence>
         {showPopup && (

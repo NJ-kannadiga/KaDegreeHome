@@ -20,9 +20,9 @@ export function Footer() {
           <div>
             <h3 className="mb-4 font-serif text-lg font-semibold text-accent">Legal</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/privacy"><a className="hover:text-accent">Privacy Policy</a></Link></li>
-              <li><Link href="/privacy#refunds"><a className="hover:text-accent">Refund Policy</a></Link></li>
-              <li><Link href="/contact"><a className="hover:text-accent">Terms of Service</a></Link></li>
+              <li><Link href="/privacy-policy"><a className="hover:text-accent">Privacy Policy</a></Link></li>
+              <li><Link href="/refund-policy"><a className="hover:text-accent">Refund Policy</a></Link></li>
+              <li><Link href="/terms-of-service"><a className="hover:text-accent">Terms of Service</a></Link></li>
             </ul>
           </div>
 

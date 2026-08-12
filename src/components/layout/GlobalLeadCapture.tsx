@@ -20,6 +20,9 @@ interface GlobalLeadCaptureProps {
 }
 
 export function GlobalLeadCapture({ source = "Global Footer Banner" }: GlobalLeadCaptureProps) {
+  // Feature hidden per request
+  return null;
+  
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'submitted'>('idle');
 
   const handleSubmit = (e: React.FormEvent) => {
