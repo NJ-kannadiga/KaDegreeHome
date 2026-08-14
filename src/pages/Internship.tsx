@@ -351,7 +351,7 @@ export default function Internship() {
                 {[
                   "Work on real-world projects used by real users.",
                   "Learn from mentors with 10+ years of tech experience.",
-                  "Master modern tech stacks like React, Node.js and Flask.",
+                  "Master the modern AI tech stack driving today's industries",
                   "Experience professional agile development workflows."
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-slate-300">
