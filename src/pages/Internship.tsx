@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { 
-  Rocket, BookOpen, Code2, Globe, Users, 
+  Brain, Rocket, BookOpen, Code2, Globe, Users, 
   CheckCircle2, Star, ChevronRight, X, 
   Monitor, Database, Server, Terminal, 
   Award, Briefcase, GraduationCap, Laptop,
@@ -36,6 +36,144 @@ const ENTRY_IDS = {
   PAYMENT: "entry.1775288101",
   MESSAGE: "entry.826044730"
 };
+
+
+// --- Neural Network Particle Background ---
+const NeuralNetworkBackground = () => {
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
+
+  React.useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    
+    let animationFrameId: number;
+    let particles: any[] = [];
+    
+    const init = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      particles = [];
+      const numParticles = window.innerWidth < 768 ? 40 : 80;
+      for (let i = 0; i < numParticles; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 1.5,
+          vy: (Math.random() - 0.5) * 1.5,
+          radius: Math.random() * 2 + 1
+        });
+      }
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(96, 165, 250, 0.8)'; // blue-400
+        ctx.fill();
+        
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          if (dist < 180) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            // Opacity based on distance
+            ctx.strokeStyle = `rgba(129, 140, 248, ${(1 - dist / 180) * 0.5})`; // indigo-400
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      });
+      animationFrameId = requestAnimationFrame(draw);
+    };
+
+    init();
+    draw();
+    
+    const handleResize = () => {
+      init();
+    };
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} className="absolute inset-0 z-0 opacity-50 pointer-events-none mix-blend-screen" />;
+};
+
+
+
+// --- AI Brain Real-Life Visualizer ---
+const AIBrainVisualizer = () => {
+  return (
+    <div className="w-full max-w-lg mx-auto mt-16 lg:mt-0 flex flex-col items-center justify-center relative py-4">
+      
+      {/* Background glow for the cluster */}
+      <div className="absolute inset-0 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none" />
+
+      {/* Center Brain */}
+      <motion.div 
+        animate={{ scale: [1, 1.05, 1], filter: ["drop-shadow(0 0 20px rgba(59,130,246,0.3))", "drop-shadow(0 0 40px rgba(59,130,246,0.6))", "drop-shadow(0 0 20px rgba(59,130,246,0.3))"] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="z-20 w-32 h-32 sm:w-40 sm:h-40 rounded-[2rem] bg-slate-900/90 backdrop-blur-xl border-2 border-blue-500/50 flex flex-col items-center justify-center text-blue-400 shadow-[0_0_40px_rgba(59,130,246,0.2)] mb-10"
+      >
+        <Brain className="w-14 h-14 sm:w-16 sm:h-16 mb-2" />
+        <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-300">AI Core</span>
+      </motion.div>
+
+      {/* Connecting Path Lines */}
+      <div className="absolute top-[130px] sm:top-[160px] h-[50px] sm:h-[60px] w-px border-l-2 border-dashed border-blue-500/40 -z-10" />
+      <div className="absolute top-[180px] sm:top-[220px] w-[66%] border-t-2 border-dashed border-blue-500/40 -z-10" />
+      <div className="absolute top-[180px] sm:top-[220px] left-[17%] h-[20px] sm:h-[30px] w-px border-l-2 border-dashed border-blue-500/40 -z-10" />
+      <div className="absolute top-[180px] sm:top-[220px] right-[17%] h-[20px] sm:h-[30px] w-px border-r-2 border-dashed border-blue-500/40 -z-10" />
+      <div className="absolute top-[180px] sm:top-[220px] left-[50%] h-[20px] sm:h-[30px] w-px border-l-2 border-dashed border-blue-500/40 -z-10" />
+
+
+      {/* Grid of Outcomes */}
+      <div className="grid grid-cols-3 gap-2 sm:gap-6 w-full relative z-20 mt-4 sm:mt-8">
+        <motion.div animate={{ y: [-3, 3, -3] }} transition={{ duration: 4, repeat: Infinity }} className="flex flex-col items-center">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-slate-900/90 border border-emerald-500/50 flex items-center justify-center text-emerald-400 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.2)] mb-3">
+            <Briefcase className="w-6 h-6 sm:w-7 sm:h-7" />
+          </div>
+          <span className="text-[9px] sm:text-[11px] font-bold text-slate-200 text-center uppercase tracking-wider bg-slate-950/80 px-2 py-1 rounded-md border border-slate-800">Career</span>
+        </motion.div>
+
+        <motion.div animate={{ y: [3, -3, 3] }} transition={{ duration: 5, repeat: Infinity }} className="flex flex-col items-center">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-slate-900/90 border border-amber-500/50 flex items-center justify-center text-amber-400 backdrop-blur-md shadow-[0_0_20px_rgba(245,158,11,0.2)] mb-3">
+            <Rocket className="w-6 h-6 sm:w-7 sm:h-7" />
+          </div>
+          <span className="text-[9px] sm:text-[11px] font-bold text-slate-200 text-center uppercase tracking-wider bg-slate-950/80 px-2 py-1 rounded-md border border-slate-800">Projects</span>
+        </motion.div>
+
+        <motion.div animate={{ y: [-3, 3, -3] }} transition={{ duration: 4.5, repeat: Infinity }} className="flex flex-col items-center">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-slate-900/90 border border-purple-500/50 flex items-center justify-center text-purple-400 backdrop-blur-md shadow-[0_0_20px_rgba(168,85,247,0.2)] mb-3">
+            <Globe className="w-6 h-6 sm:w-7 sm:h-7" />
+          </div>
+          <span className="text-[9px] sm:text-[11px] font-bold text-slate-200 text-center uppercase tracking-wider bg-slate-950/80 px-2 py-1 rounded-md border border-slate-800">Impact</span>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
 
 export default function Internship() {
   const [showPopup, setShowPopup] = useState(false);
@@ -223,21 +361,33 @@ export default function Internship() {
 
       {/* --- 1. Hero Section --- */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
+                {/* Enhanced Advanced Animated Background Elements */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          {/* AI Brain Neural Network Animation */}
+          <NeuralNetworkBackground />
+          
+          {/* High-tech grid overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+          
+          {/* Animated Aurora Orbs */}
           <motion.div 
-            animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-            transition={{ duration: 10, repeat: Infinity }}
-            className="absolute -left-1/4 -top-1/4 h-[600px] w-[600px] rounded-full bg-blue-900/20 blur-[120px]" 
+            animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.6, 0.4], x: [0, 50, 0], y: [0, -50, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute -left-1/4 -top-1/4 h-[800px] w-[800px] rounded-full bg-blue-600/30 blur-[120px] mix-blend-screen" 
           />
           <motion.div 
-            animate={{ scale: [1.2, 1, 1.2], opacity: [0.05, 0.15, 0.05] }}
-            transition={{ duration: 12, repeat: Infinity }}
-            className="absolute -right-1/4 -bottom-1/4 h-[600px] w-[600px] rounded-full bg-indigo-900/20 blur-[120px]" 
+            animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3], x: [0, -50, 0], y: [0, 50, 0] }}
+            transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute -right-1/4 top-1/4 h-[700px] w-[700px] rounded-full bg-indigo-600/30 blur-[120px] mix-blend-screen" 
+          />
+          <motion.div 
+            animate={{ scale: [1, 1.4, 1], opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute left-1/4 bottom-0 h-[600px] w-[600px] rounded-full bg-purple-600/20 blur-[120px] mix-blend-screen" 
           />
         </div>
 
-        <div className="container relative z-10 mx-auto px-4 text-center md:px-6">
+        <div className="container relative z-10 mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -247,7 +397,7 @@ export default function Internship() {
             <Badge variant="outline" className="mb-6 px-4 py-1.5 bg-blue-500/10 text-blue-400 border-blue-500/30 text-xs font-bold uppercase tracking-widest whitespace-nowrap">
               <Sparkles className="w-3.5 h-3.5 mr-2" /> Summer/Winter Cohorts 2026
             </Badge>
-            <div className="flex flex-col items-center justify-center gap-3 mb-6 animate-pulse">
+            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-6 animate-pulse">
               <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/50 px-6 py-2 rounded-full backdrop-blur-sm shadow-xl shadow-orange-500/10">
                 <span className="text-amber-400 font-extrabold text-lg md:text-xl tracking-wide flex items-center gap-2">
                   <Star className="w-5 h-5 fill-amber-400" /> ONLY ₹4,499/- <Star className="w-5 h-5 fill-amber-400" />
@@ -257,14 +407,14 @@ export default function Internship() {
                 <Award className="w-3.5 h-3.5 mr-1" /> With Official Certification
               </Badge>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-50 tracking-tight leading-[1.1] mb-6">
                AI <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Internship</span>
             </h1>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-12">
               KA Degree internships empower students to bridge the gap between academia and industry. Master AI and Full Stack tech, build a standout portfolio, and earn your official certification.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="h-auto py-3 md:h-12 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 md:px-8 shadow-lg shadow-blue-500/20 whitespace-normal text-sm md:text-base text-center" onClick={handleApplyClick}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button size="lg" className="h-auto py-3 md:h-12 bg-blue-600 hover:bg-blue-500 text-slate-50 font-bold px-4 md:px-8 shadow-lg shadow-blue-500/20 whitespace-normal text-sm md:text-base text-center" onClick={handleApplyClick}>
                 Register Now - Pay Advance & Book Slot <ChevronRight className="ml-2 w-5 h-5 shrink-0" />
               </Button>
               <Button 
@@ -277,6 +427,7 @@ export default function Internship() {
               </Button>
             </div>
           </motion.div>
+          <AIBrainVisualizer />
         </div>
       </section>
 
@@ -284,7 +435,7 @@ export default function Internship() {
       <section id="categories" className="py-24 bg-slate-900/30 border-y border-slate-900/50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Specialized Categories</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-50 tracking-tight">Specialized Categories</h2>
             <p className="text-slate-400 max-w-xl mx-auto italic">Tailored programs to match your academic background and career goals.</p>
           </div>
           
@@ -315,12 +466,13 @@ export default function Internship() {
               <motion.div 
                 key={idx}
                 whileHover={{ y: -10 }}
-                className="group relative p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-blue-500/50 transition-all"
+                className="group relative p-8 rounded-3xl bg-slate-900/40 backdrop-blur-xl border border-slate-700/50 hover:border-blue-500/80 hover:bg-slate-800/60 hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.3)] transition-all duration-500 overflow-hidden"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-slate-950 flex items-center justify-center mb-6 border border-slate-800 group-hover:bg-blue-500/10 transition-colors`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className={`relative z-10 w-14 h-14 rounded-2xl bg-slate-950/80 backdrop-blur-md flex items-center justify-center mb-6 border border-slate-700/50 group-hover:border-blue-500/50 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all duration-500`}>
                   <cat.icon className={`h-7 w-7 ${cat.color}`} />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">{cat.title}</h3>
+                <h3 className="text-2xl font-bold text-slate-50 mb-2">{cat.title}</h3>
                 <p className="text-blue-500/80 text-xs font-bold uppercase tracking-wider mb-4">{cat.loc}</p>
                 <p className="text-slate-400 leading-relaxed">{cat.desc}</p>
               </motion.div>
@@ -341,7 +493,7 @@ export default function Internship() {
             >
               <div className="space-y-4">
                 <Badge variant="secondary" className="bg-blue-500/10 text-blue-400 border-none px-4 py-1">Mission & Purpose</Badge>
-                <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Academic to Industry Transition</h2>
+                <h2 className="text-4xl md:text-5xl font-bold text-slate-50 tracking-tight">Academic to Industry Transition</h2>
                 <p className="text-lg text-slate-400 leading-relaxed">
                   Most academic programs leave a gap between what you learn and what companies demand. Our internship is designed to bridge that gap through rigorous hands-on training and real-world project cycles.
                 </p>
@@ -373,7 +525,7 @@ export default function Internship() {
                  <div className="w-20 h-20 rounded-full bg-blue-600/20 flex items-center justify-center animate-pulse">
                    <BookOpen className="h-10 w-10 text-blue-400" />
                  </div>
-                 <h3 className="text-2xl font-bold text-white">Experience-Based Learning</h3>
+                 <h3 className="text-2xl font-bold text-slate-50">Experience-Based Learning</h3>
                  <p className="text-slate-400 text-sm max-w-sm">Our platform simulates a real corporate development environment to ensure you are ready on Day 1 of your first job.</p>
               </div>
             </motion.div>
@@ -387,7 +539,7 @@ export default function Internship() {
           
           <div className="text-center mb-16 space-y-4">
             <Badge variant="secondary" className="bg-blue-600/20 text-blue-400 border-none px-4 py-1 mb-4">Internship Program · AI Track · 2026 Cohort</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-50 tracking-tight max-w-3xl mx-auto">
               Real enterprise AI, built <span className="italic text-blue-400">layer by layer</span> — for free.
             </h2>
             <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
@@ -427,7 +579,7 @@ export default function Internship() {
                       {layer.id}
                     </span>
                   </div>
-                  <h3 className="font-bold text-xl mb-2 text-white group-hover:text-blue-400 transition-colors">{layer.title}</h3>
+                  <h3 className="font-bold text-xl mb-2 text-slate-50 group-hover:text-blue-400 transition-colors">{layer.title}</h3>
                   <p className="text-sm leading-relaxed text-slate-400 mb-3">{layer.desc}</p>
                   <div className="flex flex-wrap gap-2 pt-0.5">
                     {layer.chips.map(c => (
@@ -450,15 +602,13 @@ export default function Internship() {
             <div className="order-2 lg:order-1 relative rounded-3xl p-8 bg-slate-900 border border-slate-800 shadow-2xl">
                <div className="space-y-6">
                  {[
-                   { title: "Regulatory GraphRAG for Financial/Tax Compliance", tag: "GraphRAG + GenAI", desc: "Build an intelligent compliance assistant using Graph Retrieval-Augmented Generation for financial regulations." },
-                   { title: "Multi-Agent Supply Chain & Procurement Optimizer", tag: "Multi-Agent AI", desc: "Develop a system of autonomous agents collaborating to optimize supply chain logistics and procurement." },
-                   { title: "Multimodal \"Finfluencer\" Fraud Detection Engine", tag: "Multimodal AI", desc: "Create an engine that analyzes video, audio, and text to detect fraudulent financial advice." },
-                   { title: "Multilingual Voice-to-Action Copilot (Next Billion Users)", tag: "Voice AI", desc: "Build a copilot that translates spoken regional languages into actionable application commands." },
-                   { title: "AIOps Log Analyzer & Auto-Remediation", tag: "AIOps", desc: "Design a system that automatically parses logs to detect anomalies and trigger automated fixes." }
+                   { title: "Project 01: Hybrid GraphRAG Knowledge Engine", tag: "GraphRAG + LLM", desc: "AI that understands connections, not just keywords. Ingest documents, build a knowledge graph (Neo4j), and use Vector Search + Graph Traversal to answer complex cross-document queries. (Python, LlamaIndex, Groq, Flask)" },
+                   { title: "Project 02: AI Demand Forecasting Engine", tag: "Time Series AI", desc: "Predict future demand using historical data and external factors (weather, events). Train models using PatchTST (PyTorch) to generate forecasts with uncertainty estimation for smarter planning." },
+                   { title: "Project 03: Edge Vision Intelligence System", tag: "Computer Vision", desc: "Real-time warehouse and safety monitoring. Capture video from IP/RTSP cameras, analyze locally with Ollama & LLaVA, and automate alerts via n8n for privacy-first, on-device intelligence." }
                  ].map((proj, i) => (
                    <div key={i} className="p-5 bg-slate-950 rounded-2xl border border-slate-800/50 group hover:border-blue-500/30 transition-all">
                      <div className="flex justify-between items-start mb-2">
-                       <h4 className="font-bold text-white">{proj.title}</h4>
+                       <h4 className="font-bold text-slate-50">{proj.title}</h4>
                        <Badge variant="outline" className="text-[10px] uppercase font-bold text-blue-400 border-blue-500/20">{proj.tag}</Badge>
                      </div>
                      <p className="text-xs text-slate-400">{proj.desc}</p>
@@ -474,7 +624,7 @@ export default function Internship() {
                className="order-1 lg:order-2 space-y-6"
             >
               <Badge variant="secondary" className="bg-blue-500/10 text-blue-400 border-none px-4 py-1">Project Portfolio</Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Build Something That <span className="italic">Matters</span></h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-50 tracking-tight">Build Something That <span className="italic">Matters</span></h2>
               <p className="text-lg text-slate-400 leading-relaxed">
                 We believe in learning by doing. During your internship, you'll integrate cutting-edge AI features into production-ready applications that show recruiters you're ready for the 2026 job market.
               </p>
@@ -493,7 +643,7 @@ export default function Internship() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <Badge className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 px-4 py-1">Career Success</Badge>
-                <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">Placement with Leading <span className="text-blue-400">Companies</span></h2>
+                <h2 className="text-4xl md:text-6xl font-bold text-slate-50 tracking-tight">Placement with Leading <span className="text-blue-400">Companies</span></h2>
                 <p className="text-lg text-slate-400 leading-relaxed">
                   Our internship isn't just about learning; it's a direct path to employment. We connect our top performers with leading tech companies in Bangalore and beyond.
                 </p>
@@ -539,7 +689,7 @@ export default function Internship() {
             <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center text-accent">
               <Award className="h-10 w-10" />
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight font-serif italic text-center">Verified Certification</h2>
+            <h2 className="text-4xl md:text-6xl font-bold text-slate-50 tracking-tight font-serif italic text-center">Verified Certification</h2>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto text-center">
               Successfully complete your modules and final project to receive an official Industry Ready Internship Certificate from KA Degree.
             </p>
@@ -552,7 +702,7 @@ export default function Internship() {
                 </div>
                 <div className="h-full flex flex-col items-center justify-center space-y-3 md:space-y-6 border-2 border-blue-500/20 p-4 md:p-8 rounded-lg relative z-10">
                   <div className="text-blue-400 font-bold tracking-widest text-[8px] md:text-xs uppercase text-center mt-2 md:mt-0">Certificate of Excellence</div>
-                  <h3 className="text-2xl sm:text-3xl md:text-5xl font-serif text-white text-center leading-tight">Internship Completion</h3>
+                  <h3 className="text-2xl sm:text-3xl md:text-5xl font-serif text-slate-50 text-center leading-tight">Internship Completion</h3>
                   <div className="w-16 md:w-32 h-px bg-slate-800" />
                   <p className="text-slate-400 text-[10px] md:text-sm text-center font-mono leading-snug">Awarded to student for completing <br/>Full Stack Development Internship</p>
                   <div className="flex justify-between w-full pt-2 md:pt-8 px-2 md:px-4 opacity-50">
@@ -573,7 +723,7 @@ export default function Internship() {
       <section className="py-24 bg-slate-900/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">The KA Degree Advantage</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-50 tracking-tight">The KA Degree Advantage</h2>
             <p className="text-slate-400 max-w-xl mx-auto italic">Everything you need to kickstart your tech career successfully.</p>
           </div>
           
@@ -590,7 +740,7 @@ export default function Internship() {
                 <div className={`w-12 h-12 rounded-xl bg-slate-950 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                   <benefit.icon className={`h-6 w-6 ${benefit.color}`} />
                 </div>
-                <h4 className="text-xl font-bold text-white mb-3">{benefit.title}</h4>
+                <h4 className="text-xl font-bold text-slate-50 mb-3">{benefit.title}</h4>
                 <p className="text-slate-400 text-sm leading-relaxed">{benefit.desc}</p>
               </div>
             ))}
@@ -605,7 +755,7 @@ export default function Internship() {
             <div className="absolute top-0 left-0 p-8 opacity-20"><Users className="h-32 w-32" /></div>
             
             <div className="relative z-10 text-center space-y-10">
-              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Who Can Apply?</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-50 tracking-tight">Who Can Apply?</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {["BCA Students", "MCA Students", "B.Tech Students", "CS Graduates"].map((item, i) => (
                   <div key={i} className="p-4 bg-slate-950 rounded-2xl border border-slate-800 text-slate-300 font-bold flex items-center justify-center text-sm transform hover:scale-105 transition-transform duration-300">
@@ -625,7 +775,7 @@ export default function Internship() {
       <section className="py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Questions & Answers</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-50 tracking-tight">Questions & Answers</h2>
             <p className="text-slate-400 max-w-xl mx-auto italic">Everything you need to know before starting your journey.</p>
           </div>
           
@@ -652,7 +802,7 @@ export default function Internship() {
                 <div className="flex gap-4 items-start">
                   <HelpCircle className="w-6 h-6 text-blue-500 shrink-0 mt-1" />
                   <div className="space-y-2">
-                    <h4 className="font-bold text-white text-lg leading-tight">{faq.q}</h4>
+                    <h4 className="font-bold text-slate-50 text-lg leading-tight">{faq.q}</h4>
                     <p className="text-slate-400 leading-relaxed text-sm">{faq.a}</p>
                   </div>
                 </div>
@@ -666,7 +816,7 @@ export default function Internship() {
       <section className="py-24 bg-blue-600/5 overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-serif italic mb-4">Voice of Students</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-50 tracking-tight font-serif italic mb-4">Voice of Students</h2>
             <div className="flex justify-center gap-1">
               {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 fill-accent text-accent" />)}
             </div>
@@ -691,7 +841,7 @@ export default function Internship() {
                       {t.name[0]}
                     </div>
                     <div>
-                      <h5 className="font-bold text-white leading-tight">{t.name}</h5>
+                      <h5 className="font-bold text-slate-50 leading-tight">{t.name}</h5>
                       <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">{t.role}</p>
                     </div>
                   </div>
@@ -711,12 +861,12 @@ export default function Internship() {
              viewport={{ once: true }}
              className="max-w-4xl mx-auto space-y-10"
            >
-             <h2 className="text-5xl md:text-8xl font-bold text-white tracking-tight">Your Future Start <span className="italic">Here</span>.</h2>
+             <h2 className="text-5xl md:text-8xl font-bold text-slate-50 tracking-tight">Your Future Start <span className="italic">Here</span>.</h2>
              <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
                Limited seats available for the upcoming Bangalore tech cohort. Apply now to secure your spot.
              </p>
-             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-               <Button size="lg" className="h-auto py-3 sm:h-16 px-6 sm:px-12 bg-blue-600 hover:bg-blue-500 text-white font-bold text-base sm:text-xl rounded-2xl sm:rounded-3xl shadow-2xl shadow-blue-500/20 transition-all hover:scale-[1.05] whitespace-normal" onClick={handleApplyClick}>
+             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+               <Button size="lg" className="h-auto py-3 sm:h-16 px-6 sm:px-12 bg-blue-600 hover:bg-blue-500 text-slate-50 font-bold text-base sm:text-xl rounded-2xl sm:rounded-3xl shadow-2xl shadow-blue-500/20 transition-all hover:scale-[1.05] whitespace-normal" onClick={handleApplyClick}>
                  Register Now - Pay Advance & Book Slot
                </Button>
                <Button 
@@ -743,7 +893,7 @@ export default function Internship() {
             >
               <button 
                 onClick={() => setShowPopup(false)}
-                className="sticky float-right top-0 -mt-2 -mr-2 md:absolute md:top-6 md:right-6 md:mt-0 md:mr-0 z-50 p-2 rounded-full bg-slate-950 text-slate-400 hover:text-white transition-colors border border-slate-800 shadow-md"
+                className="sticky float-right top-0 -mt-2 -mr-2 md:absolute md:top-6 md:right-6 md:mt-0 md:mr-0 z-50 p-2 rounded-full bg-slate-950 text-slate-400 hover:text-slate-50 transition-colors border border-slate-800 shadow-md"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -756,14 +906,14 @@ export default function Internship() {
                     <div className="w-20 h-20 bg-emerald-500/10 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
                       <Sparkles className="w-10 h-10" />
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-4">Application Received!</h3>
+                    <h3 className="text-3xl font-bold text-slate-50 mb-4">Application Received!</h3>
                     <p className="text-slate-400">Our academic counselors will reach out to you within 24 hours.</p>
                   </div>
                 ) : (
                   <>
                     <div className="space-y-3">
                       <Badge variant="secondary" className="bg-blue-600/20 text-blue-400 border-none px-4 py-1">Limited Slots</Badge>
-                      <h3 className="text-3xl font-bold text-white">Register for AI Internship</h3>
+                      <h3 className="text-3xl font-bold text-slate-50">Register for AI Internship</h3>
                       <p className="text-slate-400 text-sm">Pay the advance fee and securely book your slot for the ₹4,499/- program.</p>
                     </div>
                     
@@ -811,7 +961,7 @@ export default function Internship() {
                                type="button"
                                key={amt}
                                onClick={() => setPaymentOption(amt)}
-                               className={`h-10 rounded-lg text-sm font-bold border transition-colors ${paymentOption === amt ? 'bg-blue-600 border-blue-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-900'}`}
+                               className={`h-10 rounded-lg text-sm font-bold border transition-colors ${paymentOption === amt ? 'bg-blue-600 border-blue-500 text-slate-50' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-900'}`}
                              >
                                 ₹{amt}{amt === '4499' && ' (Full)'}
                              </button>
@@ -826,7 +976,7 @@ export default function Internship() {
                                value={customAmount}
                                onChange={(e) => setCustomAmount(e.target.value)}
                                placeholder="Enter amount in ₹ (e.g. 2000)" 
-                               className="bg-slate-950 border-slate-800 h-12 text-white" 
+                               className="bg-slate-950 border-slate-800 h-12 text-slate-50" 
                                required 
                              />
                            </div>
@@ -837,7 +987,7 @@ export default function Internship() {
                          <strong className="text-blue-400">Important:</strong> You will be redirected to the Razorpay payment gateway. After successful payment, our team will contact you within 24 hours.
                        </div>
                        
-                       <Button type="submit" disabled={formStatus==='submitting'} className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 h-14 font-bold text-lg mt-2 shadow-xl shadow-blue-900/40 border-0 text-white transition-all hover:scale-[1.02]">
+                       <Button type="submit" disabled={formStatus==='submitting'} className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 h-14 font-bold text-lg mt-2 shadow-xl shadow-blue-900/40 border-0 text-slate-50 transition-all hover:scale-[1.02]">
                          {formStatus==='submitting' ? 'Redirecting to Payment...' : 'Pay Advance & Book Slot'} <Send className="ml-2 w-5 h-5" />
                        </Button>
                     </form>
@@ -859,7 +1009,7 @@ export default function Internship() {
         <Button 
           size="lg" 
           onClick={handleApplyClick}
-          className="w-full md:w-auto h-16 md:h-16 md:px-8 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-white font-bold rounded-none md:rounded-full shadow-[0_-10px_30px_rgba(249,115,22,0.25)] md:shadow-2xl md:shadow-orange-500/20 group border-t border-orange-400/50 md:border md:border-orange-400/50 transition-all md:hover:scale-105 pointer-events-auto"
+          className="w-full md:w-auto h-16 md:h-16 md:px-8 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-slate-50 font-bold rounded-none md:rounded-full shadow-[0_-10px_30px_rgba(249,115,22,0.25)] md:shadow-2xl md:shadow-orange-500/20 group border-t border-orange-400/50 md:border md:border-orange-400/50 transition-all md:hover:scale-105 pointer-events-auto"
         >
           Pay Advance & Book Slot <Sparkles className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform shrink-0" />
         </Button>
