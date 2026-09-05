@@ -1,0 +1,868 @@
+<main className="flex flex-col relative w-full pt-16 bg-surface"><div className="flex flex-col w-full">
+{/*  */}
+<section className="bg-surface-container-low px-gutter-mobile py-space-2xl relative overflow-hidden">
+<div className="flex flex-col gap-space-md">
+{/*  */}
+<div className="flex flex-wrap items-center gap-space-xs">
+<span className="inline-flex items-center px-2.5 py-1 rounded-full bg-primary-container text-on-primary font-label-caps text-label-caps tracking-widest uppercase">
+          SUMMER / WINTER COHORTS 2026
+        </span>
+<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-caps text-label-caps tracking-wider uppercase font-semibold">
+<span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          ₹4,499/- WITH OFFICIAL CERTIFICATION
+        </span>
+</div>
+{/*  */}
+<div className="flex flex-col gap-space-2xs">
+<h1 className="font-display-hero-mobile text-display-hero-mobile text-primary leading-tight font-serif">
+          AI Internship
+        </h1>
+<p className="font-headline-sm text-headline-sm text-secondary font-serif italic">
+          Bridging the gap to enterprise engineering.
+        </p>
+</div>
+{/*  */}
+<p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+        KA Degree internships empower students to bridge the gap between academia and industry. Master AI and Full Stack tech, build a standout portfolio, and earn your official certification.
+      </p>
+{/*  */}
+<div className="flex flex-col gap-space-xs pt-space-xs">
+<a className="w-full text-center bg-primary-container text-on-primary font-label-md text-label-md py-4 px-space-md rounded-xl shadow-md active:scale-98 transition-transform font-semibold flex items-center justify-center gap-2" href="#register-modal">
+<span>REGISTER NOW — PAY ADVANCE &amp; BOOK SLOT</span>
+<span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a className="w-full text-center bg-surface-container text-primary font-label-md text-label-md py-3.5 px-space-md rounded-xl active:scale-98 transition-transform flex items-center justify-center gap-1" href="#curriculum">
+<span>MORE DETAILS</span>
+<span className="material-symbols-outlined text-[18px]">expand_more</span>
+</a>
+</div>
+{/*  */}
+<div className="relative w-full mt-space-sm rounded-xl overflow-hidden shadow-lg bg-surface-container">
+<div className="relative w-full aspect-[4/3]">
+<img alt="AI Internship Lab at KA Degree Bangalore" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCemqPIdpluxiHleJ3TqseYOKFKWPOTkxcI8ONpiRBD1zmqQIUsJ7N9zR0-EsFUvOH4XRUTFhMjxp_etoPPHE8MlJDwuBFhCoRKdRvRBZGCXdsGP6K8a_GLk32wyiPLKc0s6iEF7fnnBqd8P8PJuSIW6i7KR7M92dg6pmZrygB0sJZ_NIQAfB16tK6RqP-P_C2myQfKdT2uy3T_icOPJfVhX6Gv1OCjCbRdaRZcry8Fb8zm10pmL827Tg"/>
+<div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+{/*  */}
+<div className="absolute top-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full shadow-sm">
+<span className="font-label-caps text-[10px] tracking-wider text-primary uppercase font-bold flex items-center gap-1">
+<span className="w-2 h-2 rounded-full bg-secondary"></span>
+              AI CORE
+            </span>
+</div>
+<div className="absolute top-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full shadow-sm">
+<span className="font-label-caps text-[10px] tracking-wider text-primary uppercase font-bold">CAREER ACCELERATOR</span>
+</div>
+<div className="absolute bottom-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full shadow-sm">
+<span className="font-label-caps text-[10px] tracking-wider text-primary uppercase font-bold">PRODUCTION PROJECTS</span>
+</div>
+<div className="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full shadow-sm">
+<span className="font-label-caps text-[10px] tracking-wider text-primary uppercase font-bold">LIVE IMPACT</span>
+</div>
+</div>
+<div className="p-space-sm bg-surface-container flex items-center justify-between text-on-surface-variant font-caption text-caption">
+<span className="flex items-center gap-1">
+<span className="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+            Bangalore Innovation Hub &amp; Live Remote
+          </span>
+<span className="font-label-caps text-label-caps text-primary-container font-semibold">2026 BATCH</span>
+</div>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-surface-container px-gutter-mobile py-space-lg">
+<div className="grid grid-cols-2 gap-space-xs">
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-primary text-[24px]">neurology</span>
+<span className="font-label-md text-label-md text-primary font-bold">AI Core</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">State-of-the-art LLMs &amp; agentic pipelines</span>
+</div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-secondary text-[24px]">trending_up</span>
+<span className="font-label-md text-label-md text-primary font-bold">Career</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">Placement accelerator with Bangalore tier-1 firms</span>
+</div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-primary text-[24px]">terminal</span>
+<span className="font-label-md text-label-md text-primary font-bold">Projects</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">Enterprise-grade code for your GitHub profile</span>
+</div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-secondary text-[24px]">rocket_launch</span>
+<span className="font-label-md text-label-md text-primary font-bold">Impact</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">Live deployment on real cloud infrastructure</span>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-surface-container-low px-gutter-mobile py-space-2xl">
+<div className="flex flex-col gap-space-lg">
+<div className="flex flex-col gap-space-2xs">
+<span className="font-label-caps text-label-caps text-secondary uppercase font-semibold tracking-wider">SPECIALIZED CATEGORIES</span>
+<h2 className="font-headline-lg-mobile text-headline-lg-mobile text-primary font-serif">Choose Your Internship Path</h2>
+<p className="font-body-md text-body-md text-on-surface-variant">Tailored programs engineered to match your academic pedigree and long-term career aspirations.</p>
+</div>
+<div className="flex flex-col gap-space-md">
+{/*  */}
+<div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm relative">
+<div className="flex items-center justify-between">
+<span className="font-headline-md text-headline-md font-serif text-primary-container font-bold">01</span>
+<span className="font-label-caps text-[10px] tracking-widest uppercase bg-surface-container px-2 py-1 rounded text-on-surface-variant">INTERNSHIP IN BANGALORE</span>
+</div>
+<div className="flex flex-col gap-1">
+<h3 className="font-headline-sm text-headline-sm text-primary font-serif">BCA Internship</h3>
+<p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Focus on full-stack web technologies, clean client-side logic, and robust relational &amp; non-relational database architecture.
+            </p>
+</div>
+<div className="flex flex-wrap gap-1.5 pt-1">
+<span className="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[11px] font-mono">React</span>
+<span className="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[11px] font-mono">Node.js</span>
+<span className="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[11px] font-mono">PostgreSQL</span>
+</div>
+<a className="pt-space-xs font-label-md text-label-md text-primary-container font-semibold flex items-center gap-1 hover:underline" href="#register-modal">
+<span>Explore BCA Internship</span>
+<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+{/*  */}
+<div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm relative">
+<div className="flex items-center justify-between">
+<span className="font-headline-md text-headline-md font-serif text-primary-container font-bold">02</span>
+<span className="font-label-caps text-[10px] tracking-widest uppercase bg-surface-container px-2 py-1 rounded text-on-surface-variant">INTERNSHIP IN BANGALORE</span>
+</div>
+<div className="flex flex-col gap-1">
+<h3 className="font-headline-sm text-headline-sm text-primary font-serif">MCA Internship</h3>
+<p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Master complex application logic, distributed backend architectures, microservices, and end-to-end enterprise software engineering.
+            </p>
+</div>
+<div className="flex flex-wrap gap-1.5 pt-1">
+<span className="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[11px] font-mono">Python</span>
+<span className="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[11px] font-mono">FastAPI</span>
+<span className="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[11px] font-mono">Docker</span>
+</div>
+<a className="pt-space-xs font-label-md text-label-md text-primary-container font-semibold flex items-center gap-1 hover:underline" href="#register-modal">
+<span>Explore MCA Internship</span>
+<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+{/*  */}
+<div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm relative">
+<div className="flex items-center justify-between">
+<span className="font-headline-md text-headline-md font-serif text-primary-container font-bold">03</span>
+<span className="font-label-caps text-[10px] tracking-widest uppercase bg-surface-container px-2 py-1 rounded text-on-surface-variant">INTERNSHIP IN BANGALORE</span>
+</div>
+<div className="flex flex-col gap-1">
+<h3 className="font-headline-sm text-headline-sm text-primary font-serif">Engineering Internship (B.E / B.Tech)</h3>
+<p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Dive deep into systems engineering, algorithmic scalability, vector embeddings, and real-time telemetry processing pipelines.
+            </p>
+</div>
+<div className="flex flex-wrap gap-1.5 pt-1">
+<span className="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[11px] font-mono">PyTorch</span>
+<span className="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[11px] font-mono">Qdrant</span>
+<span className="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-[11px] font-mono">MLOps</span>
+</div>
+<a className="pt-space-xs font-label-md text-label-md text-primary-container font-semibold flex items-center gap-1 hover:underline" href="#register-modal">
+<span>Explore Engineering Internship</span>
+<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-primary-container text-on-primary px-gutter-mobile py-space-2xl">
+<div className="flex flex-col gap-space-lg">
+<div className="flex flex-col gap-space-2xs">
+<span className="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-wider font-semibold">MISSION &amp; PURPOSE</span>
+<h2 className="font-headline-lg-mobile text-headline-lg-mobile font-serif text-surface-bright">Academic to Industry Transition</h2>
+<p className="font-body-md text-body-md text-on-primary/80 leading-relaxed">
+          Most academic programs leave a gap between theoretical knowledge and what companies demand. Our internship bridges that gap through rigorous hands-on training and real-world project cycles.
+        </p>
+</div>
+{/*  */}
+<div className="flex flex-col gap-space-sm">
+<div className="bg-primary/40 p-space-sm rounded-lg flex items-start gap-3">
+<span className="material-symbols-outlined text-secondary-fixed text-[22px] mt-0.5">terminal</span>
+<div className="flex flex-col">
+<span className="font-headline-sm text-[17px] text-surface-bright font-serif">Real-World Projects</span>
+<span className="font-caption text-caption text-on-primary/70">Work on applications consumed by real users with authentic edge conditions.</span>
+</div>
+</div>
+<div className="bg-primary/40 p-space-sm rounded-lg flex items-start gap-3">
+<span className="material-symbols-outlined text-secondary-fixed text-[22px] mt-0.5">supervisor_account</span>
+<div className="flex flex-col">
+<span className="font-headline-sm text-[17px] text-surface-bright font-serif">Industry Mentorship</span>
+<span className="font-caption text-caption text-on-primary/70">Learn from seasoned engineers bringing 10+ years of high-scale enterprise experience.</span>
+</div>
+</div>
+<div className="bg-primary/40 p-space-sm rounded-lg flex items-start gap-3">
+<span className="material-symbols-outlined text-secondary-fixed text-[22px] mt-0.5">neurology</span>
+<div className="flex flex-col">
+<span className="font-headline-sm text-[17px] text-surface-bright font-serif">Modern AI Stack</span>
+<span className="font-caption text-caption text-on-primary/70">Master the generative tools, vector stores, and agentic workflows shaping 2026.</span>
+</div>
+</div>
+<div className="bg-primary/40 p-space-sm rounded-lg flex items-start gap-3">
+<span className="material-symbols-outlined text-secondary-fixed text-[22px] mt-0.5">cycle</span>
+<div className="flex flex-col">
+<span className="font-headline-sm text-[17px] text-surface-bright font-serif">Agile Experience</span>
+<span className="font-caption text-caption text-on-primary/70">Daily standups, sprint reviews, and Git code-review protocols mirroring top tech labs.</span>
+</div>
+</div>
+</div>
+{/*  */}
+<div className="rounded-xl overflow-hidden bg-primary shadow-md mt-space-xs">
+<div className="w-full aspect-video relative">
+<img alt="KA Degree Tech Cohort collaborating" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-LMOVFuRs21AVP00ak2_bEl3kXg165r5aEfqPnhquMCPLE60vzj-GpNiYvM_bsALoqBUNvqN0hxpXffs42A2t5rWWfk3vICLEdM07KKtYuA-T4XCx3LvzCkvluCpn9Vv9RfvP47utIhGODYN9-tDoZEgnhYnB5PtyW5mYklblzsEakM9qvlA12KB6zJXTHR_g5-plFDAnyLPP6EJKdl-G1UPIKFkcGShtLGBIHIg-P6cxu-TR8Xx10A"/>
+<div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent"></div>
+</div>
+<div className="p-space-sm flex flex-col gap-1">
+<span className="font-label-caps text-label-caps text-secondary-fixed tracking-wider uppercase font-semibold">Experience-Based Learning</span>
+<p className="font-caption text-caption text-on-primary/80 leading-relaxed">
+            Our platform simulates a real corporate development environment to ensure you are ready on Day 1 of your first tech role.
+          </p>
+</div>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-surface-container-low px-gutter-mobile py-space-2xl" id="curriculum">
+<div className="flex flex-col gap-space-lg">
+<div className="flex flex-col gap-space-2xs">
+<span className="font-label-caps text-label-caps text-secondary uppercase font-semibold tracking-wider">
+          INTERNSHIP PROGRAM · AI TRACK · 2026 COHORT
+        </span>
+<h2 className="font-headline-lg-mobile text-headline-lg-mobile text-primary font-serif">
+          Real enterprise AI, <em className="text-primary-container italic">built layer by layer.</em>
+</h2>
+<p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Five enterprise capstones curated from what leading Indian tech majors and fintech firms are shipping. Each project unpacks a working layer of the production AI stack.
+        </p>
+</div>
+{/*  */}
+<div className="flex flex-col relative gap-space-md">
+{/*  */}
+<div className="absolute left-4 top-4 bottom-4 w-0.5 bg-secondary/20 z-0"></div>
+{/*  */}
+<div className="relative z-10 pl-10">
+<div className="absolute left-2.5 top-2 w-3.5 h-3.5 rounded-full bg-primary-container shadow-sm"></div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1.5">
+<span className="font-label-caps text-[10px] tracking-wider text-secondary font-bold uppercase">LAYER 01 — FOUNDATION</span>
+<h4 className="font-headline-sm text-[16px] text-primary font-serif">Knowledge Graphs &amp; Structured Data</h4>
+<p className="font-caption text-caption text-on-surface-variant">Grounding LLMs in deterministic entity relationships and graph databases.</p>
+<div className="flex flex-wrap gap-1 pt-1">
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">Neo4j</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">NetworkX</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">DuckDB</span>
+</div>
+</div>
+</div>
+{/*  */}
+<div className="relative z-10 pl-10">
+<div className="absolute left-2.5 top-2 w-3.5 h-3.5 rounded-full bg-primary-container shadow-sm"></div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1.5">
+<span className="font-label-caps text-[10px] tracking-wider text-secondary font-bold uppercase">LAYER 02 — REPRESENTATION</span>
+<h4 className="font-headline-sm text-[16px] text-primary font-serif">Embeddings &amp; Latent Geometry</h4>
+<p className="font-caption text-caption text-on-surface-variant">Transforming multi-modal unstructured assets into high-dimensional semantic spaces.</p>
+<div className="flex flex-wrap gap-1 pt-1">
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">HuggingFace</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">MiniLM-L6</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">CLIP</span>
+</div>
+</div>
+</div>
+{/*  */}
+<div className="relative z-10 pl-10">
+<div className="absolute left-2.5 top-2 w-3.5 h-3.5 rounded-full bg-primary-container shadow-sm"></div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1.5">
+<span className="font-label-caps text-[10px] tracking-wider text-secondary font-bold uppercase">LAYER 03 — REASONING</span>
+<h4 className="font-headline-sm text-[16px] text-primary font-serif">LLM Backends &amp; Low-Latency Inference</h4>
+<p className="font-caption text-caption text-on-surface-variant">The cognitive backbone every microservice queries for extraction and transformation.</p>
+<div className="flex flex-wrap gap-1 pt-1">
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">Gemini Pro</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">Groq API</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">Ollama Llama-3</span>
+</div>
+</div>
+</div>
+{/*  */}
+<div className="relative z-10 pl-10">
+<div className="absolute left-2.5 top-2 w-3.5 h-3.5 rounded-full bg-primary-container shadow-sm"></div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1.5">
+<span className="font-label-caps text-[10px] tracking-wider text-secondary font-bold uppercase">LAYER 04 — ORCHESTRATION</span>
+<h4 className="font-headline-sm text-[16px] text-primary font-serif">Agentic Multi-Step Frameworks</h4>
+<p className="font-caption text-caption text-on-surface-variant">Moving beyond basic chat prompts to self-correcting autonomous multi-agent systems.</p>
+<div className="flex flex-wrap gap-1 pt-1">
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">CrewAI</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">LangGraph</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">FastAPI</span>
+</div>
+</div>
+</div>
+{/*  */}
+<div className="relative z-10 pl-10">
+<div className="absolute left-2.5 top-2 w-3.5 h-3.5 rounded-full bg-primary-container shadow-sm"></div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1.5">
+<span className="font-label-caps text-[10px] tracking-wider text-secondary font-bold uppercase">LAYER 05 — RETRIEVAL</span>
+<h4 className="font-headline-sm text-[16px] text-primary font-serif">Vector Databases &amp; GraphRAG</h4>
+<p className="font-caption text-caption text-on-surface-variant">Retrieving dynamic proprietary knowledge bases with hybrid re-ranking.</p>
+<div className="flex flex-wrap gap-1 pt-1">
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">Qdrant</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">ChromaDB</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">LlamaIndex</span>
+</div>
+</div>
+</div>
+{/*  */}
+<div className="relative z-10 pl-10">
+<div className="absolute left-2.5 top-2 w-3.5 h-3.5 rounded-full bg-primary-container shadow-sm"></div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1.5">
+<span className="font-label-caps text-[10px] tracking-wider text-secondary font-bold uppercase">LAYER 06 — LANGUAGE &amp; VOICE</span>
+<h4 className="font-headline-sm text-[16px] text-primary font-serif">Speech &amp; Multilingual Indic NLP</h4>
+<p className="font-caption text-caption text-on-surface-variant">Building conversational voice systems tuned for India's multilingual reality.</p>
+<div className="flex flex-wrap gap-1 pt-1">
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">Whisper</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">IndicWhisper</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">Bhashini APIs</span>
+</div>
+</div>
+</div>
+{/*  */}
+<div className="relative z-10 pl-10">
+<div className="absolute left-2.5 top-2 w-3.5 h-3.5 rounded-full bg-primary-container shadow-sm"></div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1.5">
+<span className="font-label-caps text-[10px] tracking-wider text-secondary font-bold uppercase">LAYER 07 — PERCEPTION</span>
+<h4 className="font-headline-sm text-[16px] text-primary font-serif">Computer Vision &amp; Multimodal Video</h4>
+<p className="font-caption text-caption text-on-surface-variant">Translating edge camera feeds into zero-latency actionable detections.</p>
+<div className="flex flex-wrap gap-1 pt-1">
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">OpenCV</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">YOLOv8</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">LLaVA</span>
+</div>
+</div>
+</div>
+{/*  */}
+<div className="relative z-10 pl-10">
+<div className="absolute left-2.5 top-2 w-3.5 h-3.5 rounded-full bg-primary-container shadow-sm"></div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1.5">
+<span className="font-label-caps text-[10px] tracking-wider text-secondary font-bold uppercase">LAYER 08 — PRODUCTION</span>
+<h4 className="font-headline-sm text-[16px] text-primary font-serif">MLOps, Observability &amp; Self-Healing</h4>
+<p className="font-caption text-caption text-on-surface-variant">Where AI systems produce real return on investment through robust automation.</p>
+<div className="flex flex-wrap gap-1 pt-1">
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">Elasticsearch</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">Kibana</span>
+<span className="bg-surface-container text-on-surface px-1.5 py-0.5 rounded text-[10px] font-mono">Docker CI/CD</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-primary-container text-on-primary px-gutter-mobile py-space-2xl">
+<div className="flex flex-col gap-space-lg">
+<div className="flex flex-col gap-space-2xs">
+<span className="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-wider font-semibold">PROJECT PORTFOLIO</span>
+<h2 className="font-headline-lg-mobile text-headline-lg-mobile font-serif text-surface-bright">Build Something That Matters</h2>
+<p className="font-body-md text-body-md text-on-primary/80 leading-relaxed">
+          We believe in learning by shipping. During your tenure, you will construct and deploy production-grade applications that command immediate recruiter respect.
+        </p>
+</div>
+{/*  */}
+<div className="flex flex-col gap-space-md">
+{/*  */}
+<div className="bg-primary/50 p-space-md rounded-xl shadow-md flex flex-col gap-space-xs">
+<div className="flex items-center justify-between">
+<span className="font-label-caps text-[10px] tracking-widest uppercase bg-surface-container-lowest/10 px-2 py-0.5 rounded text-secondary-fixed">
+              GRAPHRAG + LLM
+            </span>
+<span className="font-mono text-caption text-on-primary/60">PROJECT 01</span>
+</div>
+<h3 className="font-headline-sm text-headline-sm font-serif text-surface-bright">
+            Hybrid GraphRAG Knowledge Engine
+          </h3>
+<p className="font-body-md text-body-md text-on-primary/80 leading-relaxed">
+            AI that grasps multidimensional relationships rather than surface keywords. Ingest compliance docs, construct a Neo4j knowledge graph, and perform combined vector traversal with Groq inference.
+          </p>
+<div className="flex flex-wrap gap-1.5 pt-1">
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">Python</span>
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">LlamaIndex</span>
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">Neo4j</span>
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">Flask</span>
+</div>
+<a className="pt-space-xs font-label-md text-label-md text-secondary-fixed font-semibold flex items-center gap-1 hover:underline" href="#register-modal">
+<span>Explore Project Architecture</span>
+<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+{/*  */}
+<div className="bg-primary/50 p-space-md rounded-xl shadow-md flex flex-col gap-space-xs">
+<div className="flex items-center justify-between">
+<span className="font-label-caps text-[10px] tracking-widest uppercase bg-surface-container-lowest/10 px-2 py-0.5 rounded text-secondary-fixed">
+              TIME SERIES AI
+            </span>
+<span className="font-mono text-caption text-on-primary/60">PROJECT 02</span>
+</div>
+<h3 className="font-headline-sm text-headline-sm font-serif text-surface-bright">
+            AI Demand Forecasting Engine
+          </h3>
+<p className="font-body-md text-body-md text-on-primary/80 leading-relaxed">
+            Predict high-volatility enterprise inventory requirements combining historic telemetry with external climatic signals using state-of-the-art PatchTST deep learning architectures.
+          </p>
+<div className="flex flex-wrap gap-1.5 pt-1">
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">PyTorch</span>
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">PatchTST</span>
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">FastAPI</span>
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">Pandas</span>
+</div>
+<a className="pt-space-xs font-label-md text-label-md text-secondary-fixed font-semibold flex items-center gap-1 hover:underline" href="#register-modal">
+<span>Explore Project Architecture</span>
+<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+{/*  */}
+<div className="bg-primary/50 p-space-md rounded-xl shadow-md flex flex-col gap-space-xs">
+<div className="flex items-center justify-between">
+<span className="font-label-caps text-[10px] tracking-widest uppercase bg-surface-container-lowest/10 px-2 py-0.5 rounded text-secondary-fixed">
+              COMPUTER VISION
+            </span>
+<span className="font-mono text-caption text-on-primary/60">PROJECT 03</span>
+</div>
+<h3 className="font-headline-sm text-headline-sm font-serif text-surface-bright">
+            Edge Vision Intelligence System
+          </h3>
+<p className="font-body-md text-body-md text-on-primary/80 leading-relaxed">
+            Real-time warehouse security and worker safety compliance monitoring. Capture live RTSP streams, process frames on edge with Ollama and LLaVA, and pipe incidents through n8n workflows.
+          </p>
+<div className="flex flex-wrap gap-1.5 pt-1">
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">OpenCV</span>
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">Ollama</span>
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">LLaVA</span>
+<span className="bg-surface-container-lowest/15 text-surface-bright px-2 py-0.5 rounded text-[11px] font-mono">n8n</span>
+</div>
+<a className="pt-space-xs font-label-md text-label-md text-secondary-fixed font-semibold flex items-center gap-1 hover:underline" href="#register-modal">
+<span>Explore Project Architecture</span>
+<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+{/*  */}
+<div className="bg-surface-container-lowest text-primary p-space-md rounded-xl shadow-lg flex flex-col gap-space-xs text-center">
+<h4 className="font-headline-sm text-headline-sm font-serif">Ready to Build Your AI Portfolio?</h4>
+<p className="font-body-md text-body-md text-on-surface-variant">Turn your internship period into live GitHub proof that triggers interview invitations.</p>
+<a className="w-full bg-primary-container text-on-primary font-label-md text-label-md py-3.5 px-space-md rounded-xl shadow-md active:scale-98 transition-transform font-semibold mt-space-xs" href="#register-modal">
+          REGISTER NOW — PAY ADVANCE &amp; BOOK SLOT →
+        </a>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-surface-container-low px-gutter-mobile py-space-2xl">
+<div className="flex flex-col gap-space-lg">
+<div className="flex flex-col gap-space-2xs">
+<span className="font-label-caps text-label-caps text-secondary uppercase font-semibold tracking-wider">CAREER SUCCESS</span>
+<h2 className="font-headline-lg-mobile text-headline-lg-mobile text-primary font-serif">Placement with Leading Companies</h2>
+<p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Our program is engineered as a talent conduit into Bangalore's premier product studios and enterprise tech companies.
+        </p>
+</div>
+{/*  */}
+<div className="grid grid-cols-2 gap-space-xs">
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-primary text-[22px]">badge</span>
+<span className="font-label-md text-label-md text-primary font-bold">Resume Shortlisting</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">ATS-proof project writeups verified by tech leads.</span>
+</div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-secondary text-[22px]">outgoing_mail</span>
+<span className="font-label-md text-label-md text-primary font-bold">Direct Invites</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">Direct tech screens with partner HR recruiters.</span>
+</div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-secondary text-[22px]">handshake</span>
+<span className="font-label-md text-label-md text-primary font-bold">Industry Referrals</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">Internal alumni recommendations across Bangalore.</span>
+</div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-primary text-[22px]">psychology</span>
+<span className="font-label-md text-label-md text-primary font-bold">Placement Drills</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">System design simulations and coding interviews.</span>
+</div>
+</div>
+{/*  */}
+<div className="flex flex-col gap-space-xs pt-space-xs">
+<span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-center">
+          OUR ALUMNI ARE PLACED AT
+        </span>
+<div className="grid grid-cols-4 gap-2">
+<div className="bg-surface-container-lowest py-3 px-2 rounded flex items-center justify-center shadow-sm">
+<span className="font-headline-sm text-[14px] font-bold tracking-widest text-primary font-serif">TCS</span>
+</div>
+<div className="bg-surface-container-lowest py-3 px-2 rounded flex items-center justify-center shadow-sm">
+<span className="font-headline-sm text-[14px] font-bold tracking-widest text-primary font-serif">WIPRO</span>
+</div>
+<div className="bg-surface-container-lowest py-3 px-2 rounded flex items-center justify-center shadow-sm">
+<span className="font-headline-sm text-[12px] font-bold tracking-wider text-primary font-serif">ACCENTURE</span>
+</div>
+<div className="bg-surface-container-lowest py-3 px-2 rounded flex items-center justify-center shadow-sm">
+<span className="font-headline-sm text-[14px] font-bold tracking-widest text-primary font-serif">INFOSYS</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-primary-container text-on-primary px-gutter-mobile py-space-2xl">
+<div className="flex flex-col gap-space-lg">
+<div className="flex flex-col gap-space-2xs">
+<span className="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-wider font-semibold">VERIFIED CERTIFICATION</span>
+<h2 className="font-headline-lg-mobile text-headline-lg-mobile font-serif text-surface-bright">Earn More Than a Certificate</h2>
+<p className="font-body-md text-body-md text-on-primary/80 leading-relaxed">
+          Complete your curriculum deliverables and defend your capstone to receive a verified, tamper-proof Industry Ready Credential from KA Degree.
+        </p>
+</div>
+{/*  */}
+<div className="bg-surface-bright text-on-surface p-space-md rounded-xl shadow-xl flex flex-col gap-space-sm relative overflow-hidden">
+{/*  */}
+<div className="absolute -right-8 -bottom-8 w-36 h-36 rounded-full bg-secondary/5 pointer-events-none"></div>
+<div className="flex items-center justify-between pb-space-2xs">
+<div className="flex items-center gap-2">
+<span className="material-symbols-outlined text-secondary text-[24px]">verified</span>
+<span className="font-label-caps text-[11px] font-bold tracking-widest uppercase text-primary">KA DEGREE · BANGALORE</span>
+</div>
+<span className="font-label-caps text-[9px] bg-secondary/15 text-secondary px-2 py-0.5 rounded font-mono">ISO 9001:2015</span>
+</div>
+<div className="text-center flex flex-col gap-1 py-space-xs">
+<span className="font-label-caps text-[11px] tracking-widest uppercase text-on-surface-variant font-semibold">OFFICIAL CERTIFICATE OF EXCELLENCE</span>
+<span className="font-headline-sm text-[20px] font-serif text-primary font-bold">Industry Ready AI Engineering</span>
+<span className="font-caption text-caption text-on-surface-variant italic">Awarded upon defense of live multi-agent &amp; RAG architectures</span>
+</div>
+<div className="flex items-center justify-between pt-space-xs bg-surface-container-low p-space-xs rounded-lg">
+<div className="flex flex-col">
+<span className="font-label-caps text-[9px] text-on-surface-variant uppercase font-semibold">Verification ID</span>
+<span className="font-mono text-caption text-primary font-bold">KAD-2026-AI-8849</span>
+</div>
+<div className="flex items-center gap-1.5 text-secondary">
+<span className="material-symbols-outlined text-[20px]">qr_code_2</span>
+<span className="font-label-caps text-[9px] tracking-widest uppercase font-bold text-primary">QR VERIFIED</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-surface-container-low px-gutter-mobile py-space-2xl">
+<div className="flex flex-col gap-space-lg">
+<div className="flex flex-col gap-space-2xs">
+<span className="font-label-caps text-label-caps text-secondary uppercase font-semibold tracking-wider">THE KA DEGREE ADVANTAGE</span>
+<h2 className="font-headline-lg-mobile text-headline-lg-mobile text-primary font-serif">Everything You Need to Succeed</h2>
+<p className="font-body-md text-body-md text-on-surface-variant">A holistic educational engine built strictly for student career acceleration.</p>
+</div>
+<div className="grid grid-cols-2 gap-space-xs">
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-primary text-[24px]">terminal</span>
+<span className="font-label-md text-label-md text-primary font-bold">Real Industry Code</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">Zero boilerplate toy projects; only real codebases.</span>
+</div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-secondary text-[24px]">workspace_premium</span>
+<span className="font-label-md text-label-md text-primary font-bold">Official Credential</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">Globally verifiable credentials respected by recruiters.</span>
+</div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-secondary text-[24px]">folder_special</span>
+<span className="font-label-md text-label-md text-primary font-bold">Live Portfolio</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">Custom domain deployment showcasing your live apps.</span>
+</div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-primary text-[24px]">contact_page</span>
+<span className="font-label-md text-label-md text-primary font-bold">Resume Polishing</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">Engineered specifically for automated screening parsers.</span>
+</div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-primary text-[24px]">groups</span>
+<span className="font-label-md text-label-md text-primary font-bold">Mock Interviews</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">1-on-1 technical interrogations with working seniors.</span>
+</div>
+<div className="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="material-symbols-outlined text-secondary text-[24px]">assistant_direction</span>
+<span className="font-label-md text-label-md text-primary font-bold">Career Guidance</span>
+<span className="font-caption text-caption text-on-surface-variant leading-snug">Strategic advice on salary negotiation and tech tracks.</span>
+</div>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-primary-container text-on-primary px-gutter-mobile py-space-2xl">
+<div className="flex flex-col gap-space-lg">
+<div className="flex flex-col gap-space-2xs">
+<span className="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-wider font-semibold">WHO CAN APPLY?</span>
+<h2 className="font-headline-lg-mobile text-headline-lg-mobile font-serif text-surface-bright">Start Where You Are</h2>
+<p className="font-body-md text-body-md text-on-primary/80 leading-relaxed">
+          We welcome inquisitive minds ready to build hands-on software.
+        </p>
+</div>
+<div className="grid grid-cols-2 gap-space-xs">
+<div className="bg-primary/50 p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="font-headline-sm text-[16px] text-surface-bright font-serif">BCA Students</span>
+<span className="font-caption text-caption text-on-primary/70">Pre-final and final year candidates seeking corporate exposure.</span>
+</div>
+<div className="bg-primary/50 p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="font-headline-sm text-[16px] text-surface-bright font-serif">MCA Students</span>
+<span className="font-caption text-caption text-on-primary/70">Postgraduate candidates seeking core engineering roles.</span>
+</div>
+<div className="bg-primary/50 p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="font-headline-sm text-[16px] text-surface-bright font-serif">B.Tech / B.E</span>
+<span className="font-caption text-caption text-on-primary/70">CS, IS, EC and related disciplines preparing for placements.</span>
+</div>
+<div className="bg-primary/50 p-space-sm rounded-lg shadow-sm flex flex-col gap-1">
+<span className="font-headline-sm text-[16px] text-surface-bright font-serif">Recent Graduates</span>
+<span className="font-caption text-caption text-on-primary/70">Degree holders pivoting directly into enterprise AI engineering.</span>
+</div>
+</div>
+<div className="bg-primary/30 p-space-sm rounded-lg flex items-start gap-2.5">
+<span className="material-symbols-outlined text-secondary-fixed text-[20px] mt-0.5">info</span>
+<p className="font-caption text-caption text-on-primary/80 leading-relaxed">
+          If you have a laptop and a hunger to learn modern software engineering, you are eligible to join the cohort. No prior complex coding experience is required—we scaffold from the foundational syntax upwards.
+        </p>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-surface-container-low px-gutter-mobile py-space-2xl">
+<div className="flex flex-col gap-space-lg">
+<div className="flex flex-col gap-space-2xs">
+<span className="font-label-caps text-label-caps text-secondary uppercase font-semibold tracking-wider">QUESTIONS &amp; ANSWERS</span>
+<h2 className="font-headline-lg-mobile text-headline-lg-mobile text-primary font-serif">Everything You Need to Know</h2>
+<p className="font-body-md text-body-md text-on-surface-variant">Clear answers regarding schedules, certification, prerequisites, and evaluation.</p>
+</div>
+<div className="flex flex-col gap-space-xs" id="faq-accordion-group">
+{/*  */}
+<div className="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<button className="faq-toggle w-full p-space-sm text-left flex items-center justify-between text-primary font-headline-sm text-[16px] font-serif" type="button">
+<span>Who is eligible for this internship?</span>
+<span className="material-symbols-outlined transition-transform duration-200">add</span>
+</button>
+<div className="faq-content hidden px-space-sm pb-space-sm font-body-md text-body-md text-on-surface-variant">
+            BCA, MCA, B.E., B.Tech, and recent CS/IT graduates are eligible. We assess baseline problem-solving capability rather than memorized syntax.
+          </div>
+</div>
+{/*  */}
+<div className="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<button className="faq-toggle w-full p-space-sm text-left flex items-center justify-between text-primary font-headline-sm text-[16px] font-serif" type="button">
+<span>Will I receive an internship certificate?</span>
+<span className="material-symbols-outlined transition-transform duration-200">add</span>
+</button>
+<div className="faq-content hidden px-space-sm pb-space-sm font-body-md text-body-md text-on-surface-variant">
+            Yes, upon successful submission and mentor review of your capstone projects, you receive a verified, tamper-proof Industry Ready Internship Certificate with QR authentication.
+          </div>
+</div>
+{/*  */}
+<div className="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<button className="faq-toggle w-full p-space-sm text-left flex items-center justify-between text-primary font-headline-sm text-[16px] font-serif" type="button">
+<span>Do I need advanced coding experience?</span>
+<span className="material-symbols-outlined transition-transform duration-200">add</span>
+</button>
+<div className="faq-content hidden px-space-sm pb-space-sm font-body-md text-body-md text-on-surface-variant">
+            No. The program starts from structured programming logic and rapidly transitions into modern AI modules. Familiarity with fundamental computer concepts is sufficient.
+          </div>
+</div>
+{/*  */}
+<div className="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<button className="faq-toggle w-full p-space-sm text-left flex items-center justify-between text-primary font-headline-sm text-[16px] font-serif" type="button">
+<span>How long is the internship program?</span>
+<span className="material-symbols-outlined transition-transform duration-200">add</span>
+</button>
+<div className="faq-content hidden px-space-sm pb-space-sm font-body-md text-body-md text-on-surface-variant">
+            The cohorts run as intensive 4 to 8-week tracks tailored for Summer or Winter academic schedules, offering flexible hybrid participation.
+          </div>
+</div>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-surface-container px-gutter-mobile py-space-2xl">
+<div className="flex flex-col gap-space-lg">
+<div className="flex flex-col gap-space-2xs">
+<div className="flex items-center justify-between">
+<span className="font-label-caps text-label-caps text-secondary uppercase font-semibold tracking-wider">VOICE OF STUDENTS</span>
+<span className="font-label-caps text-label-caps bg-primary-container text-on-primary px-2 py-0.5 rounded-full font-bold">500+ PLACED</span>
+</div>
+<h2 className="font-headline-lg-mobile text-headline-lg-mobile text-primary font-serif">Built by Students. Proven by Impact.</h2>
+</div>
+{/*  */}
+<div className="relative overflow-hidden">
+<div className="flex transition-transform duration-300 ease-out" id="testimonial-carousel">
+{/*  */}
+<div className="w-full flex-shrink-0 bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div className="flex items-center gap-1 text-secondary">
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+</div>
+<p className="font-body-md text-body-md text-on-surface italic leading-relaxed">
+              "The GraphRAG module was identical to the technical assessment I had during my Accenture interview. Having the running code on my GitHub gave me massive confidence."
+            </p>
+<div className="flex items-center gap-3 pt-space-xs">
+<div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold font-serif">RS</div>
+<div className="flex flex-col">
+<span className="font-headline-sm text-[15px] font-bold text-primary font-serif">Rahul S.</span>
+<span className="font-caption text-caption text-on-surface-variant">BCA Final Year · Placed at Accenture</span>
+</div>
+</div>
+</div>
+{/*  */}
+<div className="w-full flex-shrink-0 bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div className="flex items-center gap-1 text-secondary">
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+</div>
+<p className="font-body-md text-body-md text-on-surface italic leading-relaxed">
+              "College taught me theory, but KA Degree gave me production Git workflows and multi-agent systems with CrewAI. Truly career-defining."
+            </p>
+<div className="flex items-center gap-3 pt-space-xs">
+<div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold font-serif">PV</div>
+<div className="flex flex-col">
+<span className="font-headline-sm text-[15px] font-bold text-primary font-serif">Priya V.</span>
+<span className="font-caption text-caption text-on-surface-variant">MCA Graduate · Software Engineer</span>
+</div>
+</div>
+</div>
+{/*  */}
+<div className="w-full flex-shrink-0 bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div className="flex items-center gap-1 text-secondary">
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+<span className="material-symbols-outlined text-[18px]">star</span>
+</div>
+<p className="font-body-md text-body-md text-on-surface italic leading-relaxed">
+              "Working directly on computer vision using LLaVA and edge hardware helped me stand out from thousands of ordinary CS applicants in Bangalore."
+            </p>
+<div className="flex items-center gap-3 pt-space-xs">
+<div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold font-serif">KK</div>
+<div className="flex flex-col">
+<span className="font-headline-sm text-[15px] font-bold text-primary font-serif">Kiran K.</span>
+<span className="font-caption text-caption text-on-surface-variant">Engineering Student · B.E CSE</span>
+</div>
+</div>
+</div>
+</div>
+{/*  */}
+<div className="flex items-center justify-between pt-space-sm">
+<div className="flex gap-1.5" id="testimonial-dots">
+<span className="w-2 h-2 rounded-full bg-primary"></span>
+<span className="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span className="w-2 h-2 rounded-full bg-outline-variant"></span>
+</div>
+<div className="flex gap-2">
+<button className="w-9 h-9 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm active:scale-95" id="prev-btn" type="button">
+<span className="material-symbols-outlined text-[18px]">arrow_back</span>
+</button>
+<button className="w-9 h-9 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm active:scale-95" id="next-btn" type="button">
+<span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+{/*  */}
+<section className="bg-primary-container text-on-primary px-gutter-mobile py-space-2xl text-center" id="register-modal">
+<div className="flex flex-col items-center gap-space-md">
+<span className="inline-flex items-center px-3 py-1 rounded-full bg-surface-container-lowest/15 text-secondary-fixed font-label-caps text-label-caps tracking-widest uppercase font-semibold">
+        2026 COHORT
+      </span>
+<div className="flex flex-col gap-1">
+<h2 className="font-headline-lg-mobile text-headline-lg-mobile font-serif text-surface-bright leading-tight">
+          Your Future Starts Here
+        </h2>
+<p className="font-body-md text-body-md text-on-primary/80 max-w-xs mx-auto">
+          Limited slots available for the upcoming Bangalore tech cohort. Apply today to secure your mentorship seat.
+        </p>
+</div>
+{/*  */}
+<div className="bg-primary/60 px-space-md py-space-xs rounded-xl shadow-inner w-full max-w-xs">
+<span className="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-wider block">ALL-INCLUSIVE ENROLLMENT</span>
+<span className="font-headline-md text-headline-md text-surface-bright font-serif font-bold">₹4,499/-</span>
+<span className="font-caption text-[11px] text-on-primary/70 block mt-0.5">Includes ISO-standard Verified Certificate</span>
+</div>
+{/*  */}
+<div className="flex flex-col gap-space-xs w-full max-w-xs pt-space-2xs">
+<a className="w-full bg-surface-bright text-primary font-label-md text-label-md py-4 px-space-md rounded-xl shadow-lg active:scale-98 transition-transform font-bold flex items-center justify-center gap-2" href="tel:+917975902348">
+<span>REGISTER NOW — BOOK SLOT</span>
+<span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a className="w-full bg-primary/40 text-surface-bright font-label-md text-label-md py-3 px-space-md rounded-xl active:scale-98 transition-transform flex items-center justify-center gap-2" href="https://wa.me/917975902348">
+<span className="material-symbols-outlined text-[18px] text-secondary-fixed">chat</span>
+<span>TALK TO AN ADMISSIONS MENTOR</span>
+</a>
+</div>
+<div className="flex items-center gap-2 text-on-primary/60 font-caption text-[11px] pt-space-xs">
+<span className="material-symbols-outlined text-[14px]">lock</span>
+<span>Strict Cohort Cap · Instant Confirmation via WhatsApp</span>
+</div>
+</div>
+</section>
+{/*  */}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // FAQ Accordion Behavior
+      const faqToggles = document.querySelectorAll('.faq-toggle');
+      faqToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const content = toggle.nextElementSibling;
+          const icon = toggle.querySelector('.material-symbols-outlined');
+          const isOpen = !content.classList.contains('hidden');
+
+          // Close all open FAQs
+          document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+          document.querySelectorAll('.faq-toggle .material-symbols-outlined').forEach(i => {
+            i.textContent = 'add';
+            i.classList.remove('rotate-45');
+          });
+
+          if (!isOpen) {
+            content.classList.remove('hidden');
+            icon.textContent = 'remove';
+          }
+        });
+      });
+
+      // Testimonial Carousel Behavior
+      const carousel = document.getElementById('testimonial-carousel');
+      const dots = document.getElementById('testimonial-dots')?.children;
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      let currentIndex = 0;
+      const totalSlides = 3;
+
+      function updateCarousel(index) {
+        if (!carousel) return;
+        currentIndex = (index + totalSlides) % totalSlides;
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        if (dots) {
+          Array.from(dots).forEach((dot, idx) => {
+            if (idx === currentIndex) {
+              dot.className = 'w-2 h-2 rounded-full bg-primary';
+            } else {
+              dot.className = 'w-2 h-2 rounded-full bg-outline-variant';
+            }
+          });
+        }
+      }
+
+      prevBtn?.addEventListener('click', () => updateCarousel(currentIndex - 1));
+      nextBtn?.addEventListener('click', () => updateCarousel(currentIndex + 1));
+    });
+  </script>
+</div><footer className="bg-surface-container-low text-on-surface px-gutter-mobile pt-space-2xl pb-space-5xl shadow-[0_-1px_12px_rgba(75,10,32,0.02)]"><div className="flex flex-col gap-space-lg"><div className="flex items-center gap-space-xs"><img alt="KA Degree Logo" className="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VCXf9vuy8ghnFoBZMKQlu-uMnidzHcMXnkhw5_t_XGi18Os2oFobOVHXZsmbZ97M78P9nHQQYuwt-dyFdbDcjnUhyeb43-00Eu6QlF-k-wodiHRgR8XEDCpvpPOyoeooArCDCqxx-pju9SQ5Jam3rEzahpxV9GjBK-GUI089V4EGrkdn6S2I9CFSvDj3unxmWw7XH7oCCvR30YeBZrGQJaSZWEl8_Ivxx3k3iuqbyywunQm5B3gKVDZILn"/><span className="font-headline-sm text-headline-sm text-primary font-serif">KA Degree</span></div><p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">Learn from industry experts through mentor-led training that combines real projects, modern AI tools, and full-stack development aligned with global standards.</p><div className="flex flex-wrap gap-space-md pt-space-xs"><a className="font-label-caps text-label-caps text-secondary uppercase hover:text-primary transition-colors" href="#">Privacy Policy</a><a className="font-label-caps text-label-caps text-secondary uppercase hover:text-primary transition-colors" href="#">Refund Policy</a><a className="font-label-caps text-label-caps text-secondary uppercase hover:text-primary transition-colors" href="#">Terms of Service</a></div><div className="flex flex-col gap-space-2xs text-on-surface-variant font-caption text-caption pt-space-xs"><span className="flex items-center gap-2"><span className="material-symbols-outlined text-[16px] text-secondary">call</span>+91 7975902348</span><span className="flex items-center gap-2"><span className="material-symbols-outlined text-[16px] text-secondary">mail</span>admissions@kadegree.com</span><span className="flex items-start gap-2"><span className="material-symbols-outlined text-[16px] text-secondary mt-0.5">location_on</span>3rd Floor, Tech Park Building, BTM Layout, Bengaluru, Karnataka 560076</span></div><div className="flex items-center gap-space-md pt-space-xs text-primary-container"><a aria-label="Facebook" className="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-variant transition-colors" href="#"><span className="material-symbols-outlined text-[20px]">share</span></a><a aria-label="Instagram" className="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-variant transition-colors" href="#"><span className="material-symbols-outlined text-[20px]">photo_camera</span></a><a aria-label="LinkedIn" className="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-variant transition-colors" href="#"><span className="material-symbols-outlined text-[20px]">hub</span></a></div><div className="pt-space-md border-t border-outline-variant/30"><p className="font-caption text-caption text-on-surface-variant/80 leading-normal">KA Degree provides online computer science and AI coaching for BCA, MCA, BE, and PUC students across India. © 2026 KA Degree. All rights reserved.</p></div></div></footer></main>

@@ -120,7 +120,7 @@ export default function EnquiryForm() {
     <div className="flex min-h-screen flex-col bg-muted/20">
       <Navbar />
 
-      <div className="container mx-auto flex-1 px-4 py-12">
+      <div className="container mx-auto flex-1 px-4 pt-36 pb-16">
         <Card className="mx-auto max-w-2xl shadow-lg">
           <CardHeader className="space-y-2">
             <CardTitle className="text-center text-2xl font-bold">

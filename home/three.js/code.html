@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_3 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_3" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_3');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // KA DEGREE Alumni Carousel Logic
+const container = document.querySelector('.alumni-carousel-container');
+if (container) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const scrollContent = container.querySelector('.alumni-scroll-content');
+
+    const autoScroll = () => {
+        if (!isDown) {
+            scrollContent.scrollLeft += 1;
+            if (scrollContent.scrollLeft >= scrollContent.scrollWidth - scrollContent.clientWidth) {
+                scrollContent.scrollLeft = 0;
+            }
+        }
+        requestAnimationFrame(autoScroll);
+    };
+
+    scrollContent.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - scrollContent.offsetLeft;
+        scrollLeft = scrollContent.scrollLeft;
+    });
+
+    scrollContent.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    scrollContent.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    scrollContent.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContent.offsetLeft;
+        const walk = (x - startX) * 2;
+        scrollContent.scrollLeft = scrollLeft - walk;
+    });
+
+    // Start ambient scroll
+    // requestAnimationFrame(autoScroll); // Disabled by default for better UX, can be enabled
+}
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_3 -->
+</body>
+</html>

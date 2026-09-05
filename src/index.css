@@ -118,3 +118,135 @@
     @apply font-serif tracking-tight text-primary;
   }
 }
+
+/* ==========================================================================
+   KA DEGREE PREMIUM ANIMATIONS & MICRO-INTERACTIONS
+   ========================================================================== */
+
+@layer utilities {
+  /* Cards */
+  .hover-lift-card {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease !important;
+  }
+
+  /* Images */
+  .image-subtle-zoom {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  /* Buttons */
+  .btn-premium {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, background-color 0.3s ease !important;
+  }
+  .btn-premium .btn-arrow {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  /* Icons */
+  .icon-hover {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease !important;
+  }
+
+  @media (hover: hover) {
+    .hover-lift-card:hover {
+      transform: translateY(-8px) !important;
+      box-shadow: 0 20px 40px rgba(28, 27, 27, 0.08) !important;
+    }
+    
+    .group:hover .image-subtle-zoom, .hover-lift-card:hover .image-subtle-zoom {
+      transform: scale(1.03) !important;
+    }
+
+    .btn-premium:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 10px 20px rgba(90, 11, 46, 0.15) !important;
+    }
+    .btn-premium:hover .btn-arrow {
+      transform: translateX(5px) !important;
+    }
+
+    .group:hover .icon-hover {
+      transform: scale(1.08) translateY(-2px) !important;
+      color: #5A0B2E !important;
+    }
+  }
+
+  /* Navigation Underline */
+  .nav-underline {
+    position: relative;
+  }
+  .nav-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #5A0B2E;
+    transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @media (hover: hover) {
+    .nav-underline:hover::after, .nav-underline.active::after {
+      width: 100%;
+    }
+  }
+
+  /* Background Motion for Dark Sections */
+  .bg-motion-burgundy {
+    position: relative;
+    overflow: hidden;
+  }
+  .bg-motion-burgundy::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 50%);
+    animation: rotate-bg 30s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@keyframes rotate-bg {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Continuous Carousel Animation */
+@keyframes scroll-infinite {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-infinite 40s linear infinite;
+}
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+/* Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hover-lift-card:hover {
+    transform: none !important;
+  }
+  .group:hover .image-subtle-zoom, .hover-lift-card:hover .image-subtle-zoom {
+    transform: none !important;
+  }
+  .btn-premium:hover {
+    transform: none !important;
+  }
+  .btn-premium:hover .btn-arrow {
+    transform: none !important;
+  }
+}

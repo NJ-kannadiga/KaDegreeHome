@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KA DEGREE - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#67645d",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "surface": "#fcf9f8",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary-fixed": "#002109",
+                        "on-primary-fixed-variant": "#663945",
+                        "outline-variant": "#d5c2c5",
+                        "on-background": "#1c1b1b",
+                        "primary-fixed-dim": "#f4b6c3",
+                        "on-surface-variant": "#504346",
+                        "surface-container": "#f0eded",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#85a986",
+                        "secondary": "#615e57",
+                        "surface-container-high": "#eae7e7",
+                        "outline": "#837376",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#e7e2d9",
+                        "surface-dim": "#dcd9d9",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#e7e2d9",
+                        "primary": "#3b1520",
+                        "tertiary-fixed": "#c5edc6",
+                        "on-secondary-fixed-variant": "#494740",
+                        "on-primary-container": "#ca909d",
+                        "inverse-primary": "#f4b6c3",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-fixed": "#1d1c16",
+                        "primary-container": "#542a35",
+                        "background": "#fcf9f8",
+                        "tertiary-fixed-dim": "#aad0ab",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed": "#ffd9e0",
+                        "on-tertiary-fixed-variant": "#2d4e32",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed-dim": "#cac6be",
+                        "tertiary-container": "#1d3e23",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#06280f",
+                        "surface-tint": "#81505c",
+                        "on-primary-fixed": "#330f1a",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "unit": "8px",
+                        "gutter": "32px",
+                        "margin-mobile": "20px",
+                        "section-gap": "128px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Bodoni Moda"],
+                        "headline-sm": ["Bodoni Moda"],
+                        "display-lg-mobile": ["Bodoni Moda"],
+                        "display-lg": ["Bodoni Moda"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline flat no shadows transition-all duration-200 ease-in-out">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary font-bold text-headline-sm" data-icon="school" data-weight="fill" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed uppercase">KA DEGREE</span>
+</div>
+<a class="font-label-caps text-label-caps bg-primary-container text-on-primary-container px-4 py-2 uppercase tracking-wider hover:bg-primary transition-colors duration-300" href="#">Talk to Us →</a>
+</div>
+</header>
+<main class="pt-24 md:pt-32">
+<!-- Hero Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-12 md:py-24 max-w-container-max mx-auto">
+<div class="fade-in">
+<p class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4">KA DEGREE</p>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-8 md:w-3/4 leading-tight">
+                    Digital Expertise. Smarter Solutions. <span class="text-primary italic">Real Growth.</span>
+</h1>
+<div class="relative w-full aspect-[4/3] md:aspect-[21/9] bg-surface-container mt-12 overflow-hidden border border-outline-variant">
+<img class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700" data-alt="A sophisticated editorial style photograph of professionals in a minimalist, sunlit office discussing strategy over architectural blueprints and digital tablets. The aesthetic is high-end, utilizing deep burgundy accents against warm ivory surroundings, embodying quiet confidence and intellectual rigor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaSb9SSHPVKT-LGdJ0V_NdVbhD4B7qMdpynfZS3PtyfEFgtQg4NLcw3xoWeOu8HFOnbUXB-b2yByaJSlZo694Z_dk_Xl_7tSDXie5Gcdm_aqdnPBMEE06qsuXmDs4K3t2SivGZXR4qaSdAZ17YIs_hv8UvakoGTlIgT1RMuMUvbhJUhE1K77_LRQg5PPlYDyyEuC6fyYHRrVJCjPVC4NE0OBoydMWtrT5w2KO5MAO--7PxDNph32Y"/>
+</div>
+</div>
+</section>
+<!-- Divider with Shader -->
+<div class="w-full h-24 md:h-32 relative -mt-12 md:-mt-16 z-10 overflow-hidden">
+<!-- STITCH_SHADER_START:ANIMATION_2 class="absolute inset-0 w-full h-full" -->
+<div class="absolute inset-0 w-full h-full" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_2" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_2');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+
+void main() {
+    vec2 uv = v_texCoord;
+    
+    // Subtle organic movement for the curved transition
+    float wave = sin(uv.x * 3.0 + u_time * 0.5) * 0.02;
+    float curve = 0.8 + wave - pow(uv.x - 0.5, 2.0) * 0.5;
+    
+    // Background color: Warm Ivory (#F4EFE6)
+    vec3 ivory = vec3(0.957, 0.937, 0.902);
+    // Transition color: Burgundy (#542A35)
+    vec3 burgundy = vec3(0.329, 0.165, 0.208);
+    
+    float mask = smoothstep(curve, curve + 0.01, uv.y);
+    vec3 color = mix(burgundy, ivory, mask);
+    
+    gl_FragColor = vec4(color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_2 -->
+</div>
+<!-- Expertise Section -->
+<section class="bg-primary text-on-primary px-margin-mobile md:px-margin-desktop py-16 md:py-32 -mt-1 relative z-20">
+<div class="max-w-container-max mx-auto">
+<div class="flex items-center mb-12">
+<div class="h-px bg-outline-variant flex-grow opacity-30"></div>
+<h2 class="font-headline-md text-headline-md px-6">Our Core Expertise</h2>
+<div class="h-px bg-outline-variant flex-grow opacity-30"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="group relative aspect-[3/4] overflow-hidden border border-on-primary/20 bg-surface-container-lowest/10 cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700" data-alt="Abstract macro photography of intricate digital light fibers intertwining in dark space with subtle burgundy illumination, representing high-end digital marketing networks and data flow in an editorial minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkyQhaIgRDpma7nRNburVBzXqmILdJ7kejUkNGyTRC7eUKxeM6GETln_dRAf-MDX2iGyc94JsUYgSuUJejA8TkJZNUoej16s8hdgULTJjXvioC4UQv_hWClY3w6iZx1YUstGjarxt8iTV3osDcngOj-nDVhvy-2hwXHAJxFE5VAEEOcMhFapDgVfpMoz46F5Ak-CLL3WaZXSeuKOxlDojyGtzJVYzfzaGk9i1VKMS9q3zNpq8u9eg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent p-8 flex flex-col justify-end">
+<span class="material-symbols-outlined mb-4 text-3xl opacity-80" data-icon="campaign">campaign</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Digital Marketing</h3>
+<p class="font-body-md text-body-md opacity-80 max-h-0 group-hover:max-h-24 overflow-hidden transition-all duration-500">Precision targeting and high-ROI campaigns engineered for scale.</p>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="group relative aspect-[3/4] overflow-hidden border border-on-primary/20 bg-surface-container-lowest/10 cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700" data-alt="A minimalist overhead view of a well-organized bespoke desk with luxury stationery, a closed laptop, and a steaming cup of coffee. The lighting is moody and warm, emphasizing the burgundy and taupe brand palette, conveying outsourced executive services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKZGIKujK_zx-S3YhPRcJg17WASfbC4-Gz30UJw_HAsP4GpCsCSRobeZtMeuD9f_cCoqyJH8f3c04b0nOcGZGGYzJR9M1iHJzq25smNz9YdHzgkob2W5wtSSeAPkzgEGvpNHkvKZEW63_8DAav_gkQSAJ3Q58OXimdB07rhL20H_Ldnd2krfAJK66ISKDGXe6WA6fVGg-4CrpZYzAvzEjPaxL78sgZ89U5xiVDaZSLtThl_mbRxoE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent p-8 flex flex-col justify-end">
+<span class="material-symbols-outlined mb-4 text-3xl opacity-80" data-icon="handshake">handshake</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Outsource With Our Services</h3>
+<p class="font-body-md text-body-md opacity-80 max-h-0 group-hover:max-h-24 overflow-hidden transition-all duration-500">Seamless integration of elite talent into your daily operations.</p>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="group relative aspect-[3/4] overflow-hidden border border-on-primary/20 bg-surface-container-lowest/10 cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700" data-alt="A conceptual art piece showing a beautifully crafted glowing sphere of complex geometric data nodes resting on an antique wooden table. The aesthetic juxtaposes classic editorial warmth with modern AI commerce intelligence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOcLIbLtZV1NNBHTgoBBIpJINxbLlTy90IWJ4GLipYhBk3mw3ukJN9g0omf_70jjzc4uZApcBfmPlCUu9bZrzGDjpduW-bR0my4WpkNmIw8Ny0NBqjq3Ys_nIcVrXXYcOFPZPvRsvmq82Mrt7byqw3GTGgDz35IGxO-r9P5Fl_GyjtFd1dX4IchOCIL2a-OHOMPQlBgqLAzae3xJJM4tEon2oJWFDgklfG6cF9yn4bzR2GjHvtC6A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent p-8 flex flex-col justify-end">
+<span class="material-symbols-outlined mb-4 text-3xl opacity-80" data-icon="smart_toy">smart_toy</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">AI for Commerce</h3>
+<p class="font-body-md text-body-md opacity-80 max-h-0 group-hover:max-h-24 overflow-hidden transition-all duration-500">Predictive analytics and automated workflows to outpace competitors.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Journey -->
+<section class="px-margin-mobile md:px-margin-desktop py-24 bg-surface max-w-container-max mx-auto border-x border-outline-variant/30">
+<div class="text-center mb-16 fade-in">
+<p class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4">Methodology</p>
+<h2 class="font-headline-md text-headline-md">Turning Intelligence Into Impact</h2>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 relative px-8">
+<!-- Journey Track -->
+<div class="hidden md:block absolute top-1/2 left-16 right-16 h-px bg-outline-variant -z-10"></div>
+<!-- Stages -->
+<div class="flex flex-col items-center gap-4 group fade-in" style="transition-delay: 100ms;">
+<div class="w-16 h-16 rounded-full border border-outline-variant bg-surface flex items-center justify-center group-hover:border-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container" data-icon="person">person</span>
+</div>
+<span class="font-label-caps text-label-caps">Customer</span>
+</div>
+<div class="md:hidden h-8 w-px bg-outline-variant fade-in"></div>
+<div class="flex flex-col items-center gap-4 group fade-in" style="transition-delay: 200ms;">
+<div class="w-16 h-16 rounded-full border border-outline-variant bg-surface flex items-center justify-center group-hover:border-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container" data-icon="database">database</span>
+</div>
+<span class="font-label-caps text-label-caps">Data</span>
+</div>
+<div class="md:hidden h-8 w-px bg-outline-variant fade-in"></div>
+<div class="flex flex-col items-center gap-4 group fade-in" style="transition-delay: 300ms;">
+<div class="w-16 h-16 rounded-full border border-outline-variant bg-surface flex items-center justify-center group-hover:border-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container" data-icon="psychology">psychology</span>
+</div>
+<span class="font-label-caps text-label-caps">AI</span>
+</div>
+<div class="md:hidden h-8 w-px bg-outline-variant fade-in"></div>
+<div class="flex flex-col items-center gap-4 group fade-in" style="transition-delay: 400ms;">
+<div class="w-16 h-16 rounded-full border border-outline-variant bg-surface flex items-center justify-center group-hover:border-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container" data-icon="lightbulb">lightbulb</span>
+</div>
+<span class="font-label-caps text-label-caps">Insight</span>
+</div>
+<div class="md:hidden h-8 w-px bg-outline-variant fade-in"></div>
+<div class="flex flex-col items-center gap-4 group fade-in" style="transition-delay: 500ms;">
+<div class="w-16 h-16 rounded-full border border-outline-variant bg-surface flex items-center justify-center group-hover:border-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container" data-icon="play_arrow">play_arrow</span>
+</div>
+<span class="font-label-caps text-label-caps">Action</span>
+</div>
+<div class="md:hidden h-8 w-px bg-outline-variant fade-in"></div>
+<div class="flex flex-col items-center gap-4 group fade-in" style="transition-delay: 600ms;">
+<div class="w-16 h-16 rounded-full border-primary bg-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-on-primary" data-icon="trending_up">trending_up</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary">Growth</span>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="bg-primary text-on-primary px-margin-mobile md:px-margin-desktop py-32 text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(#ca909d_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+<div class="max-w-3xl mx-auto relative z-10 fade-in">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8">Let’s Build What’s Next.</h2>
+<a class="inline-block border border-on-primary text-on-primary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-on-primary hover:text-primary transition-colors duration-300" href="#">Initiate Contact</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full mt-section-gap border-t border-outline-variant flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-16 max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<div class="font-headline-sm text-headline-sm text-primary mb-4 font-bold uppercase">KA DEGREE</div>
+<p class="font-body-md text-body-md text-secondary mb-6">© 2024 KA DEGREE.<br/>All rights reserved.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-primary uppercase tracking-wider mb-2">Navigation</h4>
+<a class="font-body-md text-body-md text-secondary hover:text-primary dark:hover:text-primary-fixed transition-colors opacity-90 hover:opacity-100" href="#">Business</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary dark:hover:text-primary-fixed transition-colors opacity-90 hover:opacity-100" href="#">Students</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary dark:hover:text-primary-fixed transition-colors opacity-90 hover:opacity-100" href="#">Company</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-primary uppercase tracking-wider mb-2">Legal</h4>
+<a class="font-body-md text-body-md text-secondary hover:text-primary dark:hover:text-primary-fixed transition-colors opacity-90 hover:opacity-100" href="#">Privacy</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary dark:hover:text-primary-fixed transition-colors opacity-90 hover:opacity-100" href="#">Terms</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-primary uppercase tracking-wider mb-2">Connect</h4>
+<div class="flex gap-4">
+<a class="text-secondary hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="mail">mail</span></a>
+<a class="text-secondary hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="share">share</span></a>
+</div>
+</div>
+</div>
+</footer>
+<!-- ThreeJS Animation Script Placeholder -->
+<div class="hidden">
+<!-- STITCH_THREEJS_START:ANIMATION_3 class="absolute inset-0 w-full h-full" -->
+<div class="absolute inset-0 w-full h-full" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_3" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_3');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // KA DEGREE Alumni Carousel Logic
+const container = document.querySelector('.alumni-carousel-container');
+if (container) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const scrollContent = container.querySelector('.alumni-scroll-content');
+
+    const autoScroll = () => {
+        if (!isDown) {
+            scrollContent.scrollLeft += 1;
+            if (scrollContent.scrollLeft >= scrollContent.scrollWidth - scrollContent.clientWidth) {
+                scrollContent.scrollLeft = 0;
+            }
+        }
+        requestAnimationFrame(autoScroll);
+    };
+
+    scrollContent.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - scrollContent.offsetLeft;
+        scrollLeft = scrollContent.scrollLeft;
+    });
+
+    scrollContent.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    scrollContent.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    scrollContent.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContent.offsetLeft;
+        const walk = (x - startX) * 2;
+        scrollContent.scrollLeft = scrollLeft - walk;
+    });
+
+    // Start ambient scroll
+    // requestAnimationFrame(autoScroll); // Disabled by default for better UX, can be enabled
+}
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_3 -->
+</div>
+<script>
+        // Simple Intersection Observer for fade-in animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>

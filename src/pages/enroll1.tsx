@@ -110,7 +110,7 @@ const onSubmit = async (data: FormData) => {
     <div className="flex min-h-screen flex-col bg-muted/20">
       <Navbar />
 
-      <div className="container mx-auto flex-1 px-4 py-12">
+      <div className="container mx-auto flex-1 px-4 pt-36 pb-16">
         <Card className="mx-auto max-w-xl shadow-lg">
           <CardHeader>
             <CardTitle className="text-center text-2xl font-bold">

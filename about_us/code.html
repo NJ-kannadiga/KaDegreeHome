@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About KA Degree - Intellectual Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "deep-forest": "#1B261A",
+                        "surface-container": "#f0eded",
+                        "surface-tint": "#5f5e59",
+                        "dark-charcoal": "#1A1A1A",
+                        "on-primary-fixed": "#1c1c18",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary-fixed-variant": "#3e4a3c",
+                        "on-primary-fixed-variant": "#474742",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf9f8",
+                        "surface-container-low": "#f6f3f2",
+                        "surface": "#fcf9f8",
+                        "on-surface": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#e5e2db",
+                        "tertiary-fixed-dim": "#bdcab8",
+                        "on-tertiary-container": "#647161",
+                        "on-surface-variant": "#474740",
+                        "surface-variant": "#e5e2e1",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-highest": "#e5e2e1",
+                        "inverse-primary": "#c9c6c0",
+                        "on-primary-container": "#6f6d68",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#e8f5e2",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "warm-ivory": "#F4F1EA",
+                        "inverse-surface": "#313030",
+                        "on-secondary-fixed": "#3d0506",
+                        "secondary": "#954742",
+                        "primary-fixed-dim": "#c9c6c0",
+                        "tertiary-fixed": "#d9e6d4",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#77302d",
+                        "on-background": "#1c1b1b",
+                        "outline": "#787770",
+                        "primary-container": "#f4f1ea",
+                        "outline-variant": "#c8c7be",
+                        "deep-wine": "#4A0E0E",
+                        "secondary-fixed": "#ffdad7",
+                        "secondary-container": "#fe9b94",
+                        "on-secondary-container": "#78302d",
+                        "primary": "#5f5e59",
+                        "on-tertiary-fixed": "#131e13",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#eae7e7",
+                        "surface-bright": "#fcf9f8",
+                        "secondary-fixed-dim": "#ffb3ad",
+                        "tertiary": "#556253"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "160px",
+                        "content-max-width": "1200px",
+                        "stack-sm": "12px",
+                        "gutter": "32px",
+                        "margin-mobile": "24px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "headline-md": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F4F1EA;
+        }
+        .layer-sticky {
+            position: sticky;
+            top: 0;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        .curved-bottom {
+            border-bottom-left-radius: 4rem;
+            border-bottom-right-radius: 4rem;
+        }
+        .curved-top {
+            border-top-left-radius: 4rem;
+            border-top-right-radius: 4rem;
+        }
+        /* Custom scrollbar to match architectural vibe */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4F1EA; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4A0E0E; 
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface antialiased selection:bg-deep-wine selection:text-warm-ivory">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-on-surface/10 transition-colors duration-300 group" id="main-nav">
+<div class="flex justify-between items-center px-gutter py-4 max-w-content-max-width mx-auto">
+<a class="font-headline-sm text-headline-sm tracking-tighter text-deep-wine" href="#">KA Degree</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-deep-wine transition-colors duration-300" href="#">Home</a>
+<a class="font-label-caps text-label-caps text-deep-wine border-b-2 border-deep-wine pb-1 opacity-80 transition-opacity" href="#">About</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-deep-wine transition-colors duration-300" href="#">Internship</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-deep-wine transition-colors duration-300" href="#">Programs</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-deep-wine transition-colors duration-300" href="#">Blog</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-deep-wine transition-colors duration-300" href="#">Contact</a>
+</div>
+<button class="hidden md:block bg-deep-wine text-warm-ivory font-label-caps text-label-caps px-6 py-3 rounded hover:bg-dark-charcoal transition-colors">
+                Enroll Now
+            </button>
+<!-- Mobile menu button -->
+<button class="md:hidden text-deep-wine">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<!-- Layer 1: Warm Ivory - "Who We Are" -->
+<section class="layer-sticky z-[30] bg-warm-ivory text-dark-charcoal curved-bottom shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)]">
+<div class="max-w-content-max-width mx-auto px-gutter pt-32 pb-section-gap min-h-screen flex items-center">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-2 hidden md:block">
+<!-- Left Marginalia -->
+<div class="border-t border-dark-charcoal/10 pt-4">
+<span class="font-label-caps text-label-caps text-surface-tint">01 / OVERVIEW</span>
+<p class="mt-4 text-sm text-surface-tint">Establishing the foundation of modern architectural thought and rigorous academic pursuit since 2024.</p>
+</div>
+</div>
+<div class="md:col-span-8 flex flex-col gap-stack-lg">
+<div>
+<span class="font-label-caps text-label-caps text-deep-wine tracking-widest block mb-6">ABOUT KA DEGREE</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-dark-charcoal">
+                            Learning That <br/>
+<span class="italic text-deep-wine">Moves You Forward.</span>
+</h1>
+</div>
+<div class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+<p>We are a prestige academic institution dedicated to the profound exploration of structural theory and practical application. Our curriculum is designed not just to impart knowledge, but to forge the intellectual scaffolding necessary for building the future.</p>
+</div>
+<div class="border-l-2 border-deep-wine pl-6 my-8">
+<p class="font-body-lg text-body-lg italic text-dark-charcoal">
+                            "Education is not the filling of a pail, but the lighting of a structural fire."
+                        </p>
+</div>
+</div>
+<div class="md:col-span-2 flex justify-center md:justify-end">
+<!-- Right Asymmetric Image/Logo placement -->
+<div class="w-48 h-48 md:w-full md:h-auto border border-dark-charcoal/10 bg-surface-container-low p-4 rounded-sm rotate-2 hover:rotate-0 transition-transform duration-500">
+<img alt="KA Degree Logo" class="w-full h-full object-contain mix-blend-multiply" data-alt="A clean, minimalist architectural rendering of an academic crest or logo, emphasizing sharp lines, high contrast black and white with subtle gold accents, isolated on a pristine white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFCpSBnNFtJeQB8LRUjk0Hte52bnvg29odHaYd0XxqBoksLM81h3fyLA_ngmmE5cOdQiQBk27igzMr7h21FXiMVN0tiKxe8UbImIQkJCKMKlKd0_UT-4EIo5LIovD2viTT7wiFx43D60jN7EMEWv-gzPas4vn9D3BIjS-Tg5r7MQjShki7lOeW3tKJVjq2f4Kegj1juHsVDERY_haZZrjFGbj5cx2SBNgwUR_nZ9BcUgAGVD9NBKeIBlPtjUV6Ar7ldQ"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Layer 2: Deep Burgundy - "Meet Our Founders" -->
+<section class="layer-sticky z-[20] bg-deep-wine text-warm-ivory curved-bottom shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]">
+<div class="max-w-content-max-width mx-auto px-gutter pt-32 pb-section-gap min-h-screen">
+<div class="flex justify-between items-end border-b border-warm-ivory/20 pb-8 mb-16">
+<div>
+<span class="font-label-caps text-label-caps text-warm-ivory/60 mb-2 block">02 / LEADERSHIP</span>
+<h2 class="font-headline-md text-headline-md">Meet Our Founders</h2>
+</div>
+<div class="hidden md:block w-1/3 text-right">
+<p class="text-sm text-warm-ivory/70">Architects of academia, curating a space where rigorous thought meets practical innovation.</p>
+</div>
+</div>
+<!-- Asymmetric Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter relative">
+<!-- Supporting Portrait 1 -->
+<div class="md:col-span-3 md:mt-24 group">
+<div class="relative overflow-hidden border border-warm-ivory/10 aspect-[3/4]">
+<img alt="Founder Portrait 2" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.05]" data-alt="A professional headshot of an academic founder in a minimalist, well-lit studio setting. Crisp focus, high-end editorial lighting, slightly moody atmosphere with deep burgundy and soft ivory tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxtFh4y7Q2Y99Du7KZXtZyO3qdxEcdYYgnh7Xkd5Hq82l15gro_4zB8Wo2Q0GDptee1uyVD-1OiqoiAm_nmbkBrqegU26fCBjnzwRgBYIZsUlj2ErZ8wuCZsgG2R27LpH_H_Ig5HwFUn49SbUYufFecCKPi1mzXXNV2Oql9X7rKqCczm3TmqPb-eoXkJrsraup4897NhmTbE6mir42KUbfsxWZ0iRrLTmcanf48qZKLygFytI1d_FduezH1ywHhjfz0w"/>
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-dark-charcoal/80 to-transparent">
+<h3 class="font-headline-sm text-headline-sm">Gagan</h3>
+<p class="font-label-caps text-label-caps text-warm-ivory/70">CHO OF THE COMPANY</p>
+</div>
+</div>
+</div>
+<!-- Main Portrait -->
+<div class="md:col-span-6 z-10">
+<div class="relative overflow-hidden border-2 border-warm-ivory/20 aspect-[4/5] bg-dark-charcoal">
+<img alt="Lead Founder Portrait" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-[1.05]" data-alt="A striking, premium editorial portrait of the lead academic founder. Strong composition, utilizing chiaroscuro lighting, placing the subject against a deeply shadowed architectural background with warm light highlighting their features." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZpDGZZJAZOk5snYagmTNhcT50JroxykNI6Lj4B-EbEU6musuUY_HJ73vuj5hZlaC7UvXxvcx60rV4d6ddNieDanFBhVru0qvttEFOvXoFmAFoXlf5Ml1w_LtiirXd5d4bNYUaYJ9bwCX3x0g4X_IvaSSBAY4K7BNWMfocnl5mcJzT2psU1YCMYqqQ6v4bjO7etsOz9LHve-2o_EsoDWlWOYBiFQ0vX8cVJwYXruGAz1jI0sAzpxeNJSdn2FF5AbaLeA"/>
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-dark-charcoal/90 to-transparent">
+<h3 class="font-display-lg-mobile text-display-lg-mobile text-warm-ivory mb-2">Guru</h3>
+<p class="font-label-caps text-label-caps text-warm-ivory/70 tracking-widest">CEO OF THE COMPANY</p>
+</div>
+</div>
+</div>
+<!-- Supporting Portrait 2 -->
+<div class="md:col-span-3 md:mt-48 group">
+<div class="relative overflow-hidden border border-warm-ivory/10 aspect-[3/4]">
+<img alt="Founder Portrait 3" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.05]" data-alt="A sophisticated editorial headshot of a co-founder in an academic environment. Soft natural light, sharp focus on the subject, shallow depth of field, with a color palette emphasizing deep reds and neutral grays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBweoCk382deVHJnQBIyXEcXOKNP3c9RdBM9ahR1hjvn0anMFe1Ccj1lE5IKiuJn8jCPX-wWbIjqOcEuKTBjR8QrTTFRrUwEK6iafa5SMeJaMHu10TIE5IwcvWU8mYVRAVhbOO1SPOdoCx-cOrbn1Uoz1NvWr42_gRgtY_1skDJDYEiOJDsi_1CtbxYh5htU1QwqRoWq1B9ceKGGVnBIWnaUnJWRz-tLrvBB8Khd_gJdB_3mCKvSLBDc8jKR55jmaDa9Q"/>
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-dark-charcoal/80 to-transparent">
+<h3 class="font-headline-sm text-headline-sm">Nithin Kumar</h3>
+<p class="font-label-caps text-label-caps text-warm-ivory/70">CTO OF THE COMPANY</p>
+</div>
+</div>
+</div>
+
+      <!-- =========================================
+          LAYER 3: DEEP FOREST (Base Layer)
+          ========================================= -->
+      <div class="absolute inset-0 z-10 w-full h-full bg-deep-forest text-warm-ivory">
+        <div class="w-full h-full overflow-y-auto pt-32 pb-section-gap px-gutter">
+          <div class="min-h-full flex flex-col max-w-content-max-width mx-auto w-full">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-24">
+              <div class="md:col-span-4">
+                <span class="font-label-caps text-label-caps text-tertiary-fixed-dim mb-2 block">03 / IDEOLOGY</span>
+                <h2 class="font-headline-md text-headline-md text-warm-ivory">What Drives Us</h2>
+              </div>
+              <div class="md:col-span-8">
+                <p class="font-body-lg text-body-lg text-warm-ivory/80 leading-relaxed border-l border-warm-ivory/20 pl-8">
+                  We are driven by the conviction that rigorous theoretical understanding must be married to exceptional practical execution. Our ideology is rooted in the timeless principles of structure, clarity, and permanence.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+              <div class="border-t border-warm-ivory/20 pt-6">
+                <span class="font-label-caps text-label-caps text-tertiary-fixed-dim block mb-4">01. RIGOR</span>
+                <h4 class="font-headline-sm text-headline-sm mb-3">Academic Intensity</h4>
+                <p class="text-sm text-warm-ivory/60">Demanding excellence in every pursuit, pushing the boundaries of conventional thought.</p>
+              </div>
+              <div class="border-t border-warm-ivory/20 pt-6">
+                <span class="font-label-caps text-label-caps text-tertiary-fixed-dim block mb-4">02. STRUCTURE</span>
+                <h4 class="font-headline-sm text-headline-sm mb-3">Architectural Logic</h4>
+                <p class="text-sm text-warm-ivory/60">Building knowledge on a solid, unshakeable foundation of first principles.</p>
+              </div>
+              <div class="border-t border-warm-ivory/20 pt-6">
+                <span class="font-label-caps text-label-caps text-tertiary-fixed-dim block mb-4">03. PRAXIS</span>
+                <h4 class="font-headline-sm text-headline-sm mb-3">Applied Wisdom</h4>
+                <p class="text-sm text-warm-ivory/60">Translating high theory into tangible, world-altering execution.</p>
+              </div>
+            </div>
+
+            <!-- CTA Area -->
+            <div class="mt-auto text-center border border-warm-ivory/10 p-16 bg-black/20">
+              <h3 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8">Ready to Build Your Future?</h3>
+              <a href="#">
+                <button class="bg-warm-ivory text-deep-forest font-label-caps text-label-caps px-8 py-4 rounded-sm hover:bg-deep-wine hover:text-warm-ivory transition-all duration-300 border border-transparent hover:border-warm-ivory">
+                    Begin Your Application
+                </button>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================
+          LAYER 2: BURGUNDY (Middle Layer)
+          ========================================= -->
+      <div id="layer2" class="absolute inset-0 z-20 w-full h-full bg-deep-wine text-warm-ivory rounded-b-[4rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] overflow-hidden transition-transform duration-0">
+        <div class="w-full h-full overflow-y-auto px-gutter pt-32 pb-section-gap">
+          <div class="max-w-content-max-width mx-auto min-h-full flex flex-col justify-center">
+            
+            <div class="flex justify-between items-end border-b border-warm-ivory/20 pb-8 mb-16">
+              <div>
+                <span class="font-label-caps text-label-caps text-warm-ivory/60 mb-2 block">02 / LEADERSHIP</span>
+                <h2 class="font-headline-md text-headline-md">Meet Our Founders</h2>
+              </div>
+              <div class="hidden md:block w-1/3 text-right">
+                <p class="text-sm text-warm-ivory/70">Architects of academia, curating a space where rigorous thought meets practical innovation.</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter relative">
+              
+              <!-- Founder 1 -->
+              <div class="md:col-span-3 md:mt-24 group">
+                <div class="relative overflow-hidden border border-warm-ivory/10 aspect-[3/4]">
+                  <img alt="Dr. Arvind Sharma" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.05]" data-alt="A professional headshot of an academic founder in a minimalist, well-lit studio setting. Crisp focus, high-end editorial lighting, slightly moody atmosphere with deep burgundy and soft ivory tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxtFh4y7Q2Y99Du7KZXtZyO3qdxEcdYYgnh7Xkd5Hq82l15gro_4zB8Wo2Q0GDptee1uyVD-1OiqoiAm_nmbkBrqegU26fCBjnzwRgBYIZsUlj2ErZ8wuCZsgG2R27LpH_H_Ig5HwFUn49SbUYufFecCKPi1mzXXNV2Oql9X7rKqCczm3TmqPb-eoXkJrsraup4897NhmTbE6mir42KUbfsxWZ0iRrLTmcanf48qZKLygFytI1d_FduezH1ywHhjfz0w"/>
+                  <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-dark-charcoal/80 to-transparent">
+                    <h3 class="font-headline-sm text-headline-sm">Dr. A. Verma</h3>
+                    <p class="font-label-caps text-label-caps text-warm-ivory/70">Dean of Theory</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Founder 2 -->
+              <div class="md:col-span-6 z-10">
+                <div class="relative overflow-hidden border-2 border-warm-ivory/20 aspect-[4/5] bg-dark-charcoal">
+                  <img alt="Karthik Iyer" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-[1.05]" data-alt="A striking, premium editorial portrait of the lead academic founder. Strong composition, utilizing chiaroscuro lighting, placing the subject against a deeply shadowed architectural background with warm light highlighting their features." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZpDGZZJAZOk5snYagmTNhcT50JroxykNI6Lj4B-EbEU6musuUY_HJ73vuj5hZlaC7UvXxvcx60rV4d6ddNieDanFBhVru0qvttEFOvXoFmAFoXlf5Ml1w_LtiirXd5d4bNYUaYJ9bwCX3x0g4X_IvaSSBAY4K7BNWMfocnl5mcJzT2psU1YCMYqqQ6v4bjO7etsOz9LHve-2o_EsoDWlWOYBiFQ0vX8cVJwYXruGAz1jI0sAzpxeNJSdn2FF5AbaLeA"/>
+                  <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-dark-charcoal/90 to-transparent">
+                    <h3 class="font-display-lg-mobile text-display-lg-mobile text-warm-ivory mb-2">Prof. K. Aris</h3>
+                    <p class="font-label-caps text-label-caps text-warm-ivory/70 tracking-widest">Principal Founder &amp; Visionary</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Founder 3 -->
+              <div class="md:col-span-3 md:mt-48 group">
+                <div class="relative overflow-hidden border border-warm-ivory/10 aspect-[3/4]">
+                  <img alt="Rahul Desai" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.05]" data-alt="A sophisticated editorial headshot of a co-founder in an academic environment. Soft natural light, sharp focus on the subject, shallow depth of field, with a color palette emphasizing deep reds and neutral grays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBweoCk382deVHJnQBIyXEcXOKNP3c9RdBM9ahR1hjvn0anMFe1Ccj1lE5IKiuJn8jCPX-wWbIjqOcEuKTBjR8QrTTFRrUwEK6iafa5SMeJaMHu10TIE5IwcvWU8mYVRAVhbOO1SPOdoCx-cOrbn1Uoz1NvWr42_gRgtY_1skDJDYEiOJDsi_1CtbxYh5htU1QwqRoWq1B9ceKGGVnBIWnaUnJWRz-tLrvBB8Khd_gJdB_3mCKvSLBDc8jKR55jmaDa9Q"/>
+                  <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-dark-charcoal/80 to-transparent">
+                    <h3 class="font-headline-sm text-headline-sm">S. Mehta, M.Arch</h3>
+                    <p class="font-label-caps text-label-caps text-warm-ivory/70">Head of Praxis</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================
+          LAYER 1: WARM IVORY (Top Layer)
+          ========================================= -->
+      <div id="layer1" class="absolute inset-0 z-30 w-full h-full bg-warm-ivory text-dark-charcoal rounded-b-[4rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] overflow-hidden transition-transform duration-0">
+        <div class="w-full h-full overflow-y-auto px-gutter pt-32 pb-section-gap">
+          <div class="max-w-content-max-width mx-auto min-h-full flex flex-col justify-center">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center my-auto"><button class="bg-warm-ivory text-deep-forest font-label-caps text-label-caps px-8 py-4 rounded-sm hover:bg-deep-wine hover:text-warm-ivory transition-all duration-300 border border-transparent hover:border-warm-ivory">
+                    Begin Your Application
+                </button>
+</div>
+</div>
+<!-- Shared Footer Component -->
+<footer class="w-full bg-deep-forest dark:bg-black mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start px-gutter py-stack-lg max-w-content-max-width mx-auto gap-stack-md border-t border-warm-ivory/10">
+<div class="font-headline-md text-headline-md text-warm-ivory">
+                    KA Degree
+                </div>
+<div class="flex flex-col md:flex-row gap-8">
+<a class="font-body-md text-body-md text-surface-variant/70 hover:text-warm-ivory transition-all" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-surface-variant/70 hover:text-warm-ivory transition-all" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-surface-variant/70 hover:text-warm-ivory transition-all" href="#">Academic Integrity</a>
+<a class="font-body-md text-body-md text-surface-variant/70 hover:text-warm-ivory transition-all" href="#">Archive</a>
+</div>
+<div class="font-body-md text-body-md text-warm-ivory/50 text-sm">
+                    © 2024 KA Degree. Intellectual Excellence in Architecture &amp; Thought.
+                </div>
+</div>
+</footer>
+</section>
+<script>
+        // Optional vanilla JS to toggle nav background opacity based on scroll for that premium feel
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body></html>

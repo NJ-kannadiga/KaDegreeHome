@@ -5,7 +5,7 @@ export default function Privacy() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <div className="container mx-auto px-4 py-16 md:px-6 max-w-4xl">
+      <div className="container mx-auto px-4 pt-36 pb-16 md:px-6 max-w-4xl">
         <h1 className="font-serif text-4xl font-bold mb-8 text-primary">Privacy Policy & Refund Info</h1>
         
         <div className="prose prose-slate max-w-none space-y-8">
