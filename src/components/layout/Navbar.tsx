@@ -137,13 +137,20 @@ export function Navbar() {
                 </Link>
               </motion.div>
 
-              {/* Right: Hamburger Toggle Button */}
+              {/* Right: Apply Now button & Hamburger Toggle Button */}
               <motion.div
                 initial={{ opacity: 0, x: 12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="flex items-center gap-2.5 sm:gap-3"
               >
+                <Link href="/apply">
+                  <a className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[6px] bg-[#5A0B2E] hover:bg-[#3B071F] text-white text-xs font-serif font-bold transition-all shadow-sm">
+                    <span>Apply Now</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </Link>
+
                 <button
                   type="button"
                   onClick={() => setIsOpen(!isOpen)}
@@ -230,22 +237,12 @@ export function Navbar() {
                       duration: 0.4,
                       ease: "easeOut",
                     }}
-                    className="pt-4 border-t border-[#DED5CC] space-y-2.5"
+                    className="pt-4 border-t border-[#DED5CC]"
                   >
-                    <Link href="/apply">
-                      <a
-                        onClick={() => setIsOpen(false)}
-                        className="w-full py-3.5 sm:py-4 px-6 rounded-[8px] bg-[#5A0B2E] text-white font-serif font-bold text-base sm:text-lg flex items-center justify-between hover:bg-[#3B071F] transition-all duration-200 shadow-sm hover:shadow-md group"
-                      >
-                        <span>Apply Now</span>
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
-                      </a>
-                    </Link>
-
                     <Link href="/contact-us">
                       <a
                         onClick={() => setIsOpen(false)}
-                        className="w-full py-2.5 px-6 rounded-[8px] bg-transparent border border-[#DED5CC] text-[#171417] font-serif font-semibold text-sm sm:text-base flex items-center justify-between hover:bg-[#F0EAE1] transition-all duration-200"
+                        className="w-full py-3 px-6 rounded-[8px] bg-transparent border border-[#DED5CC] text-[#171417] font-serif font-semibold text-sm sm:text-base flex items-center justify-between hover:bg-[#F0EAE1] transition-all duration-200"
                       >
                         <span>Talk to Us</span>
                         <ArrowRight className="w-4 h-4" />
