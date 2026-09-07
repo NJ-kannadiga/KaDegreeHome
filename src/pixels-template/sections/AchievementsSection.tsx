@@ -4,15 +4,17 @@ import { useEffect, useRef, useState } from "react";
 
 function AnimatedCounter({ value, label }: { value: number, label: string }) {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const [count, setCount] = useState(0);
+    const isInView = useInView(ref, { once: true, margin: "-10px" });
+    const [count, setCount] = useState(value);
+    const [hasStarted, setHasStarted] = useState(false);
 
     useEffect(() => {
-        if (isInView) {
+        if (isInView && !hasStarted) {
+            setHasStarted(true);
             let start = 0;
             const end = value;
-            const duration = 2000; // 2 seconds
-            const increment = end / (duration / 16); // 60 FPS
+            const duration = 1500;
+            const increment = end / (duration / 16);
 
             const timer = setInterval(() => {
                 start += increment;
@@ -26,7 +28,7 @@ function AnimatedCounter({ value, label }: { value: number, label: string }) {
 
             return () => clearInterval(timer);
         }
-    }, [isInView, value]);
+    }, [isInView, value, hasStarted]);
 
     return (
         <div ref={ref} className="flex flex-col items-center justify-center p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md relative overflow-hidden group">

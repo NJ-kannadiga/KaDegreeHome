@@ -40,11 +40,11 @@ const S = {
 const easeCurve: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 1, y: 0 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: easeCurve },
+    transition: { duration: 0.3, delay: 0, ease: easeCurve },
   }),
 };
 
@@ -194,10 +194,13 @@ export default function Courses() {
                       </div>
                     </div>
 
-                    {/* Program Degree & Year Tag */}
-                    <div className="absolute bottom-3 left-4 text-white flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold tracking-wider text-white/90 bg-black/40 px-2 py-0.5 rounded backdrop-blur-sm">
+                    {/* Program Degree & Year Tag + Terminal Motif Badge */}
+                    <div className="absolute bottom-3 left-4 right-4 text-white flex items-center justify-between gap-2">
+                      <span className="font-mono text-xs font-bold tracking-wider text-white/90 bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">
                         {program.degree} • {program.year}
+                      </span>
+                      <span className="font-mono text-[10px] font-semibold text-emerald-300 bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm flex items-center gap-1 border border-emerald-500/30">
+                        <CheckCircle2 className="w-3 h-3 text-emerald-400" /> compiled ✓
                       </span>
                     </div>
                   </div>
@@ -223,13 +226,13 @@ export default function Courses() {
                         {program.techStack.slice(0, 4).map((tech, techIdx) => (
                           <span
                             key={techIdx}
-                            className="px-2.5 py-1 rounded-md bg-[#F7F4EE] border border-[#DDD7CC] text-[11px] font-medium text-[#171717]"
+                            className="px-2.5 py-1 rounded-md bg-[#F7F4EE] border border-[#DDD7CC] text-[11px] font-mono font-medium text-[#171717]"
                           >
                             {tech}
                           </span>
                         ))}
                         {program.techStack.length > 4 && (
-                          <span className="px-2 py-1 rounded-md bg-[#F7F4EE] text-[11px] font-medium text-[#6B1830]">
+                          <span className="px-2 py-1 rounded-md bg-[#F7F4EE] text-[11px] font-mono font-medium text-[#6B1830]">
                             +{program.techStack.length - 4} more
                           </span>
                         )}
@@ -248,11 +251,12 @@ export default function Courses() {
 
                     {/* Action CTA Button */}
                     <div className="pt-4 border-t border-[#DDD7CC] flex gap-2">
-                      <Link href={`/apply?program=${encodeURIComponent(program.title)}`}>
-                        <a className="flex-1 py-3 px-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-serif font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:shadow-md">
-                          <span>Apply Now</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </a>
+                      <Link
+                        href={`/apply?program=${encodeURIComponent(program.title)}`}
+                        className="flex-1 py-3 px-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-serif font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:shadow-md"
+                      >
+                        <span>Apply Now</span>
+                        <ArrowRight className="w-4 h-4" />
                       </Link>
                     </div>
 
@@ -265,10 +269,11 @@ export default function Courses() {
           {/* Bottom Guidance Note */}
           <div className="mt-16 text-center text-sm text-[#6B6464]">
             <span>Need advice on selecting the right path for your background? </span>
-            <Link href="/contact-us">
-              <a className="font-bold text-[#6B1830] underline hover:text-[#8B2945]">
-                Speak directly with an Academic Counselor →
-              </a>
+            <Link
+              href="/contact-us"
+              className="font-bold text-[#6B1830] underline hover:text-[#8B2945]"
+            >
+              Speak directly with an Academic Counselor →
             </Link>
           </div>
 

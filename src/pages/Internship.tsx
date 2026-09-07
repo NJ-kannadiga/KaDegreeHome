@@ -96,14 +96,15 @@ function Reveal({
   );
 }
 
-// Interactive Number Counter
 function AnimatedCounter({ end, suffix = "", duration = 1.5 }: { end: number; suffix?: string; duration?: number }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
+  const inView = useInView(ref, { once: true, margin: "-10px" });
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || hasStarted) return;
+    setHasStarted(true);
     let start = 0;
     const stepTime = 20;
     const totalSteps = (duration * 1000) / stepTime;
@@ -120,7 +121,7 @@ function AnimatedCounter({ end, suffix = "", duration = 1.5 }: { end: number; su
     }, stepTime);
 
     return () => clearInterval(timer);
-  }, [inView, end, duration]);
+  }, [inView, end, duration, hasStarted]);
 
   return (
     <span ref={ref}>
@@ -640,6 +641,46 @@ export default function Internship() {
         </div>
       </section>
 
+      {/* Sticky In-Page Sub-Navigation Anchor Menu */}
+      <div className="sticky top-20 z-40 bg-[#F8F3EC]/95 backdrop-blur-md border-y border-[#DED5CC] py-3 px-4 shadow-xs">
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 sm:gap-6 overflow-x-auto text-xs font-mono font-bold uppercase text-[#6B6464] whitespace-nowrap">
+          <button
+            onClick={() => document.getElementById("architecture")?.scrollIntoView({ behavior: "smooth" })}
+            className="hover:text-[#5A0B2E] transition-colors cursor-pointer"
+          >
+            01. Architecture
+          </button>
+          <span className="text-[#DED5CC]">•</span>
+          <button
+            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+            className="hover:text-[#5A0B2E] transition-colors cursor-pointer"
+          >
+            02. Projects
+          </button>
+          <span className="text-[#DED5CC]">•</span>
+          <button
+            onClick={() => document.getElementById("certification")?.scrollIntoView({ behavior: "smooth" })}
+            className="hover:text-[#5A0B2E] transition-colors cursor-pointer"
+          >
+            03. ISO Certificate
+          </button>
+          <span className="text-[#DED5CC]">•</span>
+          <button
+            onClick={() => document.getElementById("eligibility")?.scrollIntoView({ behavior: "smooth" })}
+            className="hover:text-[#5A0B2E] transition-colors cursor-pointer"
+          >
+            04. Eligibility
+          </button>
+          <span className="text-[#DED5CC]">•</span>
+          <button
+            onClick={() => document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" })}
+            className="hover:text-[#5A0B2E] transition-colors cursor-pointer"
+          >
+            05. Fees &amp; FAQ
+          </button>
+        </div>
+      </div>
+
       {/* ============================================================ */}
       {/* 3. SECTION 02 — INTERNSHIP SNAPSHOT                          */}
       {/* ============================================================ */}
@@ -877,7 +918,7 @@ export default function Internship() {
       {/* ============================================================ */}
       {/* 6. SECTION 05 — THE AI TECH STACK (Dark Architecture Section) */}
       {/* ============================================================ */}
-      <section className="py-24 md:py-32 bg-[#09120E] text-[#F8F3EC] border-b border-[#22332B] relative overflow-hidden">
+      <section id="architecture" className="py-24 md:py-32 bg-[#09120E] text-[#F8F3EC] border-b border-[#22332B] relative overflow-hidden">
         
         {/* Subtle matrix-like grid background */}
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#5cdbb5_1px,transparent_1px)] [background-size:28px_28px]" />
@@ -1012,7 +1053,7 @@ export default function Internship() {
       {/* ============================================================ */}
       {/* 7. SECTION 06 — PROJECTS (Horizontal Storytelling Slider)    */}
       {/* ============================================================ */}
-      <section className="py-24 md:py-32 border-b border-[#DED5CC] bg-[#F8F3EC]">
+      <section id="projects" className="py-24 md:py-32 border-b border-[#DED5CC] bg-[#F8F3EC]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           {/* Header & Controls */}
@@ -1375,7 +1416,7 @@ export default function Internship() {
       {/* ============================================================ */}
       {/* 10. SECTION 09 — CERTIFICATION                               */}
       {/* ============================================================ */}
-      <section className="py-24 md:py-32 border-b border-[#DED5CC] bg-[#F8F3EC] relative overflow-hidden">
+      <section id="certification" className="py-24 md:py-32 border-b border-[#DED5CC] bg-[#F8F3EC] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -1597,7 +1638,7 @@ export default function Internship() {
       {/* ============================================================ */}
       {/* 12. SECTION 11 — WHO CAN APPLY                               */}
       {/* ============================================================ */}
-      <section className="py-24 md:py-32 border-b border-[#DED5CC] bg-[#F8F3EC]">
+      <section id="eligibility" className="py-24 md:py-32 border-b border-[#DED5CC] bg-[#F8F3EC]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           
           <Reveal>
@@ -1652,7 +1693,7 @@ export default function Internship() {
       {/* ============================================================ */}
       {/* 13. SECTION 12 — FAQ (Premium Accordion)                     */}
       {/* ============================================================ */}
-      <section className="py-24 md:py-32 border-b border-[#DED5CC] bg-white">
+      <section id="faq" className="py-24 md:py-32 border-b border-[#DED5CC] bg-[#F8F3EC]">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           
           <div className="text-center space-y-3 mb-16">

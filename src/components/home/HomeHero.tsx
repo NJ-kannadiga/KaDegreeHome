@@ -5,21 +5,21 @@ import heroImg from "@assets/hero_ai_business.jpg";
 
 export function HomeHero() {
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+      transition: { staggerChildren: 0.05, delayChildren: 0 },
     },
   };
 
   const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 1, y: 0 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: easeOut },
+      transition: { duration: 0.3, ease: easeOut },
     },
   };
 

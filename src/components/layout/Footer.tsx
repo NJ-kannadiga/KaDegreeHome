@@ -50,9 +50,9 @@ export function Footer() {
           <motion.div variants={itemVariants}>
             <h3 className="mb-4 font-serif text-lg font-semibold text-[#E2D4C3]">Legal</h3>
             <ul className="space-y-2 text-sm text-slate-300">
-              <li><Link href="/privacy-policy"><a className="transition-colors hover:text-white inline-block">Privacy Policy</a></Link></li>
-              <li><Link href="/refund-policy"><a className="transition-colors hover:text-white inline-block">Refund Policy</a></Link></li>
-              <li><Link href="/terms-of-service"><a className="transition-colors hover:text-white inline-block">Terms of Service</a></Link></li>
+              <li><Link href="/privacy-policy" className="transition-colors hover:text-white inline-block">Privacy Policy</Link></li>
+              <li><Link href="/refund-policy" className="transition-colors hover:text-white inline-block">Refund Policy</Link></li>
+              <li><Link href="/terms-of-service" className="transition-colors hover:text-white inline-block">Terms of Service</Link></li>
             </ul>
           </motion.div>
 
