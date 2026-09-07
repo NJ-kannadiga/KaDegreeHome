@@ -886,7 +886,12 @@ export default function Internship() {
 
             </div>
 
-          {/* ============================================================ */}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/* 5. SECTION 04 — UNIFIED PROJECT INTERNSHIP TRACK             */}
       {/* ============================================================ */}
       <section id="tracks" className="py-16 md:py-24 border-b border-[#DED5CC] bg-[#F8F3EC]">
@@ -908,10 +913,6 @@ export default function Internship() {
               </p>
             </Reveal>
           </div>
-        </div>
-      </section>
-          </div>
-
         </div>
       </section>
 
