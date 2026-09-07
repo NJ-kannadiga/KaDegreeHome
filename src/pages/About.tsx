@@ -467,7 +467,7 @@ export default function About() {
                   02 / LEADERSHIP
                 </span>
               </div>
-              <h2 className="font-serif text-[42px] md:text-[58px] leading-[1.04] font-bold tracking-[-0.01em]">
+              <h2 className="font-serif text-[42px] md:text-[58px] leading-[1.04] font-bold tracking-[-0.01em] text-[#F8F3EC]">
                 Meet Our Founders
               </h2>
             </div>
@@ -503,7 +503,7 @@ export default function About() {
               
               {
                 name: "Shilpa",
-                role: "CP",
+                role: "PM",
                 img: founderFemale,
                 delay: 0.4,
               },
@@ -600,7 +600,7 @@ export default function About() {
                 </motion.div>
                 <div className="overflow-hidden">
                   <motion.h2
-                    className="font-serif text-[40px] md:text-[54px] leading-[1.08] font-bold"
+                    className="font-serif text-[40px] md:text-[54px] leading-[1.08] font-bold text-[#F8F3EC]"
                     initial={{ y: 50, opacity: 0 }}
                     animate={ideologyInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                     transition={{ duration: 0.9, ease, delay: 0.18 }}
