@@ -483,26 +483,27 @@ export default function About() {
           >
             {[
               {
-                name: "Guru",
+                name: "Guru P",
                 role: "CEO",
-                img: founderCenter,
-                delay: 0.1,
-              },
-              {
-                name: "Nithin Kumar (NJ)",
-                role: "CTO",
-                img: founderRight,
-                delay: 0.2,
-              },
-              {
-                name: "Sachin",
-                role: "Academic Lead",
                 img: founderLeft,
                 delay: 0.3,
               },
               {
-                name: "Shilpa Ma'am",
-                role: "Program Director",
+                name: "Gagan S",
+                role: "CFO",
+                img: founderCenter,
+                delay: 0.1,
+              },
+              {
+                name: "Nithin N (NJ)",
+                role: "CTO",
+                img: founderRight,
+                delay: 0.2,
+              },
+              
+              {
+                name: "Shilpa",
+                role: "CP",
                 img: founderFemale,
                 delay: 0.4,
               },
