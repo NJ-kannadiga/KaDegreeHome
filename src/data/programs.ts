@@ -125,7 +125,7 @@ export const PROGRAMS: Program[] = [
     title: "AI Full Stack Developer — Placement Accelerator",
     short: "A targeted career placement program for final-year students and graduates focusing on advanced full stack development, DSA for interviews, mock technical rounds, and placement drives.",
     seats: { total: 15, filled: 9 },
-    fee: "Placement Support Model",
+    fee: "₹60,000 (Placement Support Model)",
     badge: "Placement-Ready",
     overview: {
       introduction: "Designed specifically for job seekers needing interview-ready skills. Includes structured technical interview prep, high-frequency DSA patterns, systemic mock interview rounds, and direct placement support.",
