@@ -94,24 +94,15 @@ import { testimonialsData } from "../../pixels-template/data/testimonial";
                 <CarouselItem key={index} className="pl-4 md:pl-6 basis-full md:basis-1/2 lg:basis-1/4">
                   <div className="hover-lift-card bg-[#FBF7F1] rounded-[16px] p-6 border border-dark-charcoal/5 shadow-[0_2px_15px_rgba(0,0,0,0.02)] h-full flex flex-col transition-all duration-300">
                     
-                    {/* Top: Profile */}
-                    <div className="flex items-center gap-3 mb-5">
-                      <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-black/5 bg-white">
-                        <img 
-                          src={testimonial.image} 
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-dark-charcoal text-[14px] leading-tight">{testimonial.name}</h4>
-                        <p className="text-[11px] text-dark-charcoal/60 font-medium mt-0.5">{testimonial.handle}</p>
-                      </div>
+                    {/* Top: Profile Header (No Photos) */}
+                    <div className="mb-4">
+                      <h4 className="font-bold text-dark-charcoal text-[16px] leading-tight">{testimonial.name}</h4>
+                      <p className="text-[11px] text-[#6B1830] font-bold mt-1 uppercase tracking-wider">{testimonial.handle}</p>
                     </div>
 
                     {/* Quote */}
                     <blockquote className="text-dark-charcoal/70 text-[13px] leading-[1.65] font-medium flex-1 mb-6">
-                      {testimonial.quote}
+                      "{testimonial.quote}"
                     </blockquote>
                     
                     {/* Bottom: Mentorship & Program Tag */}
