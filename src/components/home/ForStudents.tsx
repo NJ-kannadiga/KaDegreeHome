@@ -120,12 +120,14 @@ export function ForStudents() {
     },
   ];
 
+  const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
   const headerVariants = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 25 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.7, ease: easeOut },
     },
   };
 
@@ -137,7 +139,7 @@ export function ForStudents() {
       transition: {
         duration: 0.75,
         delay: shouldReduceMotion ? 0 : i * 0.12,
-        ease: [0.22, 1, 0.36, 1],
+        ease: easeOut,
       },
     }),
   };

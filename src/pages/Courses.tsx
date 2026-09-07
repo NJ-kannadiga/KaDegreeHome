@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SEO } from "@/components/layout/SEO";
+import { PROGRAMS, type Program } from "@/data/programs";
 import {
   ArrowRight,
   Sparkles,
@@ -13,6 +14,8 @@ import {
   Award,
   Users,
   CheckCircle2,
+  Layers,
+  GraduationCap,
 } from "lucide-react";
 
 // Existing images from the project
@@ -34,57 +37,42 @@ const S = {
   sans: '"Source Sans 3", system-ui, sans-serif',
 };
 
+const easeCurve: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, delay: i * 0.1, ease: easeCurve },
   }),
 };
 
+// Map program icons and images
+const programImages: Record<string, string> = {
+  "ai-fullstack-skill-upgrade": fullStackCardImg,
+  "ai-fullstack-placement-program": placementCardImg,
+  "bca-2": fullStackCardImg,
+  "paid-internship-bca-mca": placementCardImg,
+  "advanced-frontend-engineering": commerceCardImg,
+};
+
+const programIcons: Record<string, any> = {
+  "ai-fullstack-skill-upgrade": Code2,
+  "ai-fullstack-placement-program": Briefcase,
+  "bca-2": Layers,
+  "paid-internship-bca-mca": GraduationCap,
+  "advanced-frontend-engineering": TrendingUp,
+};
+
 export default function Courses() {
-  const programs = [
-    {
-      id: "01",
-      code: "01 — AI FULL STACK DEVELOPER PRO",
-      title: "AI Full Stack Developer Pro",
-      subtitle: "Python & JS Edition",
-      description:
-        "A future-ready program for students who want to build strong coding, full-stack and AI integration skills before entering the professional world.",
-      tags: ["AI", "Full Stack", "Projects", "Career"],
-      link: "/programs/ai-full-stack-developer",
-      image: fullStackCardImg,
-      badge: "Flagship Engineering Track",
-      icon: Code2,
-    },
-    {
-      id: "02",
-      code: "02 — PLACEMENT PREPARATION",
-      title: "Placement Preparation",
-      subtitle: "Interview & Career Ready",
-      description:
-        "Turn your preparation into interview confidence with structured coding, aptitude, technical and HR interview preparation.",
-      tags: ["Coding", "Aptitude", "Technical", "HR", "Mock Interviews"],
-      link: "/programs/placement-preparation",
-      image: placementCardImg,
-      badge: "Campus & Drive Accelerator",
-      icon: Briefcase,
-    },
-    {
-      id: "03",
-      code: "03 — AI FOR COMMERCE",
-      title: "AI for Commerce",
-      subtitle: "Data, Automation & Growth",
-      description:
-        "Discover how AI, data and automation are transforming modern businesses and creating new opportunities for commerce students.",
-      tags: ["AI", "Data", "Business", "Automation", "Analytics"],
-      link: "/programs/ai-for-commerce",
-      image: commerceCardImg,
-      badge: "Business Intelligence Track",
-      icon: TrendingUp,
-    },
-  ];
+  const [selectedDegree, setSelectedDegree] = useState<string>("All");
+
+  const degrees = ["All", "BCA", "MCA", "All Degrees"];
+
+  const filteredPrograms = selectedDegree === "All"
+    ? PROGRAMS
+    : PROGRAMS.filter((p) => p.degree.toLowerCase().includes(selectedDegree.toLowerCase()) || p.degree === "All Degrees");
 
   return (
     <div
@@ -97,8 +85,8 @@ export default function Courses() {
       className="overflow-x-hidden flex flex-col justify-between"
     >
       <SEO
-        title="Programs Built for Your Next Step | KA Degree"
-        description="Whether you want to build real-world technology, prepare for your first job, or understand how AI can transform business — choose the path that fits where you want to go."
+        title="Programs & Cohorts | KA Degree"
+        description="Whether you want to build real-world technology, prepare for your first job, or master AI full stack development — choose the path that fits your goals."
       />
 
       <Navbar />
@@ -106,10 +94,8 @@ export default function Courses() {
       <main className="flex-1 pt-36 sm:pt-40 md:pt-44 pb-24 md:pb-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           
-          {/* ═════════════════════════════════════════════════════
-              HERO SECTION
-              ═════════════════════════════════════════════════════ */}
-          <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          {/* HERO SECTION */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <motion.div
               initial="hidden"
               animate="visible"
@@ -137,100 +123,135 @@ export default function Courses() {
               animate="visible"
               variants={fadeUp}
               custom={2}
-              className="text-lg sm:text-xl text-[#6B6464] leading-relaxed"
+              className="text-lg sm:text-xl text-[#6B6464] leading-relaxed mb-8"
             >
-              Whether you want to build real-world technology, prepare for your first job, or understand how AI can transform business — choose the path that fits where you want to go.
+              Explore our mentor-led cohorts across AI Full Stack, Placement Accelerator, and Specialized Engineering tracks.
             </motion.p>
+
+            {/* Filter Pills */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              custom={3}
+              className="flex flex-wrap justify-center gap-2"
+            >
+              {degrees.map((deg) => (
+                <button
+                  key={deg}
+                  type="button"
+                  onClick={() => setSelectedDegree(deg)}
+                  className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
+                    selectedDegree === deg
+                      ? "bg-[#6B1830] text-white shadow-md"
+                      : "bg-[#FFFFFF] border border-[#DDD7CC] text-[#6B6464] hover:border-[#6B1830]"
+                  }`}
+                >
+                  {deg === "All" ? "All Programs" : deg}
+                </button>
+              ))}
+            </motion.div>
           </div>
 
-          {/* ═════════════════════════════════════════════════════
-              EXACTLY 3 MAIN PROGRAM CARDS
-              ═════════════════════════════════════════════════════ */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-            {programs.map((program, idx) => (
-              <motion.div
-                key={program.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.15 * idx, ease: [0.22, 1, 0.36, 1] }}
-                className="group flex flex-col bg-[#FFFFFF] rounded-3xl border border-[#DDD7CC] hover:border-[#6B1830] transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-sm overflow-hidden"
-              >
-                {/* Image Header with Hover Scale */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-[#EFEAE1] border-b border-[#DDD7CC]">
-                  <img
-                    src={program.image}
-                    alt={program.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                  
-                  {/* Top Badge */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-[#FFFFFF]/90 text-[#171717] backdrop-blur-sm border border-[#DDD7CC]">
-                      {program.badge}
-                    </span>
-                    <div className="w-8 h-8 rounded-full bg-[#6B1830] text-white flex items-center justify-center shadow-md">
-                      <program.icon className="w-4 h-4" />
-                    </div>
-                  </div>
+          {/* PROGRAM CARDS GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+            {filteredPrograms.map((program: Program, idx: number) => {
+              const IconComp = programIcons[program.id] || Code2;
+              const cardImg = programImages[program.id] || fullStackCardImg;
 
-                  {/* Program Number on Image */}
-                  <div className="absolute bottom-3 left-4 text-white">
-                    <span className="font-mono text-xs font-bold tracking-wider text-white/90">
-                      {program.code}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content Area */}
-                <div className="p-6 sm:p-8 flex flex-col flex-1 justify-between space-y-6">
-                  <div>
-                    {/* Subtitle */}
-                    {program.subtitle && (
-                      <span className="text-xs font-mono font-bold text-[#6B1830] uppercase tracking-wider block mb-2">
-                        {program.subtitle}
+              return (
+                <motion.div
+                  key={program.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 * idx, ease: easeCurve }}
+                  className="group flex flex-col bg-[#FFFFFF] rounded-3xl border border-[#DDD7CC] hover:border-[#6B1830] transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-sm overflow-hidden"
+                >
+                  {/* Image Header */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-[#EFEAE1] border-b border-[#DDD7CC]">
+                    <img
+                      src={cardImg}
+                      alt={program.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                    
+                    {/* Top Badge */}
+                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                      <span className="text-[11px] font-mono font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-[#FFFFFF]/90 text-[#171717] backdrop-blur-sm border border-[#DDD7CC]">
+                        {program.badge}
                       </span>
-                    )}
+                      <div className="w-8 h-8 rounded-full bg-[#6B1830] text-white flex items-center justify-center shadow-md">
+                        <IconComp className="w-4 h-4" />
+                      </div>
+                    </div>
 
-                    {/* Title */}
-                    <h2
-                      style={{ fontFamily: S.serif }}
-                      className="text-2xl sm:text-3xl font-bold text-[#171717] leading-tight mb-4 group-hover:text-[#6B1830] transition-colors"
-                    >
-                      {program.title}
-                    </h2>
-
-                    {/* Description */}
-                    <p className="text-sm sm:text-base text-[#6B6464] leading-relaxed mb-6">
-                      {program.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {program.tags.map((tag, tagIdx) => (
-                        <span
-                          key={tagIdx}
-                          className="px-3 py-1 rounded-md bg-[#F7F4EE] border border-[#DDD7CC] text-xs font-medium text-[#171717] group-hover:border-[#6B1830]/30 transition-colors"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    {/* Program Degree & Year Tag */}
+                    <div className="absolute bottom-3 left-4 text-white flex items-center gap-2">
+                      <span className="font-mono text-xs font-bold tracking-wider text-white/90 bg-black/40 px-2 py-0.5 rounded backdrop-blur-sm">
+                        {program.degree} • {program.year}
+                      </span>
                     </div>
                   </div>
 
-                  {/* Explore Button: Direct Page Navigation */}
-                  <div className="pt-6 border-t border-[#DDD7CC]">
-                    <Link href={program.link}>
-                      <a className="w-full py-4 px-6 rounded-xl bg-[#F7F4EE] hover:bg-[#6B1830] text-[#171717] hover:text-white font-serif font-bold text-base transition-all duration-300 border border-[#DDD7CC] hover:border-[#6B1830] flex items-center justify-between group/btn shadow-sm hover:shadow-md">
-                        <span>Explore Program</span>
-                        <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1.5 transition-transform" />
-                      </a>
-                    </Link>
-                  </div>
+                  {/* Content Area */}
+                  <div className="p-6 sm:p-8 flex flex-col flex-1 justify-between space-y-6">
+                    <div>
+                      {/* Title */}
+                      <h2
+                        style={{ fontFamily: S.serif }}
+                        className="text-2xl font-bold text-[#171717] leading-tight mb-3 group-hover:text-[#6B1830] transition-colors"
+                      >
+                        {program.title}
+                      </h2>
 
-                </div>
-              </motion.div>
-            ))}
+                      {/* Description */}
+                      <p className="text-sm text-[#6B6464] leading-relaxed mb-6">
+                        {program.short}
+                      </p>
+
+                      {/* Tech Stack Pills */}
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {program.techStack.slice(0, 4).map((tech, techIdx) => (
+                          <span
+                            key={techIdx}
+                            className="px-2.5 py-1 rounded-md bg-[#F7F4EE] border border-[#DDD7CC] text-[11px] font-medium text-[#171717]"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {program.techStack.length > 4 && (
+                          <span className="px-2 py-1 rounded-md bg-[#F7F4EE] text-[11px] font-medium text-[#6B1830]">
+                            +{program.techStack.length - 4} more
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Seats & Fee Row */}
+                      <div className="flex items-center justify-between pt-2 text-xs text-[#6B6464] border-t border-[#DDD7CC]/50">
+                        <span className="font-semibold text-[#171717]">
+                          Fee: <strong className="text-[#6B1830] font-bold">{program.fee}</strong>
+                        </span>
+                        <span>
+                          Seats: <strong className="text-[#171717]">{program.seats.filled}/{program.seats.total} Filled</strong>
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Action CTA Button */}
+                    <div className="pt-4 border-t border-[#DDD7CC] flex gap-2">
+                      <Link href={`/apply?program=${encodeURIComponent(program.title)}`}>
+                        <a className="flex-1 py-3 px-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-serif font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:shadow-md">
+                          <span>Apply Now</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </a>
+                      </Link>
+                    </div>
+
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Bottom Guidance Note */}
@@ -250,3 +271,4 @@ export default function Courses() {
     </div>
   );
 }
+

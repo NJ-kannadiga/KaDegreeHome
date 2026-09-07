@@ -9,7 +9,7 @@ import { CountUp } from '@/components/ui/CountUp';
 import heroImg from '@/assets/card_outsourcing.jpg';
 import teamImg from '@/assets/dm_human_stories.jpg';
 
-const easeOut = [0.22, 1, 0.36, 1];
+const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const Outsourcing: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);

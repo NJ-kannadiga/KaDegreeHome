@@ -21,6 +21,8 @@ import {
   MessageSquare,
 } from "lucide-react";
 
+import { PROGRAMS } from "@/data/programs";
+
 /* --- Design Tokens --- */
 const S = {
   mainBg: "#F7F4EE",
@@ -36,9 +38,10 @@ const S = {
 };
 
 const PROGRAMS_LIST = [
-  "AI Full Stack Developer Pro",
+  ...PROGRAMS.map((p) => p.title),
   "Placement Preparation",
   "AI for Commerce",
+  "AI Internship Program",
 ];
 
 export default function Apply() {
