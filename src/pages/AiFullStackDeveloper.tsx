@@ -169,7 +169,7 @@ export default function AiFullStackDeveloper() {
 
   const whoIsThisFor = [
     {
-      title: "College Students (BCA / MCA / B.Tech / BE)",
+      title: "College Students (BCA / MCA / B.E / B.Tech)",
       desc: "Move past dry textbook syllabus into real-world code that recruiters and startup founders look for in 2026.",
     },
     {

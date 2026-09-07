@@ -38,9 +38,7 @@ const S = {
 };
 
 const PROGRAMS_LIST = [
-  ...PROGRAMS.map((p) => p.title),
-  "Placement Preparation",
-  "AI for Commerce",
+  "AI Full Stack Developer",
   "AI Internship Program",
 ];
 
@@ -57,7 +55,7 @@ export default function Apply() {
     currentCourse: "",
     yearOfStudy: "",
     city: "",
-    selectedProgram: "AI Full Stack Developer Pro",
+    selectedProgram: "AI Full Stack Developer",
     message: "",
   });
 
@@ -349,7 +347,7 @@ export default function Apply() {
                       type="text"
                       name="currentCourse"
                       required
-                      placeholder="e.g. BCA / MCA / B.Com / B.Tech"
+                      placeholder="e.g. BCA / MCA / B.Com / B.E / B.Tech"
                       value={formData.currentCourse}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-[#DDD7CC] bg-[#F7F4EE] text-[#171717] focus:outline-none focus:border-[#6B1830] transition-colors"

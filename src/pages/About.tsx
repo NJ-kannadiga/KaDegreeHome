@@ -509,7 +509,7 @@ export default function About() {
                     Nithin Kumar
                   </p>
                   <p className="text-[10px] text-[#DED5CC]/55 tracking-[0.13em] mt-1 uppercase font-medium">
-                    CTO of the Company
+                    CTO
                   </p>
                 </div>
               </div>
@@ -547,7 +547,7 @@ export default function About() {
                       Guru
                     </p>
                     <p className="text-[10px] text-[#DED5CC]/60 tracking-[0.13em] mt-1 uppercase font-medium">
-                      CEO of the Company
+                      CEO
                     </p>
                   </div>
                 </motion.div>
@@ -565,7 +565,7 @@ export default function About() {
                 <div className="relative aspect-[3/4] overflow-hidden">
                   <img
                     src={founderRight}
-                    alt="Gagan – CHO"
+                    alt="Gagan – CFO"
                     className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A0E]/95 via-[#0A1A0E]/20 to-transparent" />
@@ -575,7 +575,7 @@ export default function About() {
                   <div className="h-[1px] w-8 bg-[#DED5CC]/35 mb-3" />
                   <p className="font-serif text-[17px] font-bold text-white leading-snug">Gagan</p>
                   <p className="text-[10px] text-[#DED5CC]/55 tracking-[0.13em] mt-1 uppercase font-medium">
-                    CHO of the Company
+                    CFO
                   </p>
                 </div>
               </div>

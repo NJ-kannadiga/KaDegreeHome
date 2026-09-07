@@ -224,95 +224,13 @@ export default function Internship() {
         body: urlEncodedData.toString(),
       }).catch((err) => console.error("Form submit warning:", err));
 
-      // 3. Compute payment amount
-      let baseAmount = paymentOption === 'custom' ? parseInt(customAmount || '0', 10) : parseInt(paymentOption, 10);
-      if (isNaN(baseAmount) || baseAmount < 1) baseAmount = 100;
-      let payAmount = baseAmount * 100; // in paise
-
-      let orderId = "";
-      let rzpKey = (import.meta as any).env?.VITE_RAZORPAY_KEY_ID || "rzp_live_TOQLi4q37NC4bn";
-
-      try {
-        const orderRes = await fetch(`${apiUrl}/api/payments/create-order`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            amount: payAmount,
-            currency: "INR",
-            name: nameVal,
-            email: emailVal,
-            phone: phoneVal,
-            degree: degreeVal,
-            college_year: collegeVal
-          })
-        });
-        if (orderRes.ok) {
-          const orderData = await orderRes.json();
-          orderId = orderData.order_id;
-          if (orderData.key_id) rzpKey = orderData.key_id;
-          if (orderData.amount) payAmount = orderData.amount;
-        }
-      } catch (err) {
-        console.warn("Falling back to direct checkout key", err);
-      }
-
-      // 4. Open Razorpay Checkout Modal
-      if (typeof (window as any).Razorpay !== "undefined") {
-        const options: any = {
-          key: rzpKey,
-          amount: payAmount,
-          currency: "INR",
-          name: "KA Degree",
-          description: `AI Internship Registration - ${selectedTrack}`,
-          image: logo,
-          prefill: {
-            name: nameVal,
-            email: emailVal,
-            contact: phoneVal,
-          },
-          notes: {
-            program: "AI Internship 2026",
-            track: selectedTrack,
-            degree: degreeVal,
-            college_year: collegeVal,
-          },
-          theme: {
-            color: "#5A0B2E",
-          },
-          handler: async function (response: any) {
-            try {
-              await fetch(`${apiUrl}/api/payments/verify`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  razorpay_order_id: response.razorpay_order_id,
-                  razorpay_payment_id: response.razorpay_payment_id,
-                  razorpay_signature: response.razorpay_signature,
-                }),
-              });
-            } catch (vErr) {
-              console.warn("Payment verification backend warning:", vErr);
-            }
-            setFormStatus('submitted');
-          },
-          modal: {
-            ondismiss: function () {
-              setFormStatus('idle');
-            },
-          },
-        };
-
-        if (orderId) options.order_id = orderId;
-        const rzp = new (window as any).Razorpay(options);
-        rzp.open();
-      } else {
-        setFormStatus('submitted');
-        window.location.href = "https://razorpay.com/payment-link/plink_STOoA4uUXQq2up";
-      }
+      // 3. Open direct Razorpay payment portal
+      setFormStatus('submitted');
+      window.open("https://razorpay.me/@kadegree", "_blank");
     } catch (error) {
       console.error("Submit failed", error);
       setFormStatus('submitted');
-      window.location.href = "https://razorpay.com/payment-link/plink_STOoA4uUXQq2up";
+      window.open("https://razorpay.me/@kadegree", "_blank");
     }
   };
 
@@ -480,7 +398,7 @@ export default function Internship() {
   const faqs = [
     {
       q: "Who is eligible for this internship?",
-      a: "This internship is open to all students and recent graduates from BCA, MCA, B.Tech, BE, and computer science-related backgrounds. If you have a laptop and a desire to build real systems, you can join."
+      a: "This internship is open to all students and recent graduates from BCA, MCA, B.E / B.Tech, and computer science-related backgrounds. If you have a laptop and a desire to build real systems, you can join."
     },
     {
       q: "Will I receive an internship certificate?",
@@ -927,128 +845,30 @@ export default function Internship() {
 
             </div>
 
-          </div>
-
-        </div>
-      </section>
-
+          {/* ============================================================ */}
+      {/* 5. SECTION 04 — UNIFIED PROJECT INTERNSHIP TRACK             */}
       {/* ============================================================ */}
-      {/* 5. SECTION 04 — SPECIALIZED TRACKS                           */}
-      {/* ============================================================ */}
-      <section id="tracks" className="py-24 md:py-32 border-b border-[#DED5CC] bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          
-          <div className="max-w-3xl space-y-4 mb-16">
+      <section id="tracks" className="py-16 md:py-24 border-b border-[#DED5CC] bg-[#F8F3EC]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
+          <div className="max-w-3xl mx-auto space-y-4">
             <Reveal>
               <span className="text-xs font-mono font-semibold text-[#5A0B2E] uppercase tracking-widest">
-                Section 04 / Academic Specializations
+                Unified Industry Track
               </span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#171417]">
-                Choose Your Starting Point.
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-[#171417]">
+                One Comprehensive Hands-On Project Track for All Students &amp; Graduates
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="text-lg text-[#6B6464] font-light leading-relaxed">
-                Focused internship paths designed around your academic background. Each track prepares you for relevant entry-level engineering roles.
+              <p className="text-base sm:text-lg text-[#6B6464] font-light leading-relaxed">
+                Whether you come from BCA, MCA, B.E / B.Tech, BSc Computer Science, or are pivoting your career into tech — every intern builds real production AI &amp; Full-Stack project modules with daily standups and mentor code reviews.
               </p>
             </Reveal>
           </div>
-
-          {/* Three Large Editorial Panels */}
-          <div className="grid lg:grid-cols-3 gap-8">
-            {[
-              {
-                num: "01",
-                degree: "BCA INTERNSHIP",
-                tagline: "Web technologies, client-side logic and database management.",
-                details: "Tailored for computer applications students. Build responsive web interfaces, learn REST API consumption, master SQL queries, and deploy production web dashboards.",
-                stack: ["React / Vite", "Tailwind CSS", "Node / Express", "PostgreSQL", "Git Workflows"],
-                img: bcaBgImg
-              },
-              {
-                num: "02",
-                degree: "MCA INTERNSHIP",
-                tagline: "Advanced backend architecture, application logic and full-stack development.",
-                details: "Designed for postgraduate candidates. Build complex microservices, scalable distributed caches, authentication middlewares, and modern full-stack enterprise systems.",
-                stack: ["Python FastAPI", "Docker", "Redis", "Distributed DBs", "Async Celery"],
-                img: mcaBgImg
-              },
-              {
-                num: "03",
-                degree: "ENGINEERING INTERNSHIP",
-                tagline: "Systems engineering, scalable applications and industry-grade architectures.",
-                details: "Geared toward B.Tech / BE computer science students. Delve into system design, LLM orchestration, GraphRAG retrieval pipelines, and high-throughput production services.",
-                stack: ["Neo4j", "PyTorch", "LangGraph", "Vector Stores", "Edge Vision"],
-                img: engBgImg
-              }
-            ].map((track, i) => (
-              <Reveal key={track.num} delay={i * 0.15}>
-                <div
-                  onClick={() => openRegisterModal(track.degree)}
-                  className="group cursor-pointer rounded-2xl border border-[#DED5CC] bg-[#F8F3EC] overflow-hidden flex flex-col justify-between hover:border-[#5A0B2E] hover:-translate-y-1.5 transition-all duration-300 shadow-sm hover:shadow-lg"
-                >
-                  {/* Top Image Preview with Subtle Zoom */}
-                  <div className="relative h-60 overflow-hidden bg-stone-900 border-b border-[#DED5CC]">
-                    <img
-                      src={track.img}
-                      alt={track.degree}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-90"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#171417]/80 via-transparent to-transparent" />
-                    
-                    {/* Badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-mono font-bold text-[#5A0B2E]">
-                        TRACK {track.num}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="font-serif text-2xl font-bold text-white tracking-tight">
-                        {track.degree}
-                      </h3>
-                    </div>
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
-                    <div className="space-y-3">
-                      <p className="text-sm font-semibold text-[#5A0B2E]">
-                        {track.tagline}
-                      </p>
-                      <p className="text-sm text-[#6B6464] leading-relaxed">
-                        {track.details}
-                      </p>
-                    </div>
-
-                    {/* Tech Stack Chips */}
-                    <div>
-                      <div className="text-[11px] font-mono text-[#6B6464] uppercase tracking-wider mb-2">
-                        Technologies Mastered:
-                      </div>
-                      <div className="flex flex-wrap gap-1.5">
-                        {track.stack.map((t) => (
-                          <span
-                            key={t}
-                            className="px-2.5 py-1 rounded bg-white border border-[#DED5CC] text-xs font-mono text-[#171417]"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Bottom Action Strip */}
-                    <div className="pt-4 border-t border-[#DED5CC]/80 flex items-center justify-between text-sm font-bold text-[#5A0B2E]">
-                      <span className="group-hover:underline">Explore Track Details</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+        </div>
+      </section>
           </div>
 
         </div>
@@ -1583,7 +1403,7 @@ export default function Internship() {
               <Reveal delay={0.3}>
                 <div className="space-y-4 pt-2">
                   {[
-                    "Officially recognized ISO Certification Standard credential",
+                    "ISO Certification Standard Credential",
                     "Unique QR code verification identifier linking to your project record",
                     "Clear breakdown of modules completed and engineering technologies mastered",
                     "Ready to upload on LinkedIn, GitHub, and academic credit submissions"
@@ -2172,12 +1992,12 @@ export default function Internship() {
                         </label>
                         <select
                           name={ENTRY_IDS.DEGREE}
-                          defaultValue={selectedTrack.includes("BCA") ? "BCA" : selectedTrack.includes("MCA") ? "MCA" : "B.Tech/BE"}
+                          defaultValue={selectedTrack.includes("BCA") ? "BCA" : selectedTrack.includes("MCA") ? "MCA" : "B.E / B.Tech"}
                           className="w-full h-11 px-3 rounded-xl border border-[#DED5CC] bg-white text-sm text-[#171417] focus:outline-none focus:border-[#5A0B2E]"
                         >
                           <option value="BCA">BCA</option>
                           <option value="MCA">MCA</option>
-                          <option value="B.Tech/BE">B.Tech / BE</option>
+                          <option value="B.E / B.Tech">B.E / B.Tech</option>
                           <option value="B.Sc CS">B.Sc Computer Science</option>
                           <option value="Other">Other Graduate</option>
                         </select>
@@ -2241,8 +2061,8 @@ export default function Internship() {
                       )}
                     </div>
 
-                    <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-[11px] text-amber-800 leading-snug">
-                      <strong>Secure Booking:</strong> Clicking below opens the official Razorpay gateway. Upon successful transaction, your slot in the 2026 cohort is confirmed.
+                    <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 leading-relaxed font-sans">
+                      <strong>Payment Notice:</strong> You can make an advance payment here, or pay your remaining balance by entering the amount.
                     </div>
 
                     <button
@@ -2250,8 +2070,8 @@ export default function Internship() {
                       disabled={formStatus === 'submitting'}
                       className="w-full h-12 rounded-full bg-[#5A0B2E] text-white font-bold text-sm hover:bg-[#3B071F] transition-all flex items-center justify-center gap-2 shadow-md"
                     >
-                      {formStatus === 'submitting' ? 'Redirecting to Payment...' : 'Proceed to Book Slot'}
-                      <Lock className="w-4 h-4" />
+                      {formStatus === 'submitting' ? 'Opening Payment Portal...' : 'Proceed to Advance / Balance Payment →'}
+                      <ExternalLink className="w-4 h-4" />
                     </button>
                   </div>
                 </form>
