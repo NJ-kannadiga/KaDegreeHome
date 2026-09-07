@@ -114,30 +114,14 @@ import { testimonialsData } from "../../pixels-template/data/testimonial";
                       {testimonial.quote}
                     </blockquote>
                     
-                    {/* Bottom: Company */}
-                    <div className="mt-auto pt-4 border-t border-[#E5DCD2]">
-                      <p className="text-[9px] text-[#6B625F] font-bold uppercase tracking-wider mb-1.5">
-                        Now working at
-                      </p>
-                      <div className="font-bold text-dark-charcoal text-[18px] tracking-tight flex items-center gap-1.5">
-                        {/* Simulate logo styling for demonstration */}
-                        {(() => {
-                          const companies = [
-                            { name: 'Google', color: '#4285F4' },
-                            { name: 'Microsoft', color: '#00A4EF' },
-                            { name: 'Amazon', color: '#FF9900' },
-                            { name: 'Deloitte', color: '#86BC25' },
-                            { name: 'TCS', color: '#E4222B' }
-                          ];
-                          const c = companies[index % 5];
-                          return (
-                            <>
-                              <span className="w-3 h-3 rounded-full inline-block" style={{ backgroundColor: c.color }} />
-                              {c.name}
-                            </>
-                          );
-                        })()}
-                      </div>
+                    {/* Bottom: Mentorship & Program Tag */}
+                    <div className="mt-auto pt-4 border-t border-[#E5DCD2] flex items-center justify-between gap-2">
+                      <span className="text-[10px] font-mono font-bold text-[#6B1830] bg-[#6B1830]/10 px-2.5 py-1 rounded-full">
+                        NJ Sir Mentorship
+                      </span>
+                      <span className="text-[11px] font-bold text-dark-charcoal/80">
+                        Verified Review
+                      </span>
                     </div>
                     
                   </div>
