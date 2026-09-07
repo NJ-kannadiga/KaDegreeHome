@@ -137,20 +137,13 @@ export function Navbar() {
                 </Link>
               </motion.div>
 
-              {/* Right: Apply Now button & Hamburger Toggle Button */}
+              {/* Right: Hamburger Toggle Button */}
               <motion.div
                 initial={{ opacity: 0, x: 12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="flex items-center gap-2.5 sm:gap-3"
               >
-                <Link href="/apply">
-                  <a className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[6px] bg-[#5A0B2E] hover:bg-[#3B071F] text-white text-xs font-serif font-bold transition-all shadow-sm">
-                    <span>Apply Now</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </Link>
-
                 <button
                   type="button"
                   onClick={() => setIsOpen(!isOpen)}
