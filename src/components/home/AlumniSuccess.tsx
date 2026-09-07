@@ -117,10 +117,10 @@ import { testimonialsData } from "../../pixels-template/data/testimonial";
                     {/* Bottom: Mentorship & Program Tag */}
                     <div className="mt-auto pt-4 border-t border-[#E5DCD2] flex items-center justify-between gap-2">
                       <span className="text-[10px] font-mono font-bold text-[#6B1830] bg-[#6B1830]/10 px-2.5 py-1 rounded-full">
-                        NJ Sir Mentorship
+                        Faculty & Mentor Guidance
                       </span>
                       <span className="text-[11px] font-bold text-dark-charcoal/80">
-                        Verified Review
+                        Verified Student
                       </span>
                     </div>
                     
