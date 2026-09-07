@@ -1814,7 +1814,7 @@ export default function Internship() {
           </div>
 
           <div className="pt-6 text-xs text-stone-300 font-mono">
-            Direct Queries: admissions@kadegree.com • +91 7975902348
+            Direct Queries: admin@kadegree.com • +91 7975902348
           </div>
 
         </div>
@@ -1860,7 +1860,7 @@ export default function Internship() {
                   <Phone className="h-3.5 w-3.5 text-stone-400" /> +91 7975902348
                 </li>
                 <li className="flex items-center gap-2">
-                  <Mail className="h-3.5 w-3.5 text-stone-400" /> admissions@kadegree.com
+                  <Mail className="h-3.5 w-3.5 text-stone-400" /> admin@kadegree.com
                 </li>
                 <li className="flex items-start gap-2">
                   <MapPin className="h-3.5 w-3.5 text-stone-400 shrink-0 mt-0.5" />

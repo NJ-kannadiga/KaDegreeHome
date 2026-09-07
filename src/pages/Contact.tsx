@@ -286,7 +286,7 @@ export default function Contact() {
                   </svg>
                 ),
                 label: "Email",
-                value: "admissions@kadegree.com",
+                value: "admin@kadegree.com",
                 sub: "24/7 Support Response",
               },
               {

@@ -63,7 +63,7 @@ export function Footer() {
                 <Phone className="h-4 w-4 text-[#E2D4C3]" /> +91 7975902348
               </li>
               <li className="flex items-center gap-2 transition-transform hover:translate-x-1 duration-300">
-                <Mail className="h-4 w-4 text-[#E2D4C3]" /> admissions@kadegree.com
+                <Mail className="h-4 w-4 text-[#E2D4C3]" /> admin@kadegree.com
               </li>
               <li className="flex items-start gap-2 transition-transform hover:translate-x-1 duration-300">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0 text-[#E2D4C3]" />  
