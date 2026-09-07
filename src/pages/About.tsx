@@ -15,7 +15,8 @@ import { Footer } from "@/components/layout/Footer";
 import campusImg from "@assets/generated_images/modern_campus.jpg";
 import founderCenter from "@assets/generated_images/founder_center.jpg";
 import founderRight from "@assets/generated_images/founder_right.jpg";
-import founderLeft from "@assets/generated_images/founder_left.png";
+import founderLeft from "@assets/generated_images/founder_left.jpg";
+import founderFemale from "@assets/generated_images/founder_female.jpg";
 
 /* ─────────────────────────────────────────────────────────
    CONSTANTS
@@ -475,111 +476,65 @@ export default function About() {
             </p>
           </Reveal>
 
-          {/* ── FOUNDER CARDS — staggered cinematic entrance ── */}
+          {/* ── FOUNDER CARDS — 4-Card Responsive Grid ── */}
           <div
             ref={leadershipRef}
-            className="relative flex flex-col md:flex-row items-end justify-center gap-5 pb-20"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-20 items-stretch"
           >
-            {/* LEFT — slides in from left */}
-            <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              animate={leadershipInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
-              transition={{ duration: 0.9, ease, delay: 0.1 }}
-              className="w-full md:w-[28%] md:self-end md:mb-[60px] relative z-10 order-2 md:order-1"
-            >
-              <div className="group relative overflow-hidden rounded-[12px] border border-white/[0.12] shadow-2xl cursor-default">
-                <div className="relative aspect-[3/4] overflow-hidden">
-                  <img
-                    src={founderLeft}
-                    alt="Nithin Kumar – CTO"
-                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A0E]/95 via-[#0A1A0E]/20 to-transparent" />
-                  <div className="absolute inset-0 bg-white/0 group-hover:bg-white/[0.03] transition-colors duration-500" />
-                </div>
-                {/* Card lift on hover via wrapper */}
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.4, ease }}
-                  className="absolute inset-0 pointer-events-none"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-5 transition-transform duration-500 group-hover:-translate-y-1">
-                  <div className="h-[1px] w-8 bg-[#DED5CC]/35 mb-3" />
-                  <p className="font-serif text-[17px] font-bold text-white leading-snug">
-                    Nithin Kumar
-                  </p>
-                  <p className="text-[10px] text-[#DED5CC]/55 tracking-[0.13em] mt-1 uppercase font-medium">
-                    CTO
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* CENTER — rises from below, slightly later */}
-            <motion.div
-              initial={{ opacity: 0, y: 40, scale: 0.96 }}
-              animate={
-                leadershipInView
-                  ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: 40, scale: 0.96 }
-              }
-              transition={{ duration: 1.0, ease, delay: 0.28 }}
-              className="w-full md:w-[42%] relative z-20 order-1 md:order-2"
-            >
-              <div className="group relative overflow-hidden rounded-[16px] border-2 border-white/20 shadow-[0_40px_100px_rgba(0,0,0,0.55)] cursor-default transition-all duration-500 hover:border-white/35 hover:shadow-[0_55px_120px_rgba(0,0,0,0.65)]">
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.45, ease }}
-                  className="relative"
-                >
+            {[
+              {
+                name: "Guru",
+                role: "CEO",
+                img: founderCenter,
+                delay: 0.1,
+              },
+              {
+                name: "Nithin Kumar (NJ)",
+                role: "CTO",
+                img: founderRight,
+                delay: 0.2,
+              },
+              {
+                name: "Sachin",
+                role: "Academic Lead",
+                img: founderLeft,
+                delay: 0.3,
+              },
+              {
+                name: "Shilpa Ma'am",
+                role: "Program Director",
+                img: founderFemale,
+                delay: 0.4,
+              },
+            ].map((member, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                animate={leadershipInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.8, ease, delay: member.delay }}
+                className="w-full flex flex-col"
+              >
+                <div className="group relative overflow-hidden rounded-[14px] border border-white/[0.15] bg-[#0A1A0E] shadow-2xl cursor-default flex-1 flex flex-col transition-all duration-500 hover:border-white/30 hover:-translate-y-1.5">
                   <div className="relative aspect-[3/4] overflow-hidden">
                     <img
-                      src={founderCenter}
-                      alt="Guru – CEO"
-                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      src={member.img}
+                      alt={`${member.name} – ${member.role}`}
+                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A0E]/92 via-[#0A1A0E]/10 to-transparent" />
-                    <div className="absolute inset-0 bg-white/0 group-hover:bg-white/[0.025] transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A0E]/95 via-[#0A1A0E]/20 to-transparent" />
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-7 transition-transform duration-500 group-hover:-translate-y-1">
-                    <div className="h-[1px] w-10 bg-[#DED5CC]/50 mb-3" />
-                    <p className="font-serif text-[24px] font-bold text-white leading-snug">
-                      Guru
+                  <div className="absolute bottom-0 left-0 right-0 p-5 transition-transform duration-500 group-hover:-translate-y-1">
+                    <div className="h-[1px] w-8 bg-[#DED5CC]/40 mb-3" />
+                    <p className="font-serif text-[20px] font-bold text-white leading-snug">
+                      {member.name}
                     </p>
-                    <p className="text-[10px] text-[#DED5CC]/60 tracking-[0.13em] mt-1 uppercase font-medium">
-                      CEO
+                    <p className="text-[10px] text-[#DED5CC]/60 tracking-[0.14em] mt-1 uppercase font-medium">
+                      {member.role}
                     </p>
                   </div>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* RIGHT — slides in from right */}
-            <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              animate={leadershipInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
-              transition={{ duration: 0.9, ease, delay: 0.46 }}
-              className="w-full md:w-[28%] md:self-end md:mb-[60px] relative z-10 order-3"
-            >
-              <div className="group relative overflow-hidden rounded-[12px] border border-white/[0.12] shadow-2xl cursor-default">
-                <div className="relative aspect-[3/4] overflow-hidden">
-                  <img
-                    src={founderRight}
-                    alt="Gagan – CFO"
-                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A0E]/95 via-[#0A1A0E]/20 to-transparent" />
-                  <div className="absolute inset-0 bg-white/0 group-hover:bg-white/[0.03] transition-colors duration-500" />
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-5 transition-transform duration-500 group-hover:-translate-y-1">
-                  <div className="h-[1px] w-8 bg-[#DED5CC]/35 mb-3" />
-                  <p className="font-serif text-[17px] font-bold text-white leading-snug">Gagan</p>
-                  <p className="text-[10px] text-[#DED5CC]/55 tracking-[0.13em] mt-1 uppercase font-medium">
-                    CFO
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
 
