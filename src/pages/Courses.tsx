@@ -68,11 +68,19 @@ const programIcons: Record<string, any> = {
 export default function Courses() {
   const [selectedDegree, setSelectedDegree] = useState<string>("All");
 
-  const degrees = ["All", "BCA", "MCA", "All Degrees"];
+  const degrees = ["All", "BCA", "MCA", "B.E / B.Tech", "All Degrees"];
 
-  const filteredPrograms = selectedDegree === "All"
+  const filteredPrograms = (selectedDegree === "All" || selectedDegree === "All Degrees")
     ? PROGRAMS
-    : PROGRAMS.filter((p) => p.degree.toLowerCase().includes(selectedDegree.toLowerCase()) || p.degree === "All Degrees");
+    : PROGRAMS.filter((p) => {
+        const query = selectedDegree.toLowerCase();
+        return (
+          p.degree.toLowerCase().includes(query) ||
+          p.overview.introduction.toLowerCase().includes(query) ||
+          p.short.toLowerCase().includes(query) ||
+          p.title.toLowerCase().includes(query)
+        );
+      });
 
   return (
     <div
