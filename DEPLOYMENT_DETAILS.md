@@ -9,10 +9,11 @@ This document outlines the hosting platforms, configuration details, and environ
 
 ### Environment Variables
 Vite uses different files depending on the environment:
-- **Local:** Uses `.env.local` -> `VITE_API_URL=http://localhost:8000`
-- **Production:** Uses `.env.production` -> `VITE_API_URL=https://kadegreehome.onrender.com`
+- **Local:** Uses `.env.local` -> `VITE_API_URL=http://localhost:8000`, `VITE_RAZORPAY_PAYMENT_LINK=https://rzp.io/rzp/vvONUeGp`
+- **Production:** Uses `.env.production` -> `VITE_API_URL=https://kadegreehome.onrender.com`, `VITE_RAZORPAY_PAYMENT_LINK=https://rzp.io/rzp/vvONUeGp`
 
-*Note: In the Vercel dashboard, you can also manually set `VITE_API_URL` under Settings -> Environment Variables.*
+*Note: In the Vercel dashboard, you can also manually set `VITE_API_URL` and `VITE_RAZORPAY_PAYMENT_LINK` under Settings -> Environment Variables.*
+
 
 ---
 

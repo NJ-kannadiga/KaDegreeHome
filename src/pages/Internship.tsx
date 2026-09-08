@@ -225,14 +225,24 @@ export default function Internship() {
         body: urlEncodedData.toString(),
       }).catch((err) => console.error("Form submit warning:", err));
 
-      // 3. Open direct Razorpay payment portal
+      // 3. Open direct Razorpay payment portal (configured via VITE_RAZORPAY_PAYMENT_LINK)
+      const paymentUrl = (import.meta as any).env?.VITE_RAZORPAY_PAYMENT_LINK || "https://rzp.io/rzp/vvONUeGp";
       setFormStatus('submitted');
-      window.open("https://razorpay.me/@kadegree", "_blank");
+      try {
+        const win = window.open(paymentUrl, "_blank");
+        if (!win || win.closed || typeof win.closed === 'undefined') {
+          window.location.href = paymentUrl;
+        }
+      } catch (e) {
+        window.location.href = paymentUrl;
+      }
     } catch (error) {
       console.error("Submit failed", error);
+      const paymentUrl = (import.meta as any).env?.VITE_RAZORPAY_PAYMENT_LINK || "https://rzp.io/rzp/vvONUeGp";
       setFormStatus('submitted');
-      window.open("https://razorpay.me/@kadegree", "_blank");
+      window.location.href = paymentUrl;
     }
+
   };
 
   // AI Tech Stack Data (8 layers)

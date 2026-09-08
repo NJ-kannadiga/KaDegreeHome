@@ -19,7 +19,9 @@ import {
   Calendar,
   MapPin,
   MessageSquare,
+  ExternalLink,
 } from "lucide-react";
+
 
 import { PROGRAMS } from "@/data/programs";
 
@@ -187,8 +189,17 @@ export default function Apply() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href={(import.meta as any).env?.VITE_RAZORPAY_PAYMENT_LINK || "https://rzp.io/rzp/vvONUeGp"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-base transition-colors shadow-md flex items-center justify-center gap-2"
+                >
+                  <span>Proceed to Pay Fees</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
                 <Link href="/courses">
-                  <a className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-base transition-colors shadow-md">
+                  <a className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#FFFFFF] border border-[#DDD7CC] text-[#171717] font-semibold text-base hover:bg-[#EFEAE1] transition-colors">
                     Explore More Programs
                   </a>
                 </Link>
@@ -198,6 +209,7 @@ export default function Apply() {
                   </a>
                 </Link>
               </div>
+
             </motion.div>
           ) : (
             /* ═════════════════════════════════════════════════
