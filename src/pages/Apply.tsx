@@ -195,9 +195,10 @@ export default function Apply() {
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-base transition-colors shadow-md flex items-center justify-center gap-2"
                 >
-                  <span>Proceed to Pay Fees</span>
+                  <span>Pay Advance & Book Slot</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
+
                 <Link href="/courses">
                   <a className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#FFFFFF] border border-[#DDD7CC] text-[#171717] font-semibold text-base hover:bg-[#EFEAE1] transition-colors">
                     Explore More Programs

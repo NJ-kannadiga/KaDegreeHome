@@ -46,8 +46,12 @@ function Router() {
           
           {/* Dedicated Program Detail Pages */}
           <Route path="/programs/ai-full-stack-developer" component={AiFullStackDeveloper} />
+          <Route path="/courses/ai-fullstack-skill-upgrade" component={AiFullStackDeveloper} />
           <Route path="/programs/placement-preparation" component={PlacementPreparation} />
+          <Route path="/courses/ai-fullstack-placement-program" component={PlacementPreparation} />
           <Route path="/programs/ai-for-commerce" component={AiCommerce} />
+          <Route path="/courses/advanced-frontend-engineering" component={AiCommerce} />
+
           
           {/* Application Flow */}
           <Route path="/apply" component={Apply} />

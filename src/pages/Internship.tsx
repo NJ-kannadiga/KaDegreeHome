@@ -2122,7 +2122,8 @@ export default function Internship() {
                       disabled={formStatus === 'submitting'}
                       className="w-full h-12 rounded-full bg-[#5A0B2E] text-white font-bold text-sm hover:bg-[#3B071F] transition-all flex items-center justify-center gap-2 shadow-md"
                     >
-                      {formStatus === 'submitting' ? 'Opening Payment Portal...' : 'Proceed to Advance / Balance Payment →'}
+                      {formStatus === 'submitting' ? 'Opening Payment Portal...' : 'Pay Advance & Book Slot →'}
+
                       <ExternalLink className="w-4 h-4" />
                     </button>
                   </div>

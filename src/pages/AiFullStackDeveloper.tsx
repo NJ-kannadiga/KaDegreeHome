@@ -272,7 +272,33 @@ export default function AiFullStackDeveloper() {
                 Go beyond classroom learning with hands-on full-stack development, AI integration, real projects and industry-focused mentorship.
               </motion.p>
 
-              {/* Program Metric Highlights */}
+              {/* Brochure Value Callout Banner */}
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fadeUp}
+                custom={2.5}
+                className="w-full bg-[#6B1830] text-white p-4 sm:p-5 rounded-2xl mb-8 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md border border-[#8B2945]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-amber-300 font-bold shrink-0">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="font-serif font-bold text-lg sm:text-xl block text-amber-200">
+                      Program Fee: ₹14,999 Only
+                    </span>
+                    <span className="text-xs text-white/80 font-mono">
+                      Other institutes charge ₹50,000 – ₹2,00,000 for the same curriculum
+                    </span>
+                  </div>
+                </div>
+                <span className="text-xs font-mono uppercase bg-amber-400 text-[#3B071F] font-bold px-3 py-1.5 rounded-lg shrink-0">
+                  Save Up to 80%
+                </span>
+              </motion.div>
+
+              {/* Program Metric Highlights (Program at a Glance) */}
               <motion.div
                 initial="hidden"
                 animate="visible"
@@ -281,20 +307,24 @@ export default function AiFullStackDeveloper() {
                 className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full mb-10"
               >
                 <div className="bg-[#FFFFFF] border border-[#DDD7CC] p-4 rounded-xl shadow-sm">
-                  <span className="block text-[11px] font-bold text-[#6B6464] uppercase tracking-wider">Tuition</span>
-                  <span className="text-xl sm:text-2xl font-bold text-[#171717] font-serif">₹14,999</span>
+                  <span className="block text-[11px] font-bold text-[#6B6464] uppercase tracking-wider">Duration</span>
+                  <span className="text-lg sm:text-xl font-bold text-[#171717] font-serif">4–6 Months</span>
+                  <span className="block text-[10px] text-[#6B6464] font-mono mt-0.5">Flexible Pace</span>
                 </div>
                 <div className="bg-[#FFFFFF] border border-[#DDD7CC] p-4 rounded-xl shadow-sm">
-                  <span className="block text-[11px] font-bold text-[#6B6464] uppercase tracking-wider">Seats</span>
-                  <span className="text-xl sm:text-2xl font-bold text-[#6B1830] font-serif">18 / 30 Filled</span>
+                  <span className="block text-[11px] font-bold text-[#6B6464] uppercase tracking-wider">Schedule</span>
+                  <span className="text-lg sm:text-xl font-bold text-[#6B1830] font-serif">4 Days / Wk</span>
+                  <span className="block text-[10px] text-[#6B6464] font-mono mt-0.5">1-2 Hrs / Session</span>
                 </div>
                 <div className="bg-[#FFFFFF] border border-[#DDD7CC] p-4 rounded-xl shadow-sm">
-                  <span className="block text-[11px] font-bold text-[#6B6464] uppercase tracking-wider">Mentorship</span>
-                  <span className="text-sm sm:text-base font-bold text-[#171717] font-serif">1-on-1 Industry</span>
+                  <span className="block text-[11px] font-bold text-[#6B6464] uppercase tracking-wider">Live Projects</span>
+                  <span className="text-lg sm:text-xl font-bold text-[#171717] font-serif">5+ AI Builds</span>
+                  <span className="block text-[10px] text-[#6B6464] font-mono mt-0.5">Production-Ready</span>
                 </div>
                 <div className="bg-[#FFFFFF] border border-[#DDD7CC] p-4 rounded-xl shadow-sm">
                   <span className="block text-[11px] font-bold text-[#6B6464] uppercase tracking-wider">Credential</span>
-                  <span className="text-sm sm:text-base font-bold text-[#171717] font-serif">Certified Proof</span>
+                  <span className="text-lg sm:text-xl font-bold text-[#171717] font-serif">ISO Verified</span>
+                  <span className="block text-[10px] text-[#6B6464] font-mono mt-0.5">Accredited Proof</span>
                 </div>
               </motion.div>
 
@@ -304,12 +334,22 @@ export default function AiFullStackDeveloper() {
                 animate="visible"
                 variants={fadeUp}
                 custom={4}
-                className="flex flex-wrap items-center gap-4"
+                className="flex flex-wrap items-center gap-3 sm:gap-4"
               >
+                <a
+                  href={(import.meta as any).env?.VITE_RAZORPAY_PAYMENT_LINK || "https://rzp.io/rzp/vvONUeGp"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-base transition-all duration-200 shadow-md hover:shadow-lg flex items-center gap-2 group"
+                >
+                  <span>Pay Advance & Book Slot</span>
+                  <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </a>
+
                 <Link href="/apply?program=AI+Full+Stack+Developer+Pro">
-                  <a className="px-8 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-base transition-all duration-200 shadow-md hover:shadow-lg flex items-center gap-3 group">
+                  <a className="px-6 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#EFEAE1] border border-[#DDD7CC] text-[#171717] font-semibold text-base transition-all duration-200 flex items-center gap-2 group shadow-xs">
                     <span>Apply Now</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 text-[#6B1830] group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Link>
 
@@ -318,12 +358,13 @@ export default function AiFullStackDeveloper() {
                   onClick={() => {
                     document.getElementById("curriculum")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="px-8 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#EFEAE1] border border-[#DDD7CC] text-[#171717] font-semibold text-base transition-all duration-200 flex items-center gap-2 group"
+                  className="px-6 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#EFEAE1] border border-[#DDD7CC] text-[#6B6464] hover:text-[#171717] font-semibold text-base transition-all duration-200 flex items-center gap-2 group shadow-xs"
                 >
-                  <span>Explore Curriculum</span>
+                  <span>Syllabus</span>
                   <ArrowDown className="w-4 h-4 text-[#6B6464] group-hover:translate-y-0.5 transition-transform" />
                 </button>
               </motion.div>
+
 
             </div>
 
@@ -532,8 +573,51 @@ export default function AiFullStackDeveloper() {
             ))}
           </div>
 
+          {/* 8-Layer Enterprise AI Tech Stack (Brochure Feature) */}
+          <div className="mt-16 bg-[#171717] text-white p-8 sm:p-12 rounded-3xl border border-[#333] shadow-2xl">
+            <div className="max-w-3xl mb-10">
+              <span className="text-[11px] font-mono font-bold tracking-widest uppercase text-amber-400 block mb-2">
+                ENTERPRISE AI ARCHITECTURE • BUILT LAYER BY LAYER
+              </span>
+              <h3 style={{ fontFamily: S.serif }} className="text-2xl sm:text-4xl font-bold text-white mb-3">
+                The 8-Layer Modern AI Engineering Stack
+              </h3>
+              <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+                Chosen from what top tech firms and fintechs deploy right now — from raw unstructured data to production-ready automated systems.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { num: "01", layer: "FOUNDATION", title: "Knowledge Graphs", tools: "Neo4j • NetworkX • SQLite • DuckDB", desc: "Grounding LLMs in deterministic relationships to eliminate hallucinations." },
+                { num: "02", layer: "REPRESENTATION", title: "Embeddings", tools: "HuggingFace • MiniLM • CLIP • BGE", desc: "Translating code, natural language & documents into dense semantic vector space." },
+                { num: "03", layer: "REASONING", title: "LLM Backends", tools: "Gemini • Groq API • Ollama • Llama-3", desc: "Swappable inference layer every component talks to seamlessly." },
+                { num: "04", layer: "ORCHESTRATION", title: "Agentic Frameworks", tools: "CrewAI • LangGraph • AutoGen • FastAPI", desc: "Autonomous agents negotiating, delegating, and completing complex workflows." },
+                { num: "05", layer: "RETRIEVAL", title: "Vector DBs & RAG", tools: "Qdrant • Milvus • ChromaDB • LangChain", desc: "Storing and retrieving knowledge at scale with grounded searchable evidence." },
+                { num: "06", layer: "LANGUAGE", title: "Multilingual & Speech", tools: "Whisper • AI4Bharat • Bhashini • gTTS", desc: "Building voice-first, regional language products for next-billion users." },
+                { num: "07", layer: "PERCEPTION", title: "Computer Vision", tools: "OpenCV • CLIP • yt-dlp", desc: "Parsing video, audio, and image formats together seamlessly." },
+                { num: "08", layer: "PRODUCTION", title: "MLOps & Automation", tools: "Elasticsearch • Kibana • Scikit-learn", desc: "Real-time monitoring and auto-healing infrastructure." },
+              ].map((l, lidx) => (
+                <div key={lidx} className="bg-[#242424] p-5 rounded-2xl border border-gray-800 flex flex-col justify-between space-y-3">
+                  <div>
+                    <div className="flex items-center justify-between text-xs font-mono text-amber-400 font-bold mb-2">
+                      <span>{l.num}</span>
+                      <span className="text-[10px] bg-[#333] text-gray-300 px-2 py-0.5 rounded">{l.layer}</span>
+                    </div>
+                    <h4 className="font-serif font-bold text-lg text-white mb-1">{l.title}</h4>
+                    <p className="text-xs text-gray-400 leading-relaxed mb-3">{l.desc}</p>
+                  </div>
+                  <div className="pt-2 border-t border-gray-800 text-[11px] font-mono text-amber-300 font-medium">
+                    {l.tools}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
+
 
       {/* ═════════════════════════════════════════════════════════
           5. REAL-WORLD PROJECTS (INTERACTIVE HORIZONTAL SLIDER)
@@ -836,18 +920,24 @@ export default function AiFullStackDeveloper() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={(import.meta as any).env?.VITE_RAZORPAY_PAYMENT_LINK || "https://rzp.io/rzp/vvONUeGp"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-3 group"
+            >
+              <span>Pay Advance & Book Slot</span>
+              <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+
             <Link href="/apply?program=AI+Full+Stack+Developer+Pro">
-              <a className="w-full sm:w-auto px-10 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-3 group">
+              <a className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#F7F4EE] border border-[#DDD7CC] text-[#171717] font-semibold text-lg transition-all duration-200 text-center flex items-center justify-center gap-2">
                 <span>Apply for This Program</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Link>
-            <Link href="/contact-us">
-              <a className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#F7F4EE] border border-[#DDD7CC] text-[#171717] font-semibold text-lg transition-all duration-200 text-center">
-                Talk to Admissions
+                <ArrowRight className="w-5 h-5 text-[#6B1830]" />
               </a>
             </Link>
           </div>
+
 
           <div className="mt-8 flex items-center justify-center gap-6 text-xs text-[#6B6464] font-mono">
             <span>• 30 Seats Max</span>

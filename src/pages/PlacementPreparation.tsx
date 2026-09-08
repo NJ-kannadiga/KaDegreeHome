@@ -22,7 +22,9 @@ import {
   TrendingUp,
   Search,
   Star,
+  ExternalLink,
 } from "lucide-react";
+
 
 import interviewImg from "@assets/smart_classroom.jpg";
 import studentImg from "@assets/professional_developer.jpg";
@@ -221,7 +223,6 @@ export default function PlacementPreparation() {
               Build the technical skills, problem-solving ability and interview confidence needed to approach placement season with a clear strategy.
             </motion.p>
 
-            {/* CTA Button */}
             <motion.div
               initial="hidden"
               animate="visible"
@@ -229,10 +230,20 @@ export default function PlacementPreparation() {
               custom={3}
               className="flex flex-wrap items-center gap-4"
             >
+              <a
+                href={(import.meta as any).env?.VITE_RAZORPAY_PAYMENT_LINK || "https://rzp.io/rzp/vvONUeGp"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-base transition-all duration-200 shadow-md hover:shadow-lg flex items-center gap-2 group"
+              >
+                <span>Pay Advance & Book Slot</span>
+                <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+
               <Link href="/apply?program=Placement+Preparation">
-                <a className="px-8 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-base transition-all duration-200 shadow-md hover:shadow-lg flex items-center gap-3 group">
-                  <span>Apply for Placement Preparation</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <a className="px-6 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#EFEAE1] border border-[#DDD7CC] text-[#171717] font-semibold text-base transition-all duration-200 flex items-center gap-2 group shadow-xs">
+                  <span>Apply Now</span>
+                  <ArrowRight className="w-4 h-4 text-[#6B1830]" />
                 </a>
               </Link>
 
@@ -241,11 +252,12 @@ export default function PlacementPreparation() {
                 onClick={() => {
                   document.getElementById("modules")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="px-8 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#EFEAE1] border border-[#DDD7CC] text-[#171717] font-semibold text-base transition-all duration-200"
+                className="px-6 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#EFEAE1] border border-[#DDD7CC] text-[#6B6464] hover:text-[#171717] font-semibold text-base transition-all duration-200 shadow-xs"
               >
-                View Included Modules
+                View Modules
               </button>
             </motion.div>
+
           </div>
 
           {/* Highlight Tags Bar */}
