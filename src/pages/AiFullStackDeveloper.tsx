@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SEO } from "@/components/layout/SEO";
+import { MetaAdsLeadForm } from "@/components/forms/MetaAdsLeadForm";
+import { MetaAdsModal } from "@/components/forms/MetaAdsModal";
 import {
   ArrowRight,
   ArrowDown,
@@ -63,6 +65,7 @@ const fadeUp = {
 export default function AiFullStackDeveloper() {
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [sliderIndex, setSliderIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // 6 Real-World Projects for Horizontal Slider
   const projects = [
@@ -285,13 +288,22 @@ export default function AiFullStackDeveloper() {
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="font-serif font-bold text-lg sm:text-xl block text-amber-200">
-                      Program Fee: ₹14,999 Only
-                    </span>
-                    <span className="text-xs text-white/80 font-mono">
+                    <div className="flex items-baseline gap-2 flex-wrap">
+                      <span className="font-serif font-bold text-xl sm:text-2xl text-amber-200">
+                        ₹14,999
+                      </span>
+                      <span className="text-[#DDD7CC] line-through text-sm font-mono">
+                        ₹49,999
+                      </span>
+                      <span className="text-emerald-300 font-bold text-xs font-mono bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/30">
+                        (70% off)
+                      </span>
+                    </div>
+                    <span className="text-xs text-white/80 font-mono block mt-0.5">
                       Other institutes charge ₹50,000 – ₹2,00,000 for the same curriculum
                     </span>
                   </div>
+
                 </div>
                 <span className="text-xs font-mono uppercase bg-amber-400 text-[#3B071F] font-bold px-3 py-1.5 rounded-lg shrink-0">
                   Save Up to 80%
@@ -336,22 +348,24 @@ export default function AiFullStackDeveloper() {
                 custom={4}
                 className="flex flex-wrap items-center gap-3 sm:gap-4"
               >
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                  className="px-8 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-base transition-all duration-200 shadow-md hover:shadow-lg flex items-center gap-2 group cursor-pointer"
+                >
+                  <Sparkles className="w-4 h-4 text-amber-300 group-hover:rotate-12 transition-transform" />
+                  <span>Book Slot for ₹500</span>
+                </button>
+
                 <a
-                  href={(import.meta as any).env?.VITE_RAZORPAY_PAYMENT_LINK || "https://rzp.io/rzp/vvONUeGp"}
+                  href="https://rzp.io/rzp/vvONUeGp"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-base transition-all duration-200 shadow-md hover:shadow-lg flex items-center gap-2 group"
+                  className="px-6 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#EFEAE1] border border-[#DDD7CC] text-[#171717] font-semibold text-base transition-all duration-200 flex items-center gap-2 group shadow-xs"
                 >
-                  <span>Pay Advance & Book Slot</span>
-                  <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  <span>Direct Payment (₹500)</span>
+                  <ExternalLink className="w-4 h-4 text-[#6B1830] group-hover:translate-x-0.5 transition-transform" />
                 </a>
-
-                <Link href="/apply?program=AI+Full+Stack+Developer+Pro">
-                  <a className="px-6 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#EFEAE1] border border-[#DDD7CC] text-[#171717] font-semibold text-base transition-all duration-200 flex items-center gap-2 group shadow-xs">
-                    <span>Apply Now</span>
-                    <ArrowRight className="w-4 h-4 text-[#6B1830] group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </Link>
 
                 <button
                   type="button"
@@ -365,40 +379,20 @@ export default function AiFullStackDeveloper() {
                 </button>
               </motion.div>
 
-
             </div>
 
-            {/* Right Hero Image Card */}
+            {/* Right Hero Column: Meta Ads Lead Booking Form */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="lg:col-span-5"
             >
-              <div className="relative bg-[#FFFFFF] p-3 sm:p-4 rounded-3xl border border-[#DDD7CC] shadow-xl">
-                <div className="overflow-hidden rounded-2xl aspect-[4/3] relative">
-                  <img
-                    src={heroImg}
-                    alt="Developer building AI applications"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <span className="text-[11px] font-mono tracking-widest uppercase bg-[#6B1830] px-2.5 py-1 rounded">
-                      Live Cohort
-                    </span>
-                    <p className="text-sm font-serif mt-2 font-medium">
-                      "Real engineers don't memorize syntax — they build systems."
-                    </p>
-                  </div>
-                </div>
-
-                {/* Micro tech indicators */}
-                <div className="mt-4 pt-3 border-t border-[#DDD7CC] flex items-center justify-between text-xs text-[#6B6464] px-1 font-mono">
-                  <span>Stack: React • FastAPI • LLMs</span>
-                  <span className="text-[#6B1830] font-bold">Bangalore Cohort</span>
-                </div>
-              </div>
+              <MetaAdsLeadForm
+                programName="AI Full Stack Developer Pro"
+                slotPrice={500}
+                paymentLink="https://rzp.io/rzp/vvONUeGp"
+              />
             </motion.div>
 
           </div>
@@ -920,22 +914,24 @@ export default function AiFullStackDeveloper() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(true)}
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-3 group cursor-pointer"
+            >
+              <Sparkles className="w-5 h-5 text-amber-300 group-hover:rotate-12 transition-transform" />
+              <span>Book Slot for ₹500 Advance</span>
+            </button>
+
             <a
-              href={(import.meta as any).env?.VITE_RAZORPAY_PAYMENT_LINK || "https://rzp.io/rzp/vvONUeGp"}
+              href="https://rzp.io/rzp/vvONUeGp"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-3 group"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#F7F4EE] border border-[#DDD7CC] text-[#171717] font-semibold text-lg transition-all duration-200 text-center flex items-center justify-center gap-2"
             >
-              <span>Pay Advance & Book Slot</span>
-              <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span>Direct Razorpay Payment</span>
+              <ExternalLink className="w-5 h-5 text-[#6B1830]" />
             </a>
-
-            <Link href="/apply?program=AI+Full+Stack+Developer+Pro">
-              <a className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#F7F4EE] border border-[#DDD7CC] text-[#171717] font-semibold text-lg transition-all duration-200 text-center flex items-center justify-center gap-2">
-                <span>Apply for This Program</span>
-                <ArrowRight className="w-5 h-5 text-[#6B1830]" />
-              </a>
-            </Link>
           </div>
 
 
@@ -947,6 +943,35 @@ export default function AiFullStackDeveloper() {
 
         </div>
       </section>
+
+      {/* Sticky Bottom Bar for Mobile Meta Ads Visitors */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#171717]/95 backdrop-blur-md border-t border-gray-800 p-3 flex items-center justify-between shadow-2xl">
+        <div>
+          <span className="text-[10px] text-amber-400 font-mono font-bold block uppercase tracking-wider">
+            Meta Ads Offer
+          </span>
+          <span className="text-sm font-serif font-bold text-white">
+            Book Slot: <span className="text-amber-300">₹500</span>
+          </span>
+        </div>
+        <button
+          type="button"
+          onClick={() => setIsModalOpen(true)}
+          className="px-5 py-2.5 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-bold text-xs shadow-md flex items-center gap-1.5 cursor-pointer"
+        >
+          <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+          <span>Book Slot</span>
+        </button>
+      </div>
+
+      {/* Meta Ads Booking Modal */}
+      <MetaAdsModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        programName="AI Full Stack Developer Pro"
+        slotPrice={500}
+        paymentLink="https://rzp.io/rzp/vvONUeGp"
+      />
 
       <Footer />
     </div>

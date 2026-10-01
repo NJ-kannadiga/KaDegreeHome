@@ -702,13 +702,22 @@ export default function Internship() {
             
             {/* 1. Price */}
             <div className="text-center md:px-6 py-2">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#5A0B2E] tracking-tight">
-                ₹4,499/-
+              <div className="flex flex-wrap items-baseline justify-center gap-2">
+                <span className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#5A0B2E] tracking-tight">
+                  ₹4,499/-
+                </span>
+                <span className="text-sm sm:text-base text-[#8C827A] line-through font-mono">
+                  ₹14,999
+                </span>
+                <span className="text-xs font-mono font-bold text-[#8A4B27] bg-[#F7EBE1] px-2 py-0.5 rounded border border-[#EACBB7]">
+                  (70% off)
+                </span>
               </div>
               <p className="mt-2 text-xs uppercase tracking-wider text-[#6B6464] font-mono">
                 Total Cohort Fee
               </p>
             </div>
+
 
             {/* 2. Official Certification */}
             <div className="text-center md:px-6 py-2">

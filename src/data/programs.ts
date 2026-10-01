@@ -6,7 +6,10 @@ export interface Program {
   short: string;
   seats: { total: number; filled: number };
   fee: string;
+  originalFee?: string;
+  discount?: string;
   badge: string;
+
   overview: {
     introduction: string;
     mentorship: string;
@@ -38,7 +41,10 @@ export const PROGRAMS: Program[] = [
     short: "Master modern full stack engineering with React.js, Python, FastAPI/Flask, and generative AI APIs. Build real-world applications before entering placement season.",
     seats: { total: 30, filled: 18 },
     fee: "₹14,999",
+    originalFee: "₹49,999",
+    discount: "70% off",
     badge: "Flagship SDE Track",
+
     overview: {
       introduction: "This program is designed for BCA, MCA, B.E / B.Tech, and BSc students looking to build production-grade web applications. You will learn React.js for modern component-driven UIs, Python for robust backend APIs, and modern AI tools for intelligent application features.",
       mentorship: "Weekly live mentoring, code reviews, pair-programming syncs, and architecture reviews with experienced engineers.",
@@ -126,7 +132,10 @@ export const PROGRAMS: Program[] = [
     short: "A targeted career placement program for final-year students and graduates focusing on advanced full stack development, DSA for interviews, mock technical rounds, and placement drives.",
     seats: { total: 15, filled: 9 },
     fee: "₹60,000 (Placement Support Model)",
+    originalFee: "₹1,50,000",
+    discount: "60% off",
     badge: "Placement-Ready",
+
     overview: {
       introduction: "Designed specifically for job seekers needing interview-ready skills. Includes structured technical interview prep, high-frequency DSA patterns, systemic mock interview rounds, and direct placement support.",
       mentorship: "Intensive 1-on-1 mock technical interviews, code optimization reviews, and placement drive preparation.",
@@ -201,7 +210,10 @@ export const PROGRAMS: Program[] = [
     short: "Work on live commercial project modules with daily standups, senior engineer code reviews, and an official ISO Certification Standard Credential. Open for all students & career switchers.",
     seats: { total: 25, filled: 20 },
     fee: "₹4,499",
+    originalFee: "₹14,999",
+    discount: "70% off",
     badge: "Live Project Track",
+
     overview: {
       introduction: "Stop working on dummy tutorials. Join our development team as an intern and build live production project features. Designed for BCA, MCA, B.E / B.Tech, BSc CS students, and anyone looking to transition into an AI software career.",
       mentorship: "Daily standups, code reviews, and direct guidance from Senior Tech Leads.",

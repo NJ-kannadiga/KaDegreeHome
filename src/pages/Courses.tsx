@@ -350,12 +350,21 @@ export default function Courses() {
                         )}
                       </div>
 
-                      {/* Seats & Fee Row with EMI framing */}
-                      <div className="pt-3 border-t border-[#DDD7CC]/70 space-y-1.5">
-                        <div className="flex items-center justify-between text-xs text-[#6B6464]">
-                          <span className="font-semibold text-[#171717]">
-                            Fee: <strong className="text-[#6B1830] font-bold text-base">{program.fee}</strong>
-                          </span>
+                      {/* Seats & Fee Row with Discount & EMI framing */}
+                      <div className="pt-3 border-t border-[#DDD7CC]/70 space-y-2">
+                        <div className="flex flex-wrap items-baseline justify-between gap-1 text-xs text-[#6B6464]">
+                          <div className="flex items-baseline gap-1.5 flex-wrap">
+                            <span className="font-semibold text-[#171717]">Fee:</span>
+                            <strong className="text-[#6B1830] font-bold text-base">{program.fee}</strong>
+                            {program.originalFee && (
+                              <span className="text-[#8C827A] line-through text-xs font-mono">{program.originalFee}</span>
+                            )}
+                            {program.discount && (
+                              <span className="text-[#8A4B27] font-semibold text-[11px] font-mono bg-[#F7EBE1] px-1.5 py-0.5 rounded border border-[#EACBB7]">
+                                ({program.discount})
+                              </span>
+                            )}
+                          </div>
                           <span>
                             Seats: <strong className="text-[#171717]">{program.seats.filled}/{program.seats.total} Filled</strong>
                           </span>
@@ -365,6 +374,7 @@ export default function Courses() {
                           <span>{meta.emi}</span>
                         </div>
                       </div>
+
                     </div>
 
                     {/* Action CTA Buttons */}

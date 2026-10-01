@@ -212,16 +212,40 @@ export default function PlacementPreparation() {
               <span className="italic text-[#6B1830]">Perform With Confidence.</span>
             </motion.h1>
 
-            {/* Description */}
-            <motion.p
+            {/* Price & Discount Banner */}
+            <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              custom={2}
-              className="text-lg sm:text-xl text-[#6B6464] leading-relaxed mb-8"
+              custom={2.5}
+              className="w-full bg-[#FFFFFF] border border-[#DDD7CC] p-4 sm:p-5 rounded-2xl mb-8 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm"
             >
-              Build the technical skills, problem-solving ability and interview confidence needed to approach placement season with a clear strategy.
-            </motion.p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#6B1830]/10 flex items-center justify-center text-[#6B1830] font-bold shrink-0">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="flex items-baseline gap-2 flex-wrap">
+                    <span className="font-serif font-bold text-xl sm:text-2xl text-[#6B1830]">
+                      ₹60,000
+                    </span>
+                    <span className="text-[#8C827A] line-through text-sm font-mono">
+                      ₹1,50,000
+                    </span>
+                    <span className="text-[#8A4B27] font-semibold text-xs font-mono bg-[#F7EBE1] px-2 py-0.5 rounded border border-[#EACBB7]">
+                      (60% off)
+                    </span>
+                  </div>
+                  <span className="text-xs text-[#6B6464] font-mono block mt-0.5">
+                    Placement Support Model • Direct Referral Drives Until Offer Letter
+                  </span>
+                </div>
+              </div>
+              <span className="text-xs font-mono uppercase bg-[#6B1830] text-white font-bold px-3 py-1.5 rounded-lg shrink-0">
+                Placement Ready
+              </span>
+            </motion.div>
+
 
             <motion.div
               initial="hidden"
