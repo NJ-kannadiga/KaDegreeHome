@@ -354,8 +354,18 @@ export default function AiFullStackDeveloper() {
                   className="px-8 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-base transition-all duration-200 shadow-md hover:shadow-lg flex items-center gap-2 group cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-amber-300 group-hover:rotate-12 transition-transform" />
-                  <span>Get Free Counselling</span>
+                  <span>Book Slot for ₹500</span>
                 </button>
+
+                <a
+                  href="https://rzp.io/rzp/vvONUeGp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#EFEAE1] border border-[#DDD7CC] text-[#171717] font-semibold text-base transition-all duration-200 flex items-center gap-2 group shadow-xs"
+                >
+                  <span>Direct Payment (₹500)</span>
+                  <ExternalLink className="w-4 h-4 text-[#6B1830] group-hover:translate-x-0.5 transition-transform" />
+                </a>
 
                 <button
                   type="button"
@@ -910,16 +920,16 @@ export default function AiFullStackDeveloper() {
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-semibold text-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-3 group cursor-pointer"
             >
               <Sparkles className="w-5 h-5 text-amber-300 group-hover:rotate-12 transition-transform" />
-              <span>Get Free Career Counselling</span>
+              <span>Book Slot for ₹500 Advance</span>
             </button>
 
             <a
-              href={`https://wa.me/917975902348?text=${encodeURIComponent("Hi KA Degree! I'd like to know more about the AI Full Stack Developer Pro program.")}`}
+              href="https://rzp.io/rzp/vvONUeGp"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#FFFFFF] hover:bg-[#F7F4EE] border border-[#DDD7CC] text-[#171717] font-semibold text-lg transition-all duration-200 text-center flex items-center justify-center gap-2"
             >
-              <span>Chat on WhatsApp</span>
+              <span>Direct Razorpay Payment</span>
               <ExternalLink className="w-5 h-5 text-[#6B1830]" />
             </a>
           </div>
@@ -938,10 +948,10 @@ export default function AiFullStackDeveloper() {
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#171717]/95 backdrop-blur-md border-t border-gray-800 p-3 flex items-center justify-between shadow-2xl">
         <div>
           <span className="text-[10px] text-amber-400 font-mono font-bold block uppercase tracking-wider">
-            1-on-1 Mentor Call
+            Meta Ads Offer
           </span>
           <span className="text-sm font-serif font-bold text-white">
-            Career Counselling: <span className="text-amber-300">Free</span>
+            Book Slot: <span className="text-amber-300">₹500</span>
           </span>
         </div>
         <button
@@ -950,7 +960,7 @@ export default function AiFullStackDeveloper() {
           className="px-5 py-2.5 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-bold text-xs shadow-md flex items-center gap-1.5 cursor-pointer"
         >
           <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-          <span>Apply Now</span>
+          <span>Book Slot</span>
         </button>
       </div>
 

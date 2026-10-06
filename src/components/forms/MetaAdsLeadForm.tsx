@@ -6,18 +6,21 @@ import {
   Phone,
   GraduationCap,
   Sparkles,
-  Lock,
   ShieldCheck,
   ArrowRight,
-  ExternalLink,
   CheckCircle2,
   Clock,
-  Zap,
+  MapPin,
+  Target,
+  CalendarClock,
+  Briefcase,
 } from "lucide-react";
 
 interface MetaAdsLeadFormProps {
   programName?: string;
+  /** Kept for backward compatibility — no payment is collected in this form. */
   slotPrice?: number;
+  /** Kept for backward compatibility — no payment is collected in this form. */
   paymentLink?: string;
   onSuccess?: () => void;
   className?: string;
@@ -25,138 +28,201 @@ interface MetaAdsLeadFormProps {
   subtitle?: string;
 }
 
+// KA Degree WhatsApp number (country code + number, no "+")
+const WHATSAPP_NUMBER = "917975902348";
+
+const GOOGLE_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSew53F2YEJhjft_pd60mUFFxj_vy_2fT_rXLguPhNAx8DKmUg/formResponse";
+
+const STATUS_OPTIONS = [
+  "Final-year Student",
+  "Fresher (Passed out, looking for job)",
+  "Career Gap (1+ year)",
+  "Working – Non-IT",
+  "Working – IT / Developer",
+];
+
+const QUALIFICATION_OPTIONS = [
+  "B.E / B.Tech",
+  "BCA / MCA",
+  "B.Sc / M.Sc",
+  "B.Com / BBA / MBA",
+  "Diploma",
+  "Other",
+];
+
+const GOAL_OPTIONS = [
+  "Get my first IT job",
+  "Switch from Non-IT to IT",
+  "Restart after career gap",
+  "Upskill in AI for a better package",
+  "Learn Data Analytics",
+  "Just exploring",
+];
+
+const START_OPTIONS = [
+  "Immediately (this week)",
+  "Within 1 month",
+  "In 2–3 months",
+  "Not sure yet",
+];
+
+const initialForm = {
+  fullName: "",
+  phone: "",
+  email: "",
+  status: "",
+  qualification: "",
+  passingYear: "",
+  city: "",
+  goal: "",
+  startWhen: "",
+};
+
+type FormState = typeof initialForm;
+
+/** Simple lead score so the team knows whom to call first. */
+function getLeadTag(f: FormState): "🔥 HOT" | "🟡 WARM" | "🔵 COLD" {
+  let score = 0;
+  if (f.startWhen.startsWith("Immediately")) score += 3;
+  else if (f.startWhen.startsWith("Within 1 month")) score += 2;
+  else if (f.startWhen.startsWith("In 2–3")) score += 1;
+  if (f.goal && f.goal !== "Just exploring") score += 2;
+  if (f.email) score += 1;
+  if (score >= 5) return "🔥 HOT";
+  if (score >= 3) return "🟡 WARM";
+  return "🔵 COLD";
+}
+
+const inputBase =
+  "w-full py-3 bg-[#FFFFFF] border rounded-xl text-sm text-[#171717] placeholder:text-[#6B6464]/60 focus:outline-none focus:border-[#6B1830] focus:ring-1 focus:ring-[#6B1830] transition-colors";
+
 export function MetaAdsLeadForm({
   programName = "AI Full Stack Developer Pro",
-  slotPrice = 500,
-  paymentLink = "https://rzp.io/rzp/vvONUeGp",
   onSuccess,
   className = "",
-  title = "Book Your Slot — ₹500 Advance",
-  subtitle = "Lock your special 70% off discount & reserve your seat in the upcoming live cohort.",
+  title = "Get Free Career Counselling",
+  subtitle = "Share a few details — our mentor will personally reach out to you on WhatsApp with the right roadmap.",
 }: MetaAdsLeadFormProps) {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    status: "College Student (B.E / B.Tech / BCA / MCA)",
-    city: "",
-  });
-
-  const [submitting, setSubmitting] = useState(false);
+  const [formData, setFormData] = useState<FormState>(initialForm);
+  const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitted, setSubmitted] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const clean =
+      name === "phone"
+        ? value.replace(/\D/g, "").slice(-10)
+        : name === "passingYear"
+        ? value.replace(/\D/g, "").slice(0, 4)
+        : value;
+    setFormData((prev) => ({ ...prev, [name]: clean }));
+    if (errors[name as keyof FormState]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
-  // Generate WhatsApp message URL with applicant details
-  const whatsappNumber = "917975902348";
+  const validate = () => {
+    const err: Partial<Record<keyof FormState, string>> = {};
+    if (formData.fullName.trim().length < 3) err.fullName = "Please enter your full name.";
+    if (!/^[6-9]\d{9}$/.test(formData.phone)) err.phone = "Enter a valid 10-digit WhatsApp number.";
+    if (formData.email && !/^\S+@\S+\.\S+$/.test(formData.email)) err.email = "Enter a valid email address.";
+    if (!formData.status) err.status = "Please select your current status.";
+    if (!formData.qualification) err.qualification = "Please select your qualification.";
+    if (!formData.goal) err.goal = "Please select your goal.";
+    if (!formData.startWhen) err.startWhen = "Please select when you want to start.";
+    setErrors(err);
+    return Object.keys(err).length === 0;
+  };
+
   const getWhatsAppUrl = () => {
-    const text = `Hi KA Degree! I have registered to book my slot for ${programName}.
+    const tag = getLeadTag(formData);
+    const text = `*New Lead – KA Degree* ${tag}
 
-📋 *Applicant Details*:
+📋 *Lead Details*
 • *Name*: ${formData.fullName}
-• *Email*: ${formData.email}
-• *Phone*: ${formData.phone}
-• *Status/Role*: ${formData.status}
-• *City*: ${formData.city || "Not Provided"}
-• *Slot Advance Fee*: ₹${slotPrice}
+• *WhatsApp*: +91 ${formData.phone}
+• *Email*: ${formData.email || "Not provided"}
+• *Current Status*: ${formData.status}
+• *Qualification*: ${formData.qualification}
+• *Year of Passing*: ${formData.passingYear || "Not provided"}
+• *City*: ${formData.city || "Not provided"}
 
-Please confirm my seat reservation & ₹${slotPrice} payment.`;
-    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+🎯 *Intent*
+• *Goal*: ${formData.goal}
+• *Wants to start*: ${formData.startWhen}
+• *Program*: ${programName}
+
+Hi KA Degree, please guide me on the next steps.`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const saveLead = () => {
+    const tag = getLeadTag(formData);
+    const notes = `Lead: ${tag} | Qualification: ${formData.qualification} | Passing year: ${
+      formData.passingYear || "-"
+    } | Goal: ${formData.goal} | Start: ${formData.startWhen}`;
+
+    // 1. Google Form (backup of every lead, even if WhatsApp isn't sent)
+    const data = new URLSearchParams();
+    data.append("entry.1530710792", formData.fullName);
+    data.append("entry.1183025170", formData.email);
+    data.append("entry.2126486953", formData.phone);
+    data.append("entry.188652168", formData.status);
+    data.append("entry.1938494521", "Meta Ads - Free Counselling Lead");
+    data.append("entry.1821951885", programName);
+    data.append("entry.1775288101", formData.city || "Not Provided");
+    data.append("entry.826044730", notes);
+
+    fetch(GOOGLE_FORM_URL, {
+      method: "POST",
+      mode: "no-cors",
+      keepalive: true,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: data.toString(),
+    }).catch((err) => console.error("Google Form lead error", err));
+
+    // 2. Backend lead endpoint (ignored if not running)
+    fetch("/api/leads", {
+      method: "POST",
+      keepalive: true,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        full_name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        program: programName,
+        notes,
+      }),
+    }).catch(() => {});
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMessage("");
+    if (!validate()) return;
 
-    // Basic Validation
-    if (!formData.fullName.trim()) {
-      setErrorMessage("Please enter your full name.");
-      return;
-    }
-    if (!formData.email.trim() || !formData.email.includes("@")) {
-      setErrorMessage("Please enter a valid email address.");
-      return;
-    }
-    if (!formData.phone.trim() || formData.phone.trim().length < 10) {
-      setErrorMessage("Please enter a valid 10-digit phone number.");
-      return;
-    }
-
-    setSubmitting(true);
-
-    try {
-      // 1. Submit lead to Google Forms endpoint
-      const urlEncodedData = new URLSearchParams();
-      urlEncodedData.append("entry.1530710792", formData.fullName);
-      urlEncodedData.append("entry.1183025170", formData.email);
-      urlEncodedData.append("entry.2126486953", formData.phone);
-      urlEncodedData.append("entry.188652168", formData.status);
-      urlEncodedData.append("entry.1938494521", "Meta Ads Offer - ₹500 Slot Reservation");
-      urlEncodedData.append("entry.1821951885", programName);
-      urlEncodedData.append("entry.1775288101", formData.city || "Not Provided");
-      urlEncodedData.append(
-        "entry.826044730",
-        `Meta Ads Booking: User submitted form to book slot for ₹${slotPrice}. Redirecting to Razorpay & WhatsApp.`
-      );
-
-      await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLSew53F2YEJhjft_pd60mUFFxj_vy_2fT_rXLguPhNAx8DKmUg/formResponse",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: urlEncodedData.toString(),
-        }
-      );
-
-      // 2. Also attempt backend lead submission if API route is active
-      try {
-        await fetch("/api/leads", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            full_name: formData.fullName,
-            email: formData.email,
-            phone: formData.phone,
-            program: programName,
-            notes: `Meta Ads lead - ₹${slotPrice} slot booking`,
-          }),
-        });
-      } catch (err) {
-        // Ignore silent backend lead endpoint errors if backend isn't running
-      }
-
-      setSubmitted(true);
-      if (onSuccess) onSuccess();
-
-      // Automatically open WhatsApp with prefilled details and Razorpay link after short delay
-      setTimeout(() => {
-        window.open(getWhatsAppUrl(), "_blank", "noopener,noreferrer");
-        setTimeout(() => {
-          window.open(paymentLink, "_blank", "noopener,noreferrer");
-        }, 500);
-      }, 1000);
-    } catch (err) {
-      console.error("Meta Ads lead submission error", err);
-      setSubmitted(true);
-      setTimeout(() => {
-        window.open(getWhatsAppUrl(), "_blank", "noopener,noreferrer");
-        setTimeout(() => {
-          window.open(paymentLink, "_blank", "noopener,noreferrer");
-        }, 500);
-      }, 1000);
-    } finally {
-      setSubmitting(false);
-    }
+    saveLead();
+    // Open WhatsApp directly inside the click handler so browsers don't block the popup
+    window.open(getWhatsAppUrl(), "_blank", "noopener,noreferrer");
+    setSubmitted(true);
+    if (onSuccess) onSuccess();
   };
+
+  const borderFor = (field: keyof FormState) =>
+    errors[field] ? "border-red-400" : "border-[#DDD7CC]";
+
+  const FieldError = ({ field }: { field: keyof FormState }) =>
+    errors[field] ? (
+      <p className="text-[11px] text-red-600 mt-1 font-medium">{errors[field]}</p>
+    ) : null;
+
+  const Label = ({ children, required }: { children: React.ReactNode; required?: boolean }) => (
+    <label className="block text-xs font-bold uppercase text-[#171717] mb-1 font-mono">
+      {children} {required && <span className="text-red-500">*</span>}
+    </label>
+  );
 
   return (
     <div
@@ -175,13 +241,13 @@ Please confirm my seat reservation & ₹${slotPrice} payment.`;
           >
             {/* Header Badge & Title */}
             <div className="mb-6">
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center gap-2 mb-2 flex-wrap">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6B1830]/10 text-[#6B1830] text-xs font-bold font-mono uppercase tracking-wider">
                   <Sparkles className="w-3.5 h-3.5" />
-                  Meta Ads Special • Fast Track
+                  1-on-1 Mentor Call
                 </span>
-                <span className="text-[11px] font-mono font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
-                  Save ₹35,000
+                <span className="text-[11px] font-mono font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300">
+                  100% Free
                 </span>
               </div>
 
@@ -193,160 +259,208 @@ Please confirm my seat reservation & ₹${slotPrice} payment.`;
               </p>
             </div>
 
-            {/* Price Callout Banner */}
-            <div className="bg-[#F7F4EE] border border-[#DDD7CC] rounded-2xl p-4 mb-6 flex items-center justify-between">
+            {/* Value Callout Banner */}
+            <div className="bg-[#F7F4EE] border border-[#DDD7CC] rounded-2xl p-4 mb-6 grid grid-cols-3 gap-2 text-center">
               <div>
-                <span className="text-[11px] font-mono text-[#6B6464] uppercase block">
-                  Slot Booking Fee
-                </span>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-2xl sm:text-3xl font-bold font-serif text-[#6B1830]">
-                    ₹{slotPrice}
-                  </span>
-                  <span className="text-xs text-[#6B6464] line-through font-mono">
-                    ₹14,999
-                  </span>
-                  <span className="text-[10px] text-emerald-700 font-bold uppercase bg-emerald-100 px-1.5 py-0.5 rounded">
-                    Advance Lock
-                  </span>
-                </div>
+                <span className="block text-lg sm:text-xl font-bold font-serif text-[#6B1830]">5,000+</span>
+                <span className="text-[10px] font-mono text-[#6B6464] uppercase">Students Guided</span>
               </div>
-              <div className="text-right">
-                <span className="text-[10px] text-[#6B1830] font-mono font-bold block">
-                  ⚡ 12 Seats Left
-                </span>
-                <span className="text-[11px] text-[#6B6464] font-mono">
-                  100% Refund Guarantee
-                </span>
+              <div className="border-x border-[#DDD7CC]">
+                <span className="block text-lg sm:text-xl font-bold font-serif text-[#6B1830]">300+</span>
+                <span className="text-[10px] font-mono text-[#6B6464] uppercase">Workshops</span>
+              </div>
+              <div>
+                <span className="block text-lg sm:text-xl font-bold font-serif text-[#6B1830]">24 hrs</span>
+                <span className="text-[10px] font-mono text-[#6B6464] uppercase">Callback</span>
               </div>
             </div>
 
-            {/* Error Message */}
-            {errorMessage && (
-              <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium">
-                {errorMessage}
-              </div>
-            )}
-
             {/* Form Fields */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4" noValidate>
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-bold uppercase text-[#171717] mb-1 font-mono">
-                  Full Name <span className="text-red-500">*</span>
-                </label>
+                <Label required>Full Name</Label>
                 <div className="relative">
                   <User className="w-4 h-4 text-[#6B6464] absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
                     name="fullName"
-                    required
                     value={formData.fullName}
                     onChange={handleChange}
                     placeholder="e.g. Rahul Sharma"
-                    className="w-full pl-10 pr-4 py-3 bg-[#FFFFFF] border border-[#DDD7CC] rounded-xl text-sm text-[#171717] placeholder:text-[#6B6464]/60 focus:outline-none focus:border-[#6B1830] focus:ring-1 focus:ring-[#6B1830] transition-colors"
+                    className={`${inputBase} pl-10 pr-4 ${borderFor("fullName")}`}
                   />
                 </div>
+                <FieldError field="fullName" />
               </div>
 
-              {/* Email */}
-              <div>
-                <label className="block text-xs font-bold uppercase text-[#171717] mb-1 font-mono">
-                  Email Address <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                  <Mail className="w-4 h-4 text-[#6B6464] absolute left-3.5 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="rahul@example.com"
-                    className="w-full pl-10 pr-4 py-3 bg-[#FFFFFF] border border-[#DDD7CC] rounded-xl text-sm text-[#171717] placeholder:text-[#6B6464]/60 focus:outline-none focus:border-[#6B1830] focus:ring-1 focus:ring-[#6B1830] transition-colors"
-                  />
+              {/* WhatsApp + Email */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <Label required>WhatsApp Number</Label>
+                  <div className="relative">
+                    <Phone className="w-4 h-4 text-[#6B6464] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <span className="absolute left-9 top-1/2 -translate-y-1/2 text-sm text-[#6B6464]">+91</span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      inputMode="numeric"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="98765 43210"
+                      className={`${inputBase} pl-[4.25rem] pr-4 ${borderFor("phone")}`}
+                    />
+                  </div>
+                  <FieldError field="phone" />
                 </div>
-              </div>
 
-              {/* Phone / WhatsApp */}
-              <div>
-                <label className="block text-xs font-bold uppercase text-[#171717] mb-1 font-mono">
-                  WhatsApp / Phone Number <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                  <Phone className="w-4 h-4 text-[#6B6464] absolute left-3.5 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+91 98765 43210"
-                    className="w-full pl-10 pr-4 py-3 bg-[#FFFFFF] border border-[#DDD7CC] rounded-xl text-sm text-[#171717] placeholder:text-[#6B6464]/60 focus:outline-none focus:border-[#6B1830] focus:ring-1 focus:ring-[#6B1830] transition-colors"
-                  />
+                <div>
+                  <Label>Email Address</Label>
+                  <div className="relative">
+                    <Mail className="w-4 h-4 text-[#6B6464] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="rahul@example.com"
+                      className={`${inputBase} pl-10 pr-4 ${borderFor("email")}`}
+                    />
+                  </div>
+                  <FieldError field="email" />
                 </div>
               </div>
 
               {/* Current Status */}
               <div>
-                <label className="block text-xs font-bold uppercase text-[#171717] mb-1 font-mono">
-                  Current Qualification / Role
-                </label>
+                <Label required>Current Status</Label>
                 <div className="relative">
-                  <GraduationCap className="w-4 h-4 text-[#6B6464] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                  <Briefcase className="w-4 h-4 text-[#6B6464] absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <select
                     name="status"
                     value={formData.status}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 bg-[#FFFFFF] border border-[#DDD7CC] rounded-xl text-sm text-[#171717] focus:outline-none focus:border-[#6B1830] focus:ring-1 focus:ring-[#6B1830] transition-colors appearance-none"
+                    className={`${inputBase} pl-10 pr-4 appearance-none ${borderFor("status")} ${
+                      formData.status ? "" : "text-[#6B6464]/70"
+                    }`}
                   >
-                    <option value="College Student (B.E / B.Tech / BCA / MCA)">
-                      College Student (B.E / B.Tech / BCA / MCA)
-                    </option>
-                    <option value="Working Professional / Developer">
-                      Working Professional / Developer
-                    </option>
-                    <option value="Fresh Graduate / Job Seeker">
-                      Fresh Graduate / Job Seeker
-                    </option>
-                    <option value="Non-Tech Switcher">Non-Tech Switcher</option>
+                    <option value="">Select your current status</option>
+                    {STATUS_OPTIONS.map((o) => (
+                      <option key={o} value={o}>{o}</option>
+                    ))}
                   </select>
+                </div>
+                <FieldError field="status" />
+              </div>
+
+              {/* Qualification + Passing Year */}
+              <div className="grid grid-cols-1 sm:grid-cols-[1fr_8rem] gap-4">
+                <div>
+                  <Label required>Qualification</Label>
+                  <div className="relative">
+                    <GraduationCap className="w-4 h-4 text-[#6B6464] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <select
+                      name="qualification"
+                      value={formData.qualification}
+                      onChange={handleChange}
+                      className={`${inputBase} pl-10 pr-4 appearance-none ${borderFor("qualification")} ${
+                        formData.qualification ? "" : "text-[#6B6464]/70"
+                      }`}
+                    >
+                      <option value="">Select degree</option>
+                      {QUALIFICATION_OPTIONS.map((o) => (
+                        <option key={o} value={o}>{o}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <FieldError field="qualification" />
+                </div>
+
+                <div>
+                  <Label>Passing Year</Label>
+                  <input
+                    type="text"
+                    name="passingYear"
+                    inputMode="numeric"
+                    value={formData.passingYear}
+                    onChange={handleChange}
+                    placeholder="2024"
+                    className={`${inputBase} px-4 border-[#DDD7CC]`}
+                  />
                 </div>
               </div>
 
-              {/* City / Location */}
+              {/* Goal */}
               <div>
-                <label className="block text-xs font-bold uppercase text-[#171717] mb-1 font-mono">
-                  City / Location
-                </label>
-                <input
-                  type="text"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                  placeholder="e.g. Bangalore, Hyderabad, Remote"
-                  className="w-full px-4 py-3 bg-[#FFFFFF] border border-[#DDD7CC] rounded-xl text-sm text-[#171717] placeholder:text-[#6B6464]/60 focus:outline-none focus:border-[#6B1830] focus:ring-1 focus:ring-[#6B1830] transition-colors"
-                />
+                <Label required>What's your main goal?</Label>
+                <div className="relative">
+                  <Target className="w-4 h-4 text-[#6B6464] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                  <select
+                    name="goal"
+                    value={formData.goal}
+                    onChange={handleChange}
+                    className={`${inputBase} pl-10 pr-4 appearance-none ${borderFor("goal")} ${
+                      formData.goal ? "" : "text-[#6B6464]/70"
+                    }`}
+                  >
+                    <option value="">Select your goal</option>
+                    {GOAL_OPTIONS.map((o) => (
+                      <option key={o} value={o}>{o}</option>
+                    ))}
+                  </select>
+                </div>
+                <FieldError field="goal" />
+              </div>
+
+              {/* Start When + City */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <Label required>When can you start?</Label>
+                  <div className="relative">
+                    <CalendarClock className="w-4 h-4 text-[#6B6464] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <select
+                      name="startWhen"
+                      value={formData.startWhen}
+                      onChange={handleChange}
+                      className={`${inputBase} pl-10 pr-4 appearance-none ${borderFor("startWhen")} ${
+                        formData.startWhen ? "" : "text-[#6B6464]/70"
+                      }`}
+                    >
+                      <option value="">Select</option>
+                      {START_OPTIONS.map((o) => (
+                        <option key={o} value={o}>{o}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <FieldError field="startWhen" />
+                </div>
+
+                <div>
+                  <Label>City</Label>
+                  <div className="relative">
+                    <MapPin className="w-4 h-4 text-[#6B6464] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="text"
+                      name="city"
+                      value={formData.city}
+                      onChange={handleChange}
+                      placeholder="e.g. Bengaluru"
+                      className={`${inputBase} pl-10 pr-4 border-[#DDD7CC]`}
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                disabled={submitting}
-                className="w-full py-4 px-6 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] active:scale-[0.99] text-white font-bold text-base transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2.5 disabled:opacity-70 cursor-pointer mt-2 group"
+                className="w-full py-4 px-6 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] active:scale-[0.99] text-white font-bold text-base transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2.5 cursor-pointer mt-2 group"
               >
-                {submitting ? (
-                  <span className="flex items-center gap-2">
-                    <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Submitting Lead...
-                  </span>
-                ) : (
-                  <>
-                    <Lock className="w-4 h-4 text-amber-300" />
-                    <span>Pay ₹{slotPrice} & Book Your Slot</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </>
-                )}
+                <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white shrink-0">
+                  <WhatsAppIcon className="w-[18px] h-[18px] fill-[#25D366]" />
+                </span>
+                <span>Get Free Counselling on WhatsApp</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
 
@@ -354,16 +468,16 @@ Please confirm my seat reservation & ₹${slotPrice} payment.`;
             <div className="mt-5 pt-4 border-t border-[#DDD7CC]/70 flex items-center justify-between text-[11px] text-[#6B6464]">
               <span className="flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                Razorpay SSL Secured
+                Your details stay private
               </span>
               <span className="flex items-center gap-1 font-mono">
                 <Clock className="w-3.5 h-3.5 text-[#6B1830]" />
-                Instant Seat Lock
+                Reply within 24 hrs
               </span>
             </div>
           </motion.div>
         ) : (
-          /* Success State & Payment Redirection */
+          /* Success State */
           <motion.div
             key="success"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -376,52 +490,42 @@ Please confirm my seat reservation & ₹${slotPrice} payment.`;
 
             <div>
               <span className="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold font-mono rounded-full mb-2">
-                Lead Registered Successfully!
+                Details Received!
               </span>
               <h3 className="font-serif text-2xl font-bold text-[#171717]">
-                Complete ₹{slotPrice} Payment
+                One last step — hit Send on WhatsApp
               </h3>
               <p className="text-sm text-[#6B6464] mt-2 max-w-sm mx-auto leading-relaxed">
-                Thank you, <strong className="text-[#171717]">{formData.fullName}</strong>! You are being redirected to Razorpay to complete your ₹{slotPrice} slot booking payment.
+                Thank you, <strong className="text-[#171717]">{formData.fullName}</strong>! WhatsApp has opened
+                with your details. Press <strong className="text-[#171717]">Send</strong> so our mentor can
+                reach you faster.
               </p>
             </div>
 
             <div className="p-4 bg-[#F7F4EE] rounded-2xl border border-[#DDD7CC] text-left space-y-2 text-xs">
               <div className="flex justify-between border-b border-[#DDD7CC] pb-2">
-                <span className="text-[#6B6464]">Applicant:</span>
+                <span className="text-[#6B6464]">Name:</span>
                 <span className="font-bold text-[#171717]">{formData.fullName}</span>
               </div>
               <div className="flex justify-between border-b border-[#DDD7CC] pb-2">
-                <span className="text-[#6B6464]">Program:</span>
-                <span className="font-bold text-[#6B1830]">{programName}</span>
+                <span className="text-[#6B6464]">Goal:</span>
+                <span className="font-bold text-[#6B1830] text-right">{formData.goal}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#6B6464]">Slot Advance:</span>
-                <span className="font-bold font-mono text-[#171717]">₹{slotPrice}</span>
+                <span className="text-[#6B6464]">Program:</span>
+                <span className="font-bold text-[#171717] text-right">{programName}</span>
               </div>
             </div>
 
             <div className="space-y-3 pt-2">
               <a
-                href={paymentLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-4 px-6 rounded-xl bg-[#6B1830] hover:bg-[#8B2945] text-white font-bold text-base transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 group cursor-pointer"
-              >
-                <span>Proceed to Razorpay Payment (₹{slotPrice})</span>
-                <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </a>
-
-              <a
                 href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 px-6 rounded-xl bg-[#25D366] hover:bg-[#1EBE57] text-white font-bold text-sm transition-all duration-200 shadow-md flex items-center justify-center gap-2 group cursor-pointer"
+                className="w-full py-4 px-6 rounded-xl bg-[#25D366] hover:bg-[#1EBE57] text-white font-bold text-base transition-all duration-200 shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
-                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                </svg>
-                <span>Send Booking Details to WhatsApp</span>
+                <WhatsAppIcon className="w-5 h-5 fill-white" />
+                <span>WhatsApp didn't open? Tap here</span>
               </a>
 
               <button
@@ -436,5 +540,13 @@ Please confirm my seat reservation & ₹${slotPrice} payment.`;
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+function WhatsAppIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
   );
 }
